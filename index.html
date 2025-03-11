@@ -48,10 +48,13 @@
       cursor: pointer;
     }
 
-    /* Pie de página */
+    /*
+      Pie de página con altura fija de 20px (mitad del valor anterior).
+      Se mantiene el resto de estilos.
+    */
     footer {
       background-color: #1F1F1F;
-      height: 30px;
+      flex: 0 0 20px; /* Altura fija de 20px */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -62,13 +65,14 @@
       color: #999;
     }
 
-    /* Contenedor principal (PC: aside y main en horizontal) */
+    /* Contenedor principal con scroll interno si es necesario */
     .container {
       flex: 1 1 auto;
       display: flex;
       min-height: 0;
       min-width: 0;
-      padding: 0 10px; 
+      padding: 0 10px;
+      overflow: hidden;
     }
 
     /* Barra lateral (aside) */
@@ -82,6 +86,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      overflow: auto; /* Si crece demasiado, tendrá su propio scroll */
     }
 
     /* Barra de búsqueda */
@@ -111,7 +116,7 @@
     nav li {
       margin-bottom: 10px;
     }
-    /* En lugar de <a>, usamos <button> con clase .tab-button */
+    /* Botones de categorías */
     nav button.tab-button {
       display: block;
       width: 100%;
@@ -120,8 +125,8 @@
       background-color: #2F2F2F;
       color: #ccc;
       cursor: pointer;
-      border: none;          /* Eliminamos borde de botón por defecto */
-      user-select: none;     /* Evita selección de texto */
+      border: none;
+      user-select: none;
       -webkit-user-drag: none;
       text-align: left;
     }
@@ -207,7 +212,7 @@
       font-weight: bold;
     }
 
-    /* Botón de Descarga (ahora "Descargar") */
+    /* Botón de Descarga */
     .download-section {
       margin-top: 20px;
       background-color: #1abc9c;
@@ -229,7 +234,7 @@
       padding: 8px;
     }
 
-    /* MEDIA QUERY: Ajustes para pantallas pequeñas (móviles) */
+    /* Modo móvil */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -245,7 +250,6 @@
         width: 100%;
         margin: 10px auto;
       }
-      /* Categorías en fila con scroll horizontal */
       nav ul {
         display: flex;
         flex-direction: row;
@@ -283,7 +287,7 @@
 </head>
 <body>
 
-  <!-- Encabezado con icono YouTube -->
+  <!-- Encabezado -->
   <header>
     <h1>Angel06 Web</h1>
     <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
@@ -323,17 +327,17 @@
     </main>
   </div>
 
-  <!-- Pie de página -->
+  <!-- Pie de página con altura fija de 20px -->
   <footer>
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
 
-  <!-- JavaScript para manejar categorías, pestañas, búsqueda, etc. -->
+  <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       let selectedDownloadLink = "";
 
-      // Leer el bloque de texto con categorías y elementos
+      // Tomamos el texto con las categorías y sus elementos
       const rawText = document.getElementById('list-data').textContent;
       const lines = rawText.split('\n');
       let categories = [];
@@ -377,10 +381,9 @@
       const busquedaList = document.getElementById('busqueda-list');
       const searchInput = document.querySelector('.search-bar input');
 
-      // Crear pestañas con <button> en lugar de <a>
+      // Función para crear pestañas con botones
       function createCategoryTab(cat, index) {
         const li = document.createElement('li');
-
         const btn = document.createElement('button');
         btn.classList.add('tab-button');
         btn.textContent = cat.name;
@@ -415,7 +418,7 @@
           if (item.buttonText) {
             button.setAttribute('data-button-text', item.buttonText);
           }
-          // Al hacer clic en un elemento de la lista
+          // Evento click en cada elemento
           button.addEventListener('click', function() {
             ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
             this.classList.add('selected');
@@ -438,26 +441,23 @@
         createCategoryTab(cat, index);
       });
 
-      // Manejo de pestañas con <button>
+      // Manejo de pestañas
       const tabButtons = document.querySelectorAll('.tab-button');
       const tabContents = document.querySelectorAll('.tab-content');
 
       function showTab(tabId) {
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabContents.forEach(tc => tc.classList.remove('active'));
-        // Reiniciamos la selección de elementos
         document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
         selectedDownloadLink = "";
         const section = document.getElementById(tabId);
         if (section) section.classList.add('active');
-        // Botón "Descargar" vuelve a su texto original
         document.querySelector('.download-section').textContent = "Descargar";
       }
 
-      // Evento para cada botón de categoría
       tabButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-          e.preventDefault(); // Evita cualquier comportamiento por defecto
+          e.preventDefault();
           // Al cambiar de categoría, reiniciamos la búsqueda
           searchInput.value = "";
           showTab(this.getAttribute('data-tab'));
@@ -552,7 +552,7 @@ Juegos PC:
 -Cuphead "https://pivigames.blog/chuphead/"
 -Dragon Ball Fighter Z "https://pivigames.blog/dbf-juego-espanol/"
 -Dragon Ball Sparking ZERO "https://pivigames.blog/dragon-ball-sparking-zero-oferta-25/"
--Exiled Kingdoms "https://gogunlocked.com/exiled-kingdoms-free-download/"
+-Exiled Kingdoms (Windows) "https://gogunlocked.com/exiled-kingdoms-free-download/"
 -Far Cry 3 "https://pivigames.blog/far-cry-3-incluye-dlcs-en-espanol/"
 -GTA III "https://www.elamigosweb.com/game/gta-iii-grand-theft-auto-3"
 -GTA IV "https://pivigames.blog/grand-theft-auto-iv-episodes-from-liberty/"
@@ -593,10 +593,13 @@ Programas PC:
 -TeraBox "https://www.terabox.com/"
 -XOutput "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android:
+-Call of Duty: Black Ops Zombies (Android) "https://www.mediafire.com/file/ufuimd7zygsmoxt/COD-BOZ-1.0.11.zip/file"
+-Exiled Kingdoms (Android) "https://apkaward.com/exiled-kingdoms-rpg"
 -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
 Programas Android:
 -Filmora "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
 Extra:
+-daedalOS (Escritorio Web) "https://dustinbrett.com/" *Utilizar*
 -Friday Night Funkin Web "https://ninja-muffin24.itch.io/funkin" *Jugar*
 -Jetpack Joyride Web "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
 -Subway Surfers Web "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
