@@ -28,10 +28,13 @@
       color: #ccc;
     }
 
-    /* Encabezado con icono YouTube */
+    /* Encabezado fijo: altura estable y sin flex-shrink */
     header {
       background-color: #1F1F1F;
       height: 40px;
+      min-height: 40px;
+      max-height: 40px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -48,13 +51,10 @@
       cursor: pointer;
     }
 
-    /*
-      Pie de página con altura fija de 20px (mitad del valor anterior).
-      Se mantiene el resto de estilos.
-    */
+    /* Pie de página con altura fija de 20px */
     footer {
       background-color: #1F1F1F;
-      flex: 0 0 20px; /* Altura fija de 20px */
+      flex: 0 0 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,7 +65,7 @@
       color: #999;
     }
 
-    /* Contenedor principal con scroll interno si es necesario */
+    /* Contenedor principal */
     .container {
       flex: 1 1 auto;
       display: flex;
@@ -86,7 +86,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      overflow: auto; /* Si crece demasiado, tendrá su propio scroll */
+      overflow: auto;
     }
 
     /* Barra de búsqueda */
@@ -116,7 +116,7 @@
     nav li {
       margin-bottom: 10px;
     }
-    /* Botones de categorías */
+    /* Usamos <button> para evitar que se muestre la URL */
     nav button.tab-button {
       display: block;
       width: 100%;
@@ -234,7 +234,7 @@
       padding: 8px;
     }
 
-    /* Modo móvil */
+    /* MEDIA QUERY: Modo móvil */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -250,6 +250,7 @@
         width: 100%;
         margin: 10px auto;
       }
+      /* Categorías en fila con scroll horizontal */
       nav ul {
         display: flex;
         flex-direction: row;
@@ -287,15 +288,11 @@
 </head>
 <body>
 
-  <!-- Encabezado -->
+  <!-- Encabezado con icono de YouTube cargado desde GitHub -->
   <header>
     <h1>Angel06 Web</h1>
     <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
-      <img
-        src="https://www.citypng.com/public/uploads/preview/hd-white-youtube-yt-logo-symbol-icon-png-704081694687174hznqiiqmti.png"
-        alt="YouTube"
-        class="header-icon"
-      />
+      <img src="https://github.com/Angel06a/Angel06Web/tree/main/img/youtube-icon.png" alt="YouTube" class="header-icon" />
     </a>
   </header>
 
@@ -327,17 +324,17 @@
     </main>
   </div>
 
-  <!-- Pie de página con altura fija de 20px -->
+  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript para gestionar categorías, pestañas, búsqueda, etc. -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       let selectedDownloadLink = "";
 
-      // Tomamos el texto con las categorías y sus elementos
+      // Leer el bloque de texto con categorías y elementos
       const rawText = document.getElementById('list-data').textContent;
       const lines = rawText.split('\n');
       let categories = [];
@@ -418,7 +415,6 @@
           if (item.buttonText) {
             button.setAttribute('data-button-text', item.buttonText);
           }
-          // Evento click en cada elemento
           button.addEventListener('click', function() {
             ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
             this.classList.add('selected');
@@ -458,7 +454,7 @@
       tabButtons.forEach(button => {
         button.addEventListener('click', function(e) {
           e.preventDefault();
-          // Al cambiar de categoría, reiniciamos la búsqueda
+          // Reiniciar búsqueda al cambiar de categoría
           searchInput.value = "";
           showTab(this.getAttribute('data-tab'));
           this.classList.add('active');
