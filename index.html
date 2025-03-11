@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Angel06Web</title>
+  <!-- Meta viewport para dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon con la imagen solicitada -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/7985/7985167.png">
+
+  <style>
+    /* Box-sizing global */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; 
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ccc;
+    }
+
+    /* Encabezado con icono YouTube */
+    header {
+      background-color: #1F1F1F;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 18px;
+      color: #fff;
+    }
+    .header-icon {
+      width: 36px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: #1F1F1F;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+      color: #999;
+    }
+
+    /* Contenedor principal (PC: aside y main en horizontal) */
+    .container {
+      flex: 1 1 auto;
+      display: flex;
+      min-height: 0;
+      min-width: 0;
+      padding: 0 10px; 
+    }
+
+    /* Barra lateral (aside) */
+    aside.sidebar-left {
+      width: 250px;
+      background-color: rgba(44, 44, 44, 0.9);
+      padding: 20px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Barra de búsqueda */
+    .search-bar {
+      width: 100%;
+    }
+    .search-bar input {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2F2F2F;
+      color: #ccc;
+    }
+
+    /* Menú de navegación (categorías) */
+    nav {
+      width: 100%;
+    }
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      width: 100%;
+    }
+    nav li {
+      margin-bottom: 10px;
+    }
+    /* En lugar de <a>, usamos <button> con clase .tab-button */
+    nav button.tab-button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      background-color: #2F2F2F;
+      color: #ccc;
+      cursor: pointer;
+      border: none;          /* Eliminamos borde de botón por defecto */
+      user-select: none;     /* Evita selección de texto */
+      -webkit-user-drag: none;
+      text-align: left;
+    }
+    nav button.tab-button:hover {
+      background-color: #383838;
+    }
+    nav button.tab-button.active {
+      font-weight: bold;
+      background-color: #404040;
+    }
+
+    /* Contenido principal (main) */
+    main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background-color: rgba(46, 46, 46, 0.9);
+      color: #ccc;
+      overflow: hidden;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 10px;
+      position: relative;
+    }
+
+    /* Pestañas */
+    .tab-content {
+      flex: 1 1 auto;
+      display: none;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .tab-content.active {
+      display: flex;
+    }
+    .tab-content h2 {
+      color: #fff;
+      margin: 0 0 10px 0;
+    }
+
+    /* Lista de proyectos */
+    .project-list {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      margin-top: 10px;
+    }
+    .list-container {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      min-height: 0;
+    }
+    .list-container ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    /* Elementos de la lista */
+    .project-item {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      background-color: #333;
+      color: #ccc;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+    .project-item:hover {
+      background-color: #3A3A3A;
+    }
+    .project-item.selected {
+      background-color: #444;
+      font-weight: bold;
+    }
+
+    /* Botón de Descarga (ahora "Descargar") */
+    .download-section {
+      margin-top: 20px;
+      background-color: #1abc9c;
+      padding: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 16px;
+    }
+    .download-section:hover {
+      background-color: #16a085;
+    }
+
+    /* Mensaje sin resultados */
+    .no-results {
+      color: #999;
+      padding: 8px;
+    }
+
+    /* MEDIA QUERY: Ajustes para pantallas pequeñas (móviles) */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      aside.sidebar-left {
+        width: 100%;
+        margin: 10px auto;
+        border-radius: 10px;
+        order: 2;
+      }
+      main {
+        order: 1;
+        width: 100%;
+        margin: 10px auto;
+      }
+      /* Categorías en fila con scroll horizontal */
+      nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: thin;
+        scrollbar-color: #3A3A3A #222;
+        scroll-behavior: smooth;
+      }
+      nav li {
+        margin-bottom: 0;
+        margin-right: 5px;
+      }
+      nav button.tab-button {
+        width: auto;
+        margin-right: 5px;
+        padding: 8px 12px;
+      }
+      nav ul::-webkit-scrollbar {
+        height: 6px;
+      }
+      nav ul::-webkit-scrollbar-track {
+        background: #222;
+      }
+      nav ul::-webkit-scrollbar-thumb {
+        background-color: #3A3A3A;
+        border-radius: 3px;
+      }
+      nav ul::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado con icono YouTube -->
+  <header>
+    <h1>Angel06 Web</h1>
+    <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
+      <img
+        src="https://www.citypng.com/public/uploads/preview/hd-white-youtube-yt-logo-symbol-icon-png-704081694687174hznqiiqmti.png"
+        alt="YouTube"
+        class="header-icon"
+      />
+    </a>
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Barra lateral -->
+    <aside class="sidebar-left">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar..." />
+      </div>
+      <nav>
+        <ul id="sidebar-categories"></ul>
+      </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+      <!-- Pestaña de Búsqueda -->
+      <section id="busqueda" class="tab-content">
+        <h2>Búsqueda</h2>
+        <div class="project-list">
+          <div class="list-container">
+            <ul id="busqueda-list"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- Botón de Descarga -->
+      <button class="download-section">Descargar</button>
+    </main>
+  </div>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Angel06 Web</p>
+  </footer>
+
+  <!-- JavaScript para manejar categorías, pestañas, búsqueda, etc. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let selectedDownloadLink = "";
+
+      // Leer el bloque de texto con categorías y elementos
+      const rawText = document.getElementById('list-data').textContent;
+      const lines = rawText.split('\n');
+      let categories = [];
+      let currentCategory = null;
+
+      lines.forEach(line => {
+        line = line.trim();
+        if (!line) return;
+        if (line.endsWith(':')) {
+          const catName = line.slice(0, -1).trim();
+          categories.push({ name: catName, items: [] });
+          currentCategory = categories[categories.length - 1];
+        } else if (line.startsWith('-') && currentCategory) {
+          let content = line.substring(1).trim();
+          let name = "";
+          let link = "";
+          let buttonText = "";
+          const firstQuote = content.indexOf('"');
+          if (firstQuote !== -1) {
+            const secondQuote = content.indexOf('"', firstQuote + 1);
+            if (secondQuote !== -1) {
+              name = content.substring(0, firstQuote).trim();
+              link = content.substring(firstQuote + 1, secondQuote).trim();
+              let remainder = content.substring(secondQuote + 1).trim();
+              if (remainder.startsWith('*') && remainder.endsWith('*')) {
+                buttonText = remainder.slice(1, -1).trim();
+              }
+            } else {
+              name = content;
+            }
+          } else {
+            name = content;
+          }
+          currentCategory.items.push({ name, link, buttonText });
+        }
+      });
+
+      const sidebarUl = document.getElementById('sidebar-categories');
+      const mainContent = document.getElementById('main-content');
+      const busquedaSection = document.getElementById('busqueda');
+      const busquedaList = document.getElementById('busqueda-list');
+      const searchInput = document.querySelector('.search-bar input');
+
+      // Crear pestañas con <button> en lugar de <a>
+      function createCategoryTab(cat, index) {
+        const li = document.createElement('li');
+
+        const btn = document.createElement('button');
+        btn.classList.add('tab-button');
+        btn.textContent = cat.name;
+        const categoryId = cat.name.toLowerCase().replace(/\s+/g, '-');
+        btn.setAttribute('data-tab', categoryId);
+        if (index === 0) btn.classList.add('active');
+        li.appendChild(btn);
+        sidebarUl.appendChild(li);
+
+        const section = document.createElement('section');
+        section.id = categoryId;
+        section.classList.add('tab-content');
+        if (index === 0) section.classList.add('active');
+
+        const h2 = document.createElement('h2');
+        h2.textContent = cat.name;
+        section.appendChild(h2);
+
+        const projectListDiv = document.createElement('div');
+        projectListDiv.classList.add('project-list');
+
+        const listContainer = document.createElement('div');
+        listContainer.classList.add('list-container');
+
+        const ul = document.createElement('ul');
+        cat.items.forEach(item => {
+          const liItem = document.createElement('li');
+          const button = document.createElement('button');
+          button.classList.add('project-item');
+          button.textContent = item.name;
+          button.setAttribute('data-link', item.link || "");
+          if (item.buttonText) {
+            button.setAttribute('data-button-text', item.buttonText);
+          }
+          // Al hacer clic en un elemento de la lista
+          button.addEventListener('click', function() {
+            ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedDownloadLink = this.getAttribute('data-link');
+            const customText = this.getAttribute('data-button-text');
+            const downloadBtn = document.querySelector('.download-section');
+            downloadBtn.textContent = customText ? customText : "Descargar";
+          });
+          liItem.appendChild(button);
+          ul.appendChild(liItem);
+        });
+        listContainer.appendChild(ul);
+        projectListDiv.appendChild(listContainer);
+        section.appendChild(projectListDiv);
+        mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
+      }
+
+      // Crear pestañas para todas las categorías
+      categories.forEach((cat, index) => {
+        createCategoryTab(cat, index);
+      });
+
+      // Manejo de pestañas con <button>
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      function showTab(tabId) {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(tc => tc.classList.remove('active'));
+        // Reiniciamos la selección de elementos
+        document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
+        selectedDownloadLink = "";
+        const section = document.getElementById(tabId);
+        if (section) section.classList.add('active');
+        // Botón "Descargar" vuelve a su texto original
+        document.querySelector('.download-section').textContent = "Descargar";
+      }
+
+      // Evento para cada botón de categoría
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Evita cualquier comportamiento por defecto
+          // Al cambiar de categoría, reiniciamos la búsqueda
+          searchInput.value = "";
+          showTab(this.getAttribute('data-tab'));
+          this.classList.add('active');
+        });
+      });
+
+      // Botón "Descargar"
+      const downloadButton = document.querySelector('.download-section');
+      downloadButton.addEventListener('click', function() {
+        if (selectedDownloadLink) {
+          window.open(selectedDownloadLink, '_blank');
+        } else {
+          alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
+        }
+      });
+
+      // Búsqueda global
+      searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        if (!query) {
+          busquedaSection.classList.remove('active');
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(tc => tc.classList.remove('active'));
+          document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
+          selectedDownloadLink = "";
+          tabButtons[0].classList.add('active');
+          const firstTabId = tabButtons[0].getAttribute('data-tab');
+          document.getElementById(firstTabId).classList.add('active');
+          document.querySelector('.download-section').textContent = "Descargar";
+          return;
+        }
+        const matchingItems = [];
+        categories.forEach(cat => {
+          cat.items.forEach(item => {
+            if (item.name.toLowerCase().includes(query)) {
+              matchingItems.push(item);
+            }
+          });
+        });
+        busquedaList.innerHTML = '';
+        if (matchingItems.length === 0) {
+          const noResultsLi = document.createElement('li');
+          noResultsLi.classList.add('no-results');
+          noResultsLi.textContent = 'No se encontraron resultados.';
+          busquedaList.appendChild(noResultsLi);
+        } else {
+          matchingItems.forEach(item => {
+            const liItem = document.createElement('li');
+            const button = document.createElement('button');
+            button.classList.add('project-item');
+            button.textContent = item.name;
+            button.setAttribute('data-link', item.link || "");
+            if (item.buttonText) {
+              button.setAttribute('data-button-text', item.buttonText);
+            }
+            button.addEventListener('click', function() {
+              busquedaList.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
+              this.classList.add('selected');
+              selectedDownloadLink = this.getAttribute('data-link');
+              const customText = this.getAttribute('data-button-text');
+              const downloadBtn = document.querySelector('.download-section');
+              downloadBtn.textContent = customText ? customText : "Descargar";
+            });
+            liItem.appendChild(button);
+            busquedaList.appendChild(liItem);
+          });
+        }
+        showTab('busqueda');
+      });
+
+      /* Permitir desplazamiento horizontal con la rueda del ratón en nav ul */
+      const navUl = document.querySelector('nav ul');
+      navUl.addEventListener('wheel', function(e) {
+        if (this.scrollWidth > this.clientWidth) {
+          e.preventDefault();
+          const factor = 1.0; 
+          this.scrollLeft += e.deltaY * factor;
+        }
+      });
+    });
+  </script>
+
+  <!-- Bloque de texto con categorías y elementos -->
+  <script id="list-data" type="text/plain">
+Juegos PC:
+-Alien Shooter "https://gogunlocked.com/alien-shooter-expansions-free-download/"
+-Alien Shooter 2: Reloaded "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
+-Call of Duty Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
+-Call of Duty Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
+-Clone Drone in the Danger Zone "https://pivigames.blog/clone-drone-in-the-danger-zone-v0-4-1/"
+-Cuphead "https://pivigames.blog/chuphead/"
+-Dragon Ball Fighter Z "https://pivigames.blog/dbf-juego-espanol/"
+-Dragon Ball Sparking ZERO "https://pivigames.blog/dragon-ball-sparking-zero-oferta-25/"
+-Exiled Kingdoms "https://gogunlocked.com/exiled-kingdoms-free-download/"
+-Far Cry 3 "https://pivigames.blog/far-cry-3-incluye-dlcs-en-espanol/"
+-GTA III "https://www.elamigosweb.com/game/gta-iii-grand-theft-auto-3"
+-GTA IV "https://pivigames.blog/grand-theft-auto-iv-episodes-from-liberty/"
+-GTA V "https://pivigames.blog/grand-theft-auto-v-premium-online-edition/"
+-GTA: San Andreas "https://www.blizzboygames.net/gta-san-andreas-pc-full-espanol/"
+-GTA: Vice City "https://www.blizzboygames.net/gta-vice-city-pc-full-espanol/"
+-Half-Life 1 Anthology "https://pivigames.blog/half-life-goty-edition/"
+-Halo Combat Evolved "https://pivigames.blog/halo-combat-evolved-con-multiplayer-online/"
+-Injustice Gods Among Us "https://pivigames.blog/injustice-gods-among-us-ultimate-edition/"
+-Killer Instinct "https://pivigames.blog/killer-instinct/"
+-Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
+-Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
+-Nidhogg 2 "https://pivigames.blog/nidhoog-2/"
+-Naruto Shippuden Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
+-Quake III Arena "https://www.blizzboygames.net/quake-3-arena-pc-full-espanol/"
+-Rayman Legends "https://www.blizzboygames.net/rayman-legends-pc-full-espanol/"
+-Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
+-Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
+-Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
+-Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
+-Super Mario 64 PC port "https://sm64coopdx.com/"
+-Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
+-The Legend of Zelda PC port "https://www.shipofharkinian.com/"
+-Undertale "https://pivigames.blog/undertale-en-espanol/"
+Programas PC:
+-Advanced SystemCare "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
+-Autoruns "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
+-BleachBit "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
+-CCleaner "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
+-HidHide "https://github.com/nefarius/HidHide"
+-IObit Driver Booster "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
+-IObit Unlocker "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
+-LenovoController "https://github.com/ViRb3/LenovoController"
+-MPO-GPU-FIX "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
+-Optimizer "https://es.taiwebs.com/windows/download-optimizer-5951.html"
+-Patch My PC "https://es.taiwebs.com/windows/download-patch-my-pc-3748.html"
+-Process Lasso "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
+-TeraBox "https://www.terabox.com/"
+-XOutput "https://github.com/csutorasa/XOutput/releases/tag/3.32"
+Juegos Android:
+-Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
+Programas Android:
+-Filmora "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
+Extra:
+-Friday Night Funkin Web "https://ninja-muffin24.itch.io/funkin" *Jugar*
+-Jetpack Joyride Web "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
+-Subway Surfers Web "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
+-Temple Run 2 Web "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
+  </script>
+
+</body>
+</html>
