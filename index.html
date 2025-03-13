@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon desde un archivo en el repositorio -->
   <link rel="icon" type="image/png" href="./img/favicon.png">
-
+  <!-- Incluir el archivo list.js para obtener los datos de la lista -->
+  <script src="./list.js"></script>
   <style>
     /* Box-sizing global */
     *, *::before, *::after {
@@ -18,7 +19,7 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; 
+      overflow: hidden;
     }
     body {
       display: flex;
@@ -28,7 +29,7 @@
       color: #ccc;
     }
 
-    /* Encabezado fijo: altura estable y sin flex-shrink */
+    /* Encabezado fijo con altura estable */
     header {
       background-color: #1F1F1F;
       height: 40px;
@@ -36,7 +37,7 @@
       max-height: 40px;
       flex-shrink: 0;
       display: flex;
-      align-items: center;
+      align-items: center;     /* Alinea verticalmente el contenido */
       justify-content: space-between;
       padding: 0 20px;
     }
@@ -45,13 +46,26 @@
       font-size: 18px;
       color: #fff;
     }
+
+    /*
+      Hacemos que el enlace que contiene el icono sea un contenedor flex,
+      para centrar el icono verticalmente.
+    */
+    header a {
+      display: flex;
+      align-items: center;
+      height: 100%;  /* Ocupa toda la altura del header */
+    }
+
     .header-icon {
+      display: block;       /* Evita comportamiento inline */
+      vertical-align: middle;
       width: 36px;
       height: auto;
       cursor: pointer;
     }
 
-    /* Pie de página con altura fija de 20px */
+    /* Pie de página fijo (20px) */
     footer {
       background-color: #1F1F1F;
       flex: 0 0 20px;
@@ -116,7 +130,7 @@
     nav li {
       margin-bottom: 10px;
     }
-    /* Usamos <button> para evitar que se muestre la URL */
+    /* Usamos botones para las categorías */
     nav button.tab-button {
       display: block;
       width: 100%;
@@ -234,7 +248,7 @@
       padding: 8px;
     }
 
-    /* MEDIA QUERY: Modo móvil */
+    /* MEDIA QUERY: Ajustes para pantallas pequeñas (móviles) */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -288,7 +302,7 @@
 </head>
 <body>
 
-  <!-- Encabezado con icono de YouTube cargado desde GitHub -->
+  <!-- Encabezado con icono de YouTube (centrado verticalmente) -->
   <header>
     <h1>Angel06 Web</h1>
     <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
@@ -329,13 +343,11 @@
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
 
-  <!-- JavaScript para gestionar categorías, pestañas, búsqueda, etc. -->
+  <!-- JavaScript principal (lee la variable listData de list.js) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      let selectedDownloadLink = "";
-
-      // Leer el bloque de texto con categorías y elementos
-      const rawText = document.getElementById('list-data').textContent;
+      // Obtenemos la variable listData definida en list.js
+      const rawText = listData;
       const lines = rawText.split('\n');
       let categories = [];
       let currentCategory = null;
@@ -372,136 +384,44 @@
         }
       });
 
-      const sidebarUl = document.getElementById('sidebar-categories');
-      const mainContent = document.getElementById('main-content');
-      const busquedaSection = document.getElementById('busqueda');
-      const busquedaList = document.getElementById('busqueda-list');
-      const searchInput = document.querySelector('.search-bar input');
+      setupUI(categories);
 
-      // Función para crear pestañas con botones
-      function createCategoryTab(cat, index) {
-        const li = document.createElement('li');
-        const btn = document.createElement('button');
-        btn.classList.add('tab-button');
-        btn.textContent = cat.name;
-        const categoryId = cat.name.toLowerCase().replace(/\s+/g, '-');
-        btn.setAttribute('data-tab', categoryId);
-        if (index === 0) btn.classList.add('active');
-        li.appendChild(btn);
-        sidebarUl.appendChild(li);
+      function setupUI(categories) {
+        let selectedDownloadLink = "";
+        const sidebarUl = document.getElementById('sidebar-categories');
+        const mainContent = document.getElementById('main-content');
+        const busquedaSection = document.getElementById('busqueda');
+        const busquedaList = document.getElementById('busqueda-list');
+        const searchInput = document.querySelector('.search-bar input');
 
-        const section = document.createElement('section');
-        section.id = categoryId;
-        section.classList.add('tab-content');
-        if (index === 0) section.classList.add('active');
+        function createCategoryTab(cat, index) {
+          const li = document.createElement('li');
+          const btn = document.createElement('button');
+          btn.classList.add('tab-button');
+          btn.textContent = cat.name;
+          const categoryId = cat.name.toLowerCase().replace(/\s+/g, '-');
+          btn.setAttribute('data-tab', categoryId);
+          if (index === 0) btn.classList.add('active');
+          li.appendChild(btn);
+          sidebarUl.appendChild(li);
 
-        const h2 = document.createElement('h2');
-        h2.textContent = cat.name;
-        section.appendChild(h2);
+          const section = document.createElement('section');
+          section.id = categoryId;
+          section.classList.add('tab-content');
+          if (index === 0) section.classList.add('active');
 
-        const projectListDiv = document.createElement('div');
-        projectListDiv.classList.add('project-list');
+          const h2 = document.createElement('h2');
+          h2.textContent = cat.name;
+          section.appendChild(h2);
 
-        const listContainer = document.createElement('div');
-        listContainer.classList.add('list-container');
+          const projectListDiv = document.createElement('div');
+          projectListDiv.classList.add('project-list');
 
-        const ul = document.createElement('ul');
-        cat.items.forEach(item => {
-          const liItem = document.createElement('li');
-          const button = document.createElement('button');
-          button.classList.add('project-item');
-          button.textContent = item.name;
-          button.setAttribute('data-link', item.link || "");
-          if (item.buttonText) {
-            button.setAttribute('data-button-text', item.buttonText);
-          }
-          button.addEventListener('click', function() {
-            ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedDownloadLink = this.getAttribute('data-link');
-            const customText = this.getAttribute('data-button-text');
-            const downloadBtn = document.querySelector('.download-section');
-            downloadBtn.textContent = customText ? customText : "Descargar";
-          });
-          liItem.appendChild(button);
-          ul.appendChild(liItem);
-        });
-        listContainer.appendChild(ul);
-        projectListDiv.appendChild(listContainer);
-        section.appendChild(projectListDiv);
-        mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
-      }
+          const listContainer = document.createElement('div');
+          listContainer.classList.add('list-container');
 
-      // Crear pestañas para todas las categorías
-      categories.forEach((cat, index) => {
-        createCategoryTab(cat, index);
-      });
-
-      // Manejo de pestañas
-      const tabButtons = document.querySelectorAll('.tab-button');
-      const tabContents = document.querySelectorAll('.tab-content');
-
-      function showTab(tabId) {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(tc => tc.classList.remove('active'));
-        document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-        selectedDownloadLink = "";
-        const section = document.getElementById(tabId);
-        if (section) section.classList.add('active');
-        document.querySelector('.download-section').textContent = "Descargar";
-      }
-
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
-          // Reiniciar búsqueda al cambiar de categoría
-          searchInput.value = "";
-          showTab(this.getAttribute('data-tab'));
-          this.classList.add('active');
-        });
-      });
-
-      // Botón "Descargar"
-      const downloadButton = document.querySelector('.download-section');
-      downloadButton.addEventListener('click', function() {
-        if (selectedDownloadLink) {
-          window.open(selectedDownloadLink, '_blank');
-        } else {
-          alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
-        }
-      });
-
-      // Búsqueda global
-      searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        if (!query) {
-          busquedaSection.classList.remove('active');
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(tc => tc.classList.remove('active'));
-          document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-          selectedDownloadLink = "";
-          tabButtons[0].classList.add('active');
-          const firstTabId = tabButtons[0].getAttribute('data-tab');
-          document.getElementById(firstTabId).classList.add('active');
-          document.querySelector('.download-section').textContent = "Descargar";
-          return;
-        }
-        const matchingItems = [];
-        categories.forEach(cat => {
+          const ul = document.createElement('ul');
           cat.items.forEach(item => {
-            if (item.name.toLowerCase().includes(query)) {
-              matchingItems.push(item);
-            }
-          });
-        });
-        busquedaList.innerHTML = '';
-        if (matchingItems.length === 0) {
-          const noResultsLi = document.createElement('li');
-          noResultsLi.classList.add('no-results');
-          noResultsLi.textContent = 'No se encontraron resultados.';
-          busquedaList.appendChild(noResultsLi);
-        } else {
-          matchingItems.forEach(item => {
             const liItem = document.createElement('li');
             const button = document.createElement('button');
             button.classList.add('project-item');
@@ -511,7 +431,7 @@
               button.setAttribute('data-button-text', item.buttonText);
             }
             button.addEventListener('click', function() {
-              busquedaList.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
+              ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
               this.classList.add('selected');
               selectedDownloadLink = this.getAttribute('data-link');
               const customText = this.getAttribute('data-button-text');
@@ -519,95 +439,112 @@
               downloadBtn.textContent = customText ? customText : "Descargar";
             });
             liItem.appendChild(button);
-            busquedaList.appendChild(liItem);
+            ul.appendChild(liItem);
           });
+          listContainer.appendChild(ul);
+          projectListDiv.appendChild(listContainer);
+          section.appendChild(projectListDiv);
+          mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
         }
-        showTab('busqueda');
-      });
 
-      /* Permitir desplazamiento horizontal con la rueda del ratón en nav ul */
-      const navUl = document.querySelector('nav ul');
-      navUl.addEventListener('wheel', function(e) {
-        if (this.scrollWidth > this.clientWidth) {
-          e.preventDefault();
-          const factor = 1.0; 
-          this.scrollLeft += e.deltaY * factor;
+        categories.forEach((cat, index) => {
+          createCategoryTab(cat, index);
+        });
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        function showTab(tabId) {
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(tc => tc.classList.remove('active'));
+          document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
+          selectedDownloadLink = "";
+          const section = document.getElementById(tabId);
+          if (section) section.classList.add('active');
+          document.querySelector('.download-section').textContent = "Descargar";
         }
-      });
+
+        tabButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            searchInput.value = "";
+            showTab(this.getAttribute('data-tab'));
+            this.classList.add('active');
+          });
+        });
+
+        const downloadButton = document.querySelector('.download-section');
+        downloadButton.addEventListener('click', function() {
+          if (selectedDownloadLink) {
+            window.open(selectedDownloadLink, '_blank');
+          } else {
+            alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
+          }
+        });
+
+        searchInput.addEventListener('input', function() {
+          const query = this.value.trim().toLowerCase();
+          if (!query) {
+            busquedaSection.classList.remove('active');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
+            selectedDownloadLink = "";
+            tabButtons[0].classList.add('active');
+            const firstTabId = tabButtons[0].getAttribute('data-tab');
+            document.getElementById(firstTabId).classList.add('active');
+            document.querySelector('.download-section').textContent = "Descargar";
+            return;
+          }
+          const matchingItems = [];
+          categories.forEach(cat => {
+            cat.items.forEach(item => {
+              if (item.name.toLowerCase().includes(query)) {
+                matchingItems.push(item);
+              }
+            });
+          });
+          busquedaList.innerHTML = '';
+          if (matchingItems.length === 0) {
+            const noResultsLi = document.createElement('li');
+            noResultsLi.classList.add('no-results');
+            noResultsLi.textContent = 'No se encontraron resultados.';
+            busquedaList.appendChild(noResultsLi);
+          } else {
+            matchingItems.forEach(item => {
+              const liItem = document.createElement('li');
+              const button = document.createElement('button');
+              button.classList.add('project-item');
+              button.textContent = item.name;
+              button.setAttribute('data-link', item.link || "");
+              if (item.buttonText) {
+                button.setAttribute('data-button-text', item.buttonText);
+              }
+              button.addEventListener('click', function() {
+                busquedaList.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedDownloadLink = this.getAttribute('data-link');
+                const customText = this.getAttribute('data-button-text');
+                const downloadBtn = document.querySelector('.download-section');
+                downloadBtn.textContent = customText ? customText : "Descargar";
+              });
+              liItem.appendChild(button);
+              busquedaList.appendChild(liItem);
+            });
+          }
+          showTab('busqueda');
+        });
+
+        const navUl = document.querySelector('nav ul');
+        navUl.addEventListener('wheel', function(e) {
+          if (this.scrollWidth > this.clientWidth) {
+            e.preventDefault();
+            const factor = 1.0;
+            this.scrollLeft += e.deltaY * factor;
+          }
+        });
+      }
     });
   </script>
-
-  <!-- Bloque de texto con categorías y elementos -->
-  <script id="list-data" type="text/plain">
-Juegos PC:
-  -Alien Shooter (Windows) "https://gogunlocked.com/alien-shooter-expansions-free-download/"
-  -Alien Shooter 2: Reloaded (Windows) "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
-  -Call of Duty Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
-  -Call of Duty Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
-  -Clone Drone in the Danger Zone "https://pivigames.blog/clone-drone-in-the-danger-zone-v0-4-1/"
-  -Cuphead "https://pivigames.blog/chuphead/"
-  -Dragon Ball Fighter Z "https://pivigames.blog/dbf-juego-espanol/"
-  -Dragon Ball Sparking ZERO "https://pivigames.blog/dragon-ball-sparking-zero-oferta-25/"
-  -Exiled Kingdoms (Windows) "https://gogunlocked.com/exiled-kingdoms-free-download/"
-  -Far Cry 3 "https://pivigames.blog/far-cry-3-incluye-dlcs-en-espanol/"
-  -GTA III "https://www.elamigosweb.com/game/gta-iii-grand-theft-auto-3"
-  -GTA IV "https://pivigames.blog/grand-theft-auto-iv-episodes-from-liberty/"
-  -GTA V "https://pivigames.blog/grand-theft-auto-v-premium-online-edition/"
-  -GTA: San Andreas "https://www.blizzboygames.net/gta-san-andreas-pc-full-espanol/"
-  -GTA: Vice City "https://www.blizzboygames.net/gta-vice-city-pc-full-espanol/"
-  -Half-Life 1 Anthology "https://pivigames.blog/half-life-goty-edition/"
-  -Halo Combat Evolved "https://pivigames.blog/halo-combat-evolved-con-multiplayer-online/"
-  -Injustice Gods Among Us "https://pivigames.blog/injustice-gods-among-us-ultimate-edition/"
-  -Killer Instinct "https://pivigames.blog/killer-instinct/"
-  -Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
-  -Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
-  -Nidhogg 2 "https://pivigames.blog/nidhoog-2/"
-  -Naruto Shippuden Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
-  -Quake III Arena "https://www.blizzboygames.net/quake-3-arena-pc-full-espanol/"
-  -Rayman Legends "https://www.blizzboygames.net/rayman-legends-pc-full-espanol/"
-  -Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
-  -Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
-  -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
-  -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
-  -Super Mario 64 Port (Windows) "https://sm64coopdx.com/"
-  -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
-  -The Legend of Zelda Port (Windows) "https://www.shipofharkinian.com/"
-  -Undertale "https://pivigames.blog/undertale-en-espanol/"
-Programas PC:
-  -Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
-  -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
-  -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
-  -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
-  -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
-  -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
-  -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
-  -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
-  -Mirillis Action! (Grabador de pantalla) "https://es.taiwebs.com/windows/download-mirillis-action-213.html"
-  -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
-  -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/en/shutup10"
-  -Optimizer (Optimizador) "https://es.taiwebs.com/windows/download-optimizer-5951.html"
-  -Patch My PC (Actualizador) "https://es.taiwebs.com/windows/download-patch-my-pc-3748.html"
-  -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
-  -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
-  -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
-Juegos Android:
-  -Call of Duty: Black Ops Zombies (Android) "https://www.mediafire.com/file/ufuimd7zygsmoxt/COD-BOZ-1.0.11.zip/file"
-  -Exiled Kingdoms (Android) "https://apkaward.com/exiled-kingdoms-rpg"
-  -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
-  -Run & Gun: Banditos "https://d.apkpure.com/b/APK/com.ludusstudio.runandgun?version=latest"
-Programas Android:
-  -Filmora (Android) (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
-Extra:
-  -BuscaMinas Web "https://angel06a.github.io/BuscaMinas/" *Jugar*
-  -daedalOS (Escritorio Web) "https://dustinbrett.com/" *Utilizar*
-  -Flappy Bird Web "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
-  -Friday Night Funkin Web "https://ninja-muffin24.itch.io/funkin" *Jugar*
-  -Jetpack Joyride Web "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
-  -OpenLara Web "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
-  -Subway Surfers Web "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
-  -Temple Run 2 Web "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
-  -The Binding of Isaac Web "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
-  </script>
-
 </body>
 </html>
