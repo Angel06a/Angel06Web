@@ -40,6 +40,7 @@ Programas PC:
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
+  -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit"
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
   -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
   -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
@@ -65,6 +66,7 @@ Extra:
   -Friday Night Funkin Web "https://ninja-muffin24.itch.io/funkin" *Jugar*
   -Jetpack Joyride Web "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
   -OpenLara Web "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
+  -Slash FRVR (Fruit Ninja) "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers Web "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
   -Temple Run 2 Web "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -The Binding of Isaac Web "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
