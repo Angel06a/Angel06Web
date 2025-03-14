@@ -68,4 +68,5 @@ Extra:
   -Subway Surfers Web "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
   -Temple Run 2 Web "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -The Binding of Isaac Web "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
+  -UNO Online "https://scuffeduno.online/" *Jugar*
 `;
