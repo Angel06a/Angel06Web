@@ -61,6 +61,8 @@ Juegos Android=(Juego) (Android)=:
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
+  -Super Mario 64 Port "https://github.com/coop-deluxe/sm64coopdx/releases"
+  -The Legend of Zelda Port "https://github.com/Waterdish/Shipwright-Android/releases"
 Programas Android=(Programa) (Android)=:
   -CapCut Pro "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
