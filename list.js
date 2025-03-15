@@ -1,15 +1,15 @@
 // list.js
 const listData = `
 Juegos PC:
-  -Alien Shooter (Windows) "https://gogunlocked.com/alien-shooter-expansions-free-download/"
-  -Alien Shooter 2: Reloaded (Windows) "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
+  -Alien Shooter =(Windows)= "https://gogunlocked.com/alien-shooter-expansions-free-download/"
+  -Alien Shooter 2: Reloaded =(Windows)= "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
   -Call of Duty Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
   -Call of Duty Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
   -Clone Drone in the Danger Zone "https://pivigames.blog/clone-drone-in-the-danger-zone-v0-4-1/"
   -Cuphead "https://pivigames.blog/chuphead/"
   -Dragon Ball Fighter Z "https://pivigames.blog/dbf-juego-espanol/"
   -Dragon Ball Sparking ZERO "https://pivigames.blog/dragon-ball-sparking-zero-oferta-25/"
-  -Exiled Kingdoms (Windows) "https://gogunlocked.com/exiled-kingdoms-free-download/"
+  -Exiled Kingdoms =(Windows)= "https://gogunlocked.com/exiled-kingdoms-free-download/"
   -Far Cry 3 "https://pivigames.blog/far-cry-3-incluye-dlcs-en-espanol/"
   -GTA III "https://www.elamigosweb.com/game/gta-iii-grand-theft-auto-3"
   -GTA IV "https://pivigames.blog/grand-theft-auto-iv-episodes-from-liberty/"
@@ -53,17 +53,17 @@ Programas PC:
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android:
-  -Alien Shooter (Android) "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
-  -Call of Duty: Black Ops Zombies (Android) "https://www.mediafire.com/file/a9cb3i70ft7ms7n/COD_BOZ_1.0.11.zip/file"
+  -Alien Shooter =(Android)= "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
+  -Call of Duty: Black Ops Zombies =(Android)= "https://www.mediafire.com/file/a9cb3i70ft7ms7n/COD_BOZ_1.0.11.zip/file"
   -DownWell "https://www.mediafire.com/file/m5su7db553cwe9k/downwell.apk/file"
-  -Exiled Kingdoms (Android) "https://apkaward.com/exiled-kingdoms-rpg"
+  -Exiled Kingdoms =(Android)= "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
 Programas Android:
-  -CapCut Pro "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
-  -Filmora (Android) (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
+  -CapCut Pro =(Android)= "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
+  -Filmora =(Android)= (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
 Extra:
   -BuscaMinas Web "https://angel06a.github.io/BuscaMinas/" *Jugar*
