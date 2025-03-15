@@ -355,9 +355,17 @@
       lines.forEach(line => {
         line = line.trim();
         if (!line) return;
+        // Procesar categoría: si la línea termina con ":"
         if (line.endsWith(':')) {
-          const catName = line.slice(0, -1).trim();
-          categories.push({ name: catName, items: [] });
+          let catName = line.slice(0, -1).trim();
+          let categoryExtra = '';
+          // Si se encuentra texto entre "=" en la categoría, se extrae y se elimina visualmente
+          const extraMatch = catName.match(/=([^=]+)=/);
+          if (extraMatch) {
+            categoryExtra = extraMatch[1].trim();
+            catName = catName.replace(/=([^=]+)=/g, '').trim();
+          }
+          categories.push({ name: catName, extra: categoryExtra, items: [] });
           currentCategory = categories[categories.length - 1];
         } else if (line.startsWith('-') && currentCategory) {
           let content = line.substring(1).trim();
@@ -380,9 +388,10 @@
           } else {
             name = content;
           }
-          // Creamos displayName eliminando visualmente el texto entre "=" y sus símbolos
+          // displayName elimina visualmente cualquier texto entre "=" en el nombre del elemento
           const displayName = name.replace(/=[^=]+=/g, '').trim();
-          currentCategory.items.push({ name, link, buttonText, displayName });
+          // Se agrega la propiedad extra de la categoría a cada elemento
+          currentCategory.items.push({ name, link, buttonText, displayName, categoryExtra: currentCategory.extra });
         }
       });
 
@@ -400,7 +409,7 @@
           const li = document.createElement('li');
           const btn = document.createElement('button');
           btn.classList.add('tab-button');
-          // Para las pestañas de categorías usamos el nombre "limpio"
+          // Para la pestaña se muestra el nombre de la categoría sin el extra
           btn.textContent = cat.name;
           const categoryId = cat.name.toLowerCase().replace(/\s+/g, '-');
           btn.setAttribute('data-tab', categoryId);
@@ -428,7 +437,7 @@
             const liItem = document.createElement('li');
             const button = document.createElement('button');
             button.classList.add('project-item');
-            // Usamos displayName para que no se muestre el texto entre "="
+            // En la vista de categoría se muestra displayName sin el contenido entre "="
             button.textContent = item.displayName || item.name;
             button.setAttribute('data-link', item.link || "");
             if (item.buttonText) {
@@ -503,7 +512,7 @@
           const matchingItems = [];
           categories.forEach(cat => {
             cat.items.forEach(item => {
-              // En la búsqueda se usa el nombre original procesado para quitar los "=" pero mantener el contenido entre paréntesis
+              // En la búsqueda se muestra el nombre original, reemplazando =texto= por el texto sin "="
               if (item.name.toLowerCase().includes(query)) {
                 matchingItems.push(item);
               }
@@ -520,8 +529,12 @@
               const liItem = document.createElement('li');
               const button = document.createElement('button');
               button.classList.add('project-item');
-              // Reemplazamos el patrón =texto= por (texto) para que no se muestren los símbolos "="
-              button.textContent = item.name.replace(/=([^=]+)=/g, '($1)');
+              // Se reemplaza =texto= por el texto sin los símbolos "="
+              let searchText = item.name.replace(/=([^=]+)=/g, '$1');
+              if (item.categoryExtra && !searchText.includes(item.categoryExtra)) {
+                searchText += ` ${item.categoryExtra}`;
+              }
+              button.textContent = searchText;
               button.setAttribute('data-link', item.link || "");
               if (item.buttonText) {
                 button.setAttribute('data-button-text', item.buttonText);
