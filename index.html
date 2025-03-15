@@ -380,7 +380,9 @@
           } else {
             name = content;
           }
-          currentCategory.items.push({ name, link, buttonText });
+          // Creamos displayName eliminando visualmente el texto entre "=" y sus símbolos
+          const displayName = name.replace(/=[^=]+=/g, '').trim();
+          currentCategory.items.push({ name, link, buttonText, displayName });
         }
       });
 
@@ -398,6 +400,7 @@
           const li = document.createElement('li');
           const btn = document.createElement('button');
           btn.classList.add('tab-button');
+          // Para las pestañas de categorías usamos el nombre "limpio"
           btn.textContent = cat.name;
           const categoryId = cat.name.toLowerCase().replace(/\s+/g, '-');
           btn.setAttribute('data-tab', categoryId);
@@ -425,7 +428,8 @@
             const liItem = document.createElement('li');
             const button = document.createElement('button');
             button.classList.add('project-item');
-            button.textContent = item.name;
+            // Usamos displayName para que no se muestre el texto entre "="
+            button.textContent = item.displayName || item.name;
             button.setAttribute('data-link', item.link || "");
             if (item.buttonText) {
               button.setAttribute('data-button-text', item.buttonText);
@@ -499,6 +503,7 @@
           const matchingItems = [];
           categories.forEach(cat => {
             cat.items.forEach(item => {
+              // En la búsqueda se usa el nombre original procesado para quitar los "=" pero mantener el contenido entre paréntesis
               if (item.name.toLowerCase().includes(query)) {
                 matchingItems.push(item);
               }
@@ -515,7 +520,8 @@
               const liItem = document.createElement('li');
               const button = document.createElement('button');
               button.classList.add('project-item');
-              button.textContent = item.name;
+              // Reemplazamos el patrón =texto= por (texto) para que no se muestren los símbolos "="
+              button.textContent = item.name.replace(/=([^=]+)=/g, '($1)');
               button.setAttribute('data-link', item.link || "");
               if (item.buttonText) {
                 button.setAttribute('data-button-text', item.buttonText);
