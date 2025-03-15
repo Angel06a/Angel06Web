@@ -57,6 +57,7 @@ Juegos Android:
   -Call of Duty: Black Ops Zombies (Android) "https://www.mediafire.com/file/ufuimd7zygsmoxt/COD-BOZ-1.0.11.zip/file"
   -Exiled Kingdoms (Android) "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
+  -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Run & Gun: Banditos "https://d.apkpure.com/b/APK/com.ludusstudio.runandgun?version=latest"
 Programas Android:
   -Filmora (Android) (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
