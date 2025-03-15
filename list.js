@@ -53,6 +53,7 @@ Programas PC:
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android:
+  -Alien Shooter (Android) "https://d.apkpure.net/b/APK/com.sigmateam.alienshootermobile?version=latest"
   -Call of Duty: Black Ops Zombies (Android) "https://www.mediafire.com/file/ufuimd7zygsmoxt/COD-BOZ-1.0.11.zip/file"
   -Exiled Kingdoms (Android) "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
