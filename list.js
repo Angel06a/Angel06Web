@@ -3,8 +3,8 @@ const listData = `
 Juegos PC=(Juego) (Windows)=:
   -Alien Shooter "https://gogunlocked.com/alien-shooter-expansions-free-download/"
   -Alien Shooter 2: Reloaded "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
-  -Call of Duty Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
-  -Call of Duty Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
+  -Call of Duty: Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
+  -Call of Duty: Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
   -Clone Drone in the Danger Zone "https://pivigames.blog/clone-drone-in-the-danger-zone-v0-4-1/"
   -Cuphead "https://pivigames.blog/chuphead/"
   -Dragon Ball Fighter Z "https://pivigames.blog/dbf-juego-espanol/"
@@ -25,7 +25,7 @@ Juegos PC=(Juego) (Windows)=:
   -Nidhogg 2 "https://pivigames.blog/nidhoog-2/"
   -Naruto Shippuden Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
   -Quake III Arena "https://www.blizzboygames.net/quake-3-arena-pc-full-espanol/"
-  -Rayman Legends "https://www.blizzboygames.net/rayman-legends-pc-full-espanol/"
+  -Rayman Legends "https://www.mediafire.com/folder/twuzbsc0t6ugr/Rayman+Legends"
   -Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
   -Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
   -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
@@ -50,6 +50,7 @@ Programas PC=(Programa) (Windows)=:
   -Optimizer (Optimizador) "https://es.taiwebs.com/windows/download-optimizer-5951.html"
   -Patch My PC (Actualizador) "https://es.taiwebs.com/windows/download-patch-my-pc-3748.html"
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
+  -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android=(Juego) (Android)=:
