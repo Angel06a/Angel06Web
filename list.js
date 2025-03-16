@@ -60,10 +60,12 @@ Juegos Android=(Juego) (Android)=:
   -Exiled Kingdoms "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
+  -Stickman Revenge 2 "https://www.mediafire.com/file/ld5rm53np2incot/Stickman_Revenge_2.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
   -Super Mario 64 Port "https://github.com/coop-deluxe/sm64coopdx/releases"
   -The Legend of Zelda Port "https://github.com/Waterdish/Shipwright-Android/releases"
+  -Zombie Avengers Dreamsky Stickman War "https://www.mediafire.com/file/bd1r8u5gsej8vvn/Zombie_Avengers_Dreamsky_Stickman_War.apk/file"
 Programas Android=(Programa) (Android)=:
   -CapCut Pro "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
