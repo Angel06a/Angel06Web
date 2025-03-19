@@ -354,6 +354,18 @@
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
   <script>
+    // Función debounce con requestAnimationFrame para que la búsqueda sea rápida (ahora con 100ms)
+    function debounce(func, delay) {
+      let timeout;
+      return function() {
+        const context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          requestAnimationFrame(() => func.apply(context, args));
+        }, delay);
+      };
+    }
+    
     // Reemplaza los patrones (emoji.windows) y (emoji.android) por imágenes
     function convertEmoji(text) {
       return text
@@ -547,7 +559,8 @@
           }
         });
     
-        searchInput.addEventListener('input', function() {
+        // Evento de búsqueda optimizado (debounce de 100ms y envuelto en requestAnimationFrame)
+        searchInput.addEventListener('input', debounce(function() {
           const query = this.value.trim().toLowerCase();
           if (!query) {
             busquedaSection.classList.remove('active');
@@ -617,20 +630,26 @@
           }
           busquedaList.appendChild(fragment);
           showTab('busqueda');
-        });
+        }, 100));
     
-        /* Bloque para scroll horizontal en el menú de categorías (modo móvil)
-           Se usa scrollBy nativo con un multiplicador ajustado para una respuesta estándar */
+        /* Optimización del scroll horizontal en el menú (modo móvil)
+           Se acumulan los deltas y se actualiza el scroll una vez por frame */
         const navUl = document.querySelector('nav ul');
         if (navUl) {
+          let wheelDelta = 0;
+          let isTicking = false;
           navUl.addEventListener('wheel', function(e) {
             if (window.innerWidth <= 768) {
               e.preventDefault();
-              // Ajusta el multiplicador para que el scroll sea más sensible
-              navUl.scrollBy({
-                left: e.deltaY * 10,
-                behavior: 'smooth'
-              });
+              wheelDelta += e.deltaY * 10;
+              if (!isTicking) {
+                isTicking = true;
+                requestAnimationFrame(function() {
+                  navUl.scrollLeft += wheelDelta;
+                  wheelDelta = 0;
+                  isTicking = false;
+                });
+              }
             }
           }, { passive: false });
         }
