@@ -364,6 +364,10 @@
     function cleanCategoryName(name) {
       return name.replace(/\(emoji\.windows\)|\(emoji\.android\)/g, "").trim();
     }
+    // Elimina cualquier texto entre paréntesis y los ':' para obtener el nombre del icono
+    function stripParentheses(text) {
+      return text.replace(/\s*\(.*?\)\s*/g, '').replace(/:/g, '').trim();
+    }
     // Carga imágenes de forma asíncrona asignando un placeholder
     function loadImageAsync(src, imgElement) {
       imgElement.src = './img/placeholder.png';
@@ -479,7 +483,7 @@
             iconImg.setAttribute('draggable', 'false');
     
             button.appendChild(iconImg);
-            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${item.displayName}.png`, iconImg);
+            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, iconImg);
     
             const textSpan = document.createElement('span');
             textSpan.classList.add('item-text');
@@ -584,7 +588,7 @@
               iconImg.setAttribute('draggable', 'false');
               button.appendChild(iconImg);
     
-              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${item.displayName}.png`, iconImg);
+              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, iconImg);
     
               const textSpan = document.createElement('span');
               textSpan.classList.add('item-text');
