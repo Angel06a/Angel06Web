@@ -48,7 +48,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
   -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/en/shutup10"
   -Optimizer (Optimizador) "https://es.taiwebs.com/windows/download-optimizer-5951.html"
-  -Patch My PC (Actualizador) "https://es.taiwebs.com/windows/download-patch-my-pc-3748.html"
+  -Patch My PC (Actualizador) "https://patchmypc.com/product/home-updater"
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
