@@ -377,7 +377,7 @@
     }
     // Limpia el nombre de la categoría de patrones de emoji
     function cleanCategoryName(name) {
-      return name.replace(/\(emoji\.windows\)|\(emoji\.android\)/g, "").trim();
+      return name.replace(/\(emoji\.windows\)|\(emoji\.android\)|\(emoji\.web\)/g, "").trim();
     }
     // Elimina cualquier texto entre paréntesis y los ':' para obtener el nombre del icono
     function stripParentheses(text) {
