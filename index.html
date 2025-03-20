@@ -274,10 +274,12 @@
       color: #999;
       padding: 8px;
     }
-    /* Estilo para la imagen que reemplaza al emoji */
+    /* Estilo para la imagen que reemplaza al emoji, con relación 1:1 garantizada */
     .emoji {
       width: 1em;
       height: 1em;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
       display: inline-block;
       vertical-align: -0.125em;
       user-select: none;
@@ -354,7 +356,7 @@
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
   <script>
-    // Función debounce con requestAnimationFrame para que la búsqueda sea rápida (ahora con 100ms)
+    // Función debounce con requestAnimationFrame para una búsqueda rápida (100ms)
     function debounce(func, delay) {
       let timeout;
       return function() {
@@ -366,11 +368,12 @@
       };
     }
     
-    // Reemplaza los patrones (emoji.windows) y (emoji.android) por imágenes
+    // Reemplaza los patrones (emoji.windows), (emoji.android) y (emoji.web) por imágenes
     function convertEmoji(text) {
       return text
         .replace(/\(emoji\.windows\)/g, '<img src="./img/emoji.windows.png" alt="emoji" class="emoji" draggable="false" />')
-        .replace(/\(emoji\.android\)/g, '<img src="./img/emoji.android.png" alt="emoji" class="emoji" draggable="false" />');
+        .replace(/\(emoji\.android\)/g, '<img src="./img/emoji.android.png" alt="emoji" class="emoji" draggable="false" />')
+        .replace(/\(emoji\.web\)/g, '<img src="./img/emoji.web.png" alt="emoji" class="emoji" draggable="false" />');
     }
     // Limpia el nombre de la categoría de patrones de emoji
     function cleanCategoryName(name) {
@@ -394,7 +397,8 @@
     }
     
     document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('header-title').innerHTML = convertEmoji("Angel06 Web (emoji.windows) (emoji.android)");
+      // Se incluye el nuevo emoji (emoji.web) en el título
+      document.getElementById('header-title').innerHTML = convertEmoji("Angel06 Web (emoji.windows) (emoji.android) (emoji.web)");
       const rawText = listData;
       const lines = rawText.split('\n');
       let categories = [];
