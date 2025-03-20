@@ -69,7 +69,7 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -CapCut Pro "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
-Páginas Web🌐=🌐=:
+Páginas Web (emoji.web)=(emoji.web)=:
   -BuscaMinas "https://angel06a.github.io/BuscaMinas/" *Jugar*
   -daedalOS (Escritorio) "https://dustinbrett.com/" *Utilizar*
   -Flappy Bird "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
