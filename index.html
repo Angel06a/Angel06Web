@@ -239,7 +239,7 @@
       object-fit: cover;
       margin: 0;
       border: none;
-      border-radius: 6px; /* Ahora se redondean todos los bordes */
+      border-radius: 6px;
       transform: translateZ(0);
       backface-visibility: hidden;
       will-change: transform, opacity;
@@ -252,23 +252,33 @@
       color: #ccc;
       user-select: none;
     }
+    /* Contenedor de los botones de descarga */
     .download-section {
       margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+    /* Cada botón de descarga individual */
+    .download-section-btn {
       background-color: #1abc9c;
-      padding: 10px;
-      text-align: center;
+      /* Altura fija de 38px */
+      height: 38px;
+      
+      /* Centrado de contenido con flexbox */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
       border: none;
       border-radius: 8px;
       cursor: pointer;
       color: #fff;
       font-size: 16px;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      will-change: transform, opacity;
-      user-select: none;
-      -webkit-user-drag: none;
+      flex: 1;
+      text-align: center;
     }
-    .download-section:hover {
+    .download-section-btn:hover {
       background-color: #16a085;
     }
     .no-results {
@@ -350,7 +360,11 @@
           </div>
         </div>
       </section>
-      <button class="download-section">Descargar</button>
+      <!-- Contenedor para los botones de descarga -->
+      <div class="download-section">
+        <button class="download-section-btn" id="primary-download-btn">Descargar</button>
+        <button class="download-section-btn" id="secondary-download-btn" style="display: none;">Descargar</button>
+      </div>
     </main>
   </div>
   <footer>
@@ -396,11 +410,15 @@
       };
       tempImg.src = src;
     }
-    
+
+    // Variables globales para manejar los enlaces seleccionados
+    let selectedDownloadLink1 = "";
+    let selectedDownloadLink2 = "";
+
     document.addEventListener('DOMContentLoaded', function() {
       // Se incluye el nuevo emoji (emoji.web) en el título
       document.getElementById('header-title').innerHTML = convertEmoji("Angel06 Web (emoji.windows) (emoji.android) (emoji.web)");
-      const rawText = listData;
+      const rawText = listData;  // listData viene de list.js
       const lines = rawText.split('\n');
       let categories = [];
       let currentCategory = null;
@@ -408,6 +426,7 @@
       lines.forEach(line => {
         line = line.trim();
         if (!line) return;
+        // Detecta si es una categoría (termina en ':')
         if (line.endsWith(':')) {
           let catName = line.slice(0, -1).trim();
           let categoryExtra = '';
@@ -418,32 +437,38 @@
           }
           categories.push({ name: catName, extra: categoryExtra, items: [] });
           currentCategory = categories[categories.length - 1];
-        } else if (line.startsWith('-') && currentCategory) {
+        }
+        // Si es un ítem de la categoría (comienza con '-')
+        else if (line.startsWith('-') && currentCategory) {
           let content = line.substring(1).trim();
-          let name = "";
-          let link = "";
-          let buttonText = "";
-          const firstQuote = content.indexOf('"');
-          if (firstQuote !== -1) {
-            const secondQuote = content.indexOf('"', firstQuote + 1);
-            if (secondQuote !== -1) {
-              name = content.substring(0, firstQuote).trim();
-              link = content.substring(firstQuote + 1, secondQuote).trim();
-              let remainder = content.substring(secondQuote + 1).trim();
-              if (remainder.startsWith('*') && remainder.endsWith('*')) {
-                buttonText = remainder.slice(1, -1).trim();
-              }
-            } else {
-              name = content;
-            }
-          } else {
-            name = content;
-          }
+          
+          // Buscamos los enlaces entre comillas
+          const linkMatches = content.match(/"([^"]*)"/g) || [];
+          let link = linkMatches[0] ? linkMatches[0].replace(/"/g, '') : "";
+          let link2 = linkMatches[1] ? linkMatches[1].replace(/"/g, '') : "";
+
+          // Eliminamos esos enlaces del texto original para no confundir con el nombre
+          let tempContent = content.replace(/"([^"]*)"/g, '').trim();
+
+          // Buscamos los posibles textos de botón entre asteriscos
+          const starMatches = tempContent.match(/\*([^*]+)\*/g) || [];
+          let buttonText = starMatches[0] ? starMatches[0].replace(/\*/g, '') : "";
+          let buttonText2 = starMatches[1] ? starMatches[1].replace(/\*/g, '') : "";
+
+          // Eliminamos también los asteriscos del texto
+          tempContent = tempContent.replace(/\*([^*]+)\*/g, '').trim();
+
+          // Lo que quede es el nombre real del ítem
+          let name = tempContent;
+          // Para displayName, quitamos patrones de "=...=" si existen
           const displayName = name.replace(/=[^=]+=/g, '').trim();
+
           currentCategory.items.push({ 
             name, 
             link, 
+            link2,
             buttonText, 
+            buttonText2,
             displayName, 
             categoryExtra: currentCategory.extra,
             category: currentCategory.name 
@@ -454,13 +479,34 @@
       setupUI(categories);
     
       function setupUI(categories) {
-        let selectedDownloadLink = "";
         const sidebarUl = document.getElementById('sidebar-categories');
         const mainContent = document.getElementById('main-content');
         const busquedaSection = document.getElementById('busqueda');
         const busquedaList = document.getElementById('busqueda-list');
         const searchInput = document.querySelector('.search-bar input');
-    
+        
+        // Botones de descarga (abajo)
+        const primaryDownloadBtn = document.getElementById('primary-download-btn');
+        const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
+
+        // Al hacer clic en el primer botón
+        primaryDownloadBtn.addEventListener('click', function() {
+          if (selectedDownloadLink1) {
+            window.open(selectedDownloadLink1, '_blank');
+          } else {
+            alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
+          }
+        });
+
+        // Al hacer clic en el segundo botón
+        secondaryDownloadBtn.addEventListener('click', function() {
+          if (selectedDownloadLink2) {
+            window.open(selectedDownloadLink2, '_blank');
+          } else {
+            alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
+          }
+        });
+
         function createCategoryTab(cat, index) {
           const li = document.createElement('li');
           const btn = document.createElement('button');
@@ -489,6 +535,7 @@
     
           const ul = document.createElement('ul');
           const fragment = document.createDocumentFragment();
+          
           cat.items.forEach(item => {
             const liItem = document.createElement('li');
             const button = document.createElement('button');
@@ -500,24 +547,50 @@
             iconImg.setAttribute('draggable', 'false');
     
             button.appendChild(iconImg);
-            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, iconImg);
+            loadImageAsync(
+              `./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, 
+              iconImg
+            );
     
             const textSpan = document.createElement('span');
             textSpan.classList.add('item-text');
             textSpan.innerHTML = convertEmoji(item.displayName || item.name);
             button.appendChild(textSpan);
     
-            button.setAttribute('data-link', item.link || "");
+            // Guardamos la info en data-attributes para usarlas al hacer clic
+            button.setAttribute('data-link1', item.link || "");
+            button.setAttribute('data-link2', item.link2 || "");
             if (item.buttonText) {
-              button.setAttribute('data-button-text', item.buttonText);
+              button.setAttribute('data-button-text1', item.buttonText);
             }
+            if (item.buttonText2) {
+              button.setAttribute('data-button-text2', item.buttonText2);
+            }
+
+            // Al hacer clic en un ítem, se configuran los dos enlaces
             button.addEventListener('click', function() {
+              // Desmarcar otros ítems seleccionados
               ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
               this.classList.add('selected');
-              selectedDownloadLink = this.getAttribute('data-link');
-              const customText = this.getAttribute('data-button-text');
-              const downloadBtn = document.querySelector('.download-section');
-              downloadBtn.textContent = customText ? customText : "Descargar";
+              
+              // Guardar enlaces
+              selectedDownloadLink1 = this.getAttribute('data-link1');
+              selectedDownloadLink2 = this.getAttribute('data-link2');
+              
+              // Configurar texto del primer botón
+              const customText1 = this.getAttribute('data-button-text1');
+              primaryDownloadBtn.textContent = customText1 ? customText1 : "Descargar";
+              
+              // Si existe segundo enlace, mostrar segundo botón
+              if (selectedDownloadLink2) {
+                secondaryDownloadBtn.style.display = "inline-flex";
+                const customText2 = this.getAttribute('data-button-text2');
+                secondaryDownloadBtn.textContent = customText2 ? customText2 : "Descargar";
+              } else {
+                // Si no hay segundo enlace, lo ocultamos
+                secondaryDownloadBtn.style.display = "none";
+                secondaryDownloadBtn.textContent = "Descargar";
+              }
             });
             liItem.appendChild(button);
             fragment.appendChild(liItem);
@@ -540,10 +613,16 @@
           tabButtons.forEach(btn => btn.classList.remove('active'));
           tabContents.forEach(tc => tc.classList.remove('active'));
           document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-          selectedDownloadLink = "";
+          
+          // Reiniciar enlaces y botones
+          selectedDownloadLink1 = "";
+          selectedDownloadLink2 = "";
+          primaryDownloadBtn.textContent = "Descargar";
+          secondaryDownloadBtn.style.display = "none";
+          secondaryDownloadBtn.textContent = "Descargar";
+
           const section = document.getElementById(tabId);
           if (section) section.classList.add('active');
-          document.querySelector('.download-section').textContent = "Descargar";
         }
     
         tabButtons.forEach(button => {
@@ -555,28 +634,22 @@
           });
         });
     
-        const downloadButton = document.querySelector('.download-section');
-        downloadButton.addEventListener('click', function() {
-          if (selectedDownloadLink) {
-            window.open(selectedDownloadLink, '_blank');
-          } else {
-            alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
-          }
-        });
-    
         // Evento de búsqueda optimizado (debounce de 100ms y envuelto en requestAnimationFrame)
         searchInput.addEventListener('input', debounce(function() {
           const query = this.value.trim().toLowerCase();
           if (!query) {
+            // Si no hay búsqueda, volvemos al primer tab
             busquedaSection.classList.remove('active');
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(tc => tc.classList.remove('active'));
             document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-            selectedDownloadLink = "";
+            selectedDownloadLink1 = "";
+            selectedDownloadLink2 = "";
+            primaryDownloadBtn.textContent = "Descargar";
+            secondaryDownloadBtn.style.display = "none";
             tabButtons[0].classList.add('active');
             const firstTabId = tabButtons[0].getAttribute('data-tab');
             document.getElementById(firstTabId).classList.add('active');
-            document.querySelector('.download-section').textContent = "Descargar";
             return;
           }
           const matchingItems = [];
@@ -606,7 +679,10 @@
               iconImg.setAttribute('draggable', 'false');
               button.appendChild(iconImg);
     
-              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, iconImg);
+              loadImageAsync(
+                `./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, 
+                iconImg
+              );
     
               const textSpan = document.createElement('span');
               textSpan.classList.add('item-text');
@@ -616,45 +692,66 @@
               }
               textSpan.innerHTML = convertEmoji(searchText);
               button.appendChild(textSpan);
-    
-              button.setAttribute('data-link', item.link || "");
+
+              // Guardamos la info en data-attributes
+              button.setAttribute('data-link1', item.link || "");
+              button.setAttribute('data-link2', item.link2 || "");
               if (item.buttonText) {
-                button.setAttribute('data-button-text', item.buttonText);
+                button.setAttribute('data-button-text1', item.buttonText);
               }
+              if (item.buttonText2) {
+                button.setAttribute('data-button-text2', item.buttonText2);
+              }
+
               button.addEventListener('click', function() {
                 busquedaList.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
                 this.classList.add('selected');
-                selectedDownloadLink = this.getAttribute('data-link');
-                const customText = this.getAttribute('data-button-text');
-                const downloadBtn = document.querySelector('.download-section');
-                downloadBtn.textContent = customText ? customText : "Descargar";
+                
+                selectedDownloadLink1 = this.getAttribute('data-link1');
+                selectedDownloadLink2 = this.getAttribute('data-link2');
+                
+                const customText1 = this.getAttribute('data-button-text1');
+                primaryDownloadBtn.textContent = customText1 ? customText1 : "Descargar";
+
+                if (selectedDownloadLink2) {
+                  secondaryDownloadBtn.style.display = "inline-flex";
+                  const customText2 = this.getAttribute('data-button-text2');
+                  secondaryDownloadBtn.textContent = customText2 ? customText2 : "Descargar";
+                } else {
+                  secondaryDownloadBtn.style.display = "none";
+                  secondaryDownloadBtn.textContent = "Descargar";
+                }
               });
+
               liItem.appendChild(button);
               fragment.appendChild(liItem);
             });
           }
           busquedaList.appendChild(fragment);
-          showTab('busqueda');
+          
+          // Mostramos la sección de búsqueda y reiniciamos los botones de descarga
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(tc => tc.classList.remove('active'));
+          busquedaSection.classList.add('active');
+          selectedDownloadLink1 = "";
+          selectedDownloadLink2 = "";
+          primaryDownloadBtn.textContent = "Descargar";
+          secondaryDownloadBtn.style.display = "none";
+          secondaryDownloadBtn.textContent = "Descargar";
         }, 100));
     
         /* Optimización del scroll horizontal en el menú (modo móvil)
-           Se acumulan los deltas y se actualiza el scroll una vez por frame */
+           Se utiliza scrollTo con behavior: 'smooth' para lograr una animación suave */
         const navUl = document.querySelector('nav ul');
         if (navUl) {
-          let wheelDelta = 0;
-          let isTicking = false;
           navUl.addEventListener('wheel', function(e) {
             if (window.innerWidth <= 768) {
               e.preventDefault();
-              wheelDelta += e.deltaY * 10;
-              if (!isTicking) {
-                isTicking = true;
-                requestAnimationFrame(function() {
-                  navUl.scrollLeft += wheelDelta;
-                  wheelDelta = 0;
-                  isTicking = false;
-                });
-              }
+              const newLeft = navUl.scrollLeft + e.deltaY * 10;
+              navUl.scrollTo({
+                left: newLeft,
+                behavior: 'smooth'
+              });
             }
           }, { passive: false });
         }
