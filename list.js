@@ -41,7 +41,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
-  -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit"
+  -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
   -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
   -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
