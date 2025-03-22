@@ -24,7 +24,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
   -Nidhogg 2 "https://pivigames.blog/nidhoog-2/"
   -Naruto Shippuden: Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
-  -Quake III Arena "https://www.blizzboygames.net/quake-3-arena-pc-full-espanol/"
+  -Quake III Arena "https://www.blizzboygames.net/quake-3-arena-pc-full-espanol/" "https://ioquake3.org/" *Juego Base* *Ioquake3*
   -Rayman Legends "https://www.mediafire.com/folder/twuzbsc0t6ugr/Rayman+Legends"
   -Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
   -Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
