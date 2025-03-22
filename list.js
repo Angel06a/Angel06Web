@@ -39,6 +39,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
+  -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit"
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
@@ -52,6 +53,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
+  -Visual C Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
