@@ -73,6 +73,9 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
+  -M64Plus FZ Pro (Emulador) "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -Pizza Boy GBA Pro (Emulador) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
+  -PPSSPP Gold (Emulador) "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
   -BuscaMinas "https://angel06a.github.io/BuscaMinas/" *Jugar*
   -DaedalOS (Escritorio) "https://dustinbrett.com/" *Utilizar*
