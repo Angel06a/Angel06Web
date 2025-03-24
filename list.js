@@ -40,6 +40,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
+  -DXVK (DirectX a Vulkan) "https://github.com/doitsujin/dxvk/releases"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
