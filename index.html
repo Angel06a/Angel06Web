@@ -251,6 +251,20 @@
       padding-left: 8px;
       color: #ccc;
       user-select: none;
+      vertical-align: middle;
+      line-height: 1.2;
+    }
+    /* Ajuste para que los iconos de emoji no desplacen el texto */
+    .emoji {
+      width: 1em;
+      height: 1em;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      user-select: none;
+      -webkit-user-drag: none;
     }
     /* Contenedor de los botones de descarga */
     .download-section {
@@ -284,17 +298,6 @@
     .no-results {
       color: #999;
       padding: 8px;
-    }
-    /* Estilo para la imagen que reemplaza al emoji, con relación 1:1 garantizada */
-    .emoji {
-      width: 1em;
-      height: 1em;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      display: inline-block;
-      vertical-align: -0.125em;
-      user-select: none;
-      -webkit-user-drag: none;
     }
     
     @media (max-width: 768px) {
@@ -400,6 +403,7 @@
     }
     // Carga imágenes de forma asíncrona asignando un placeholder
     function loadImageAsync(src, imgElement) {
+      // Mostrar el placeholder de inmediato
       imgElement.src = './img/placeholder.png';
       const tempImg = new Image();
       tempImg.onload = function() {
@@ -408,7 +412,10 @@
       tempImg.onerror = function() {
         imgElement.src = './img/fallback.png';
       };
-      tempImg.src = src;
+      // Reducir el retraso a 10ms para acelerar la carga
+      setTimeout(() => {
+        tempImg.src = src;
+      }, 10);
     }
 
     // Variables globales para manejar los enlaces seleccionados
