@@ -18,7 +18,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -GTA: Vice City "https://www.blizzboygames.net/gta-vice-city-pc-full-espanol/"
   -Half-Life 1 Anthology "https://pivigames.blog/half-life-goty-edition/"
   -Halo Combat Evolved "https://pivigames.blog/halo-combat-evolved-con-multiplayer-online/"
-  -Injustice Gods Among Us "https://pivigames.blog/injustice-gods-among-us-ultimate-edition/"
+  -Injustice: Gods Among Us "https://pivigames.blog/injustice-gods-among-us-ultimate-edition/"
   -Killer Instinct "https://pivigames.blog/killer-instinct/"
   -Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
   -Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
@@ -35,7 +35,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
-  -Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
+  -IObit Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
@@ -69,8 +69,9 @@ Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -The Legend of Zelda Port "https://github.com/Waterdish/Shipwright-Android/releases"
   -Zombie Avengers Dreamsky Stickman War "https://www.mediafire.com/file/bd1r8u5gsej8vvn/Zombie_Avengers_Dreamsky_Stickman_War.apk/file"
 Programas Android (emoji.android)=⚙️ (emoji.android)=:
-  -CapCut Pro "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
+  -CapCut Pro (Editor de Video) "https://www.mediafire.com/file/wvhjm75wj4cqdoc/CapCut+Pro+v13.9.0_(AndroidApkData.net).apk/file"
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
+  -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
 Páginas Web (emoji.web)=(emoji.web)=:
   -BuscaMinas "https://angel06a.github.io/BuscaMinas/" *Jugar*
@@ -78,7 +79,8 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -Flappy Bird "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
   -Friday Night Funkin "https://ninja-muffin24.itch.io/funkin" *Jugar*
   -Jetpack Joyride "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
-  -OpenLara "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
+  -OpenLara (Tomb Raider) "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
+  -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
   -RetroGames "https://www.retrogames.onl/" *Jugar*
   -Slash FRVR (Fruit Ninja) "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
