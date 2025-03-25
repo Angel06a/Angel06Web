@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>Angel06Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Preload para la imagen de fondo -->
-  <link rel="preload" href="./img/Fondo.png" as="image">
-  <link rel="icon" type="image/png" href="./img/favicon.png">
+  <!-- Preload para la imagen de fondo en formato WebP -->
+  <link rel="preload" href="./img/Fondo.webp" as="image">
+  <link rel="icon" type="image/webp" href="./img/favicon.webp">
   <script src="./list.js"></script>
   <style>
     /* Global reset y box-sizing */
@@ -19,8 +19,9 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      /* Fondo cargado directamente */
-      background: url('./img/Fondo.png') no-repeat center center fixed;
+      background-color: #000; /* Fondo base negro para modo oscuro */
+      /* Usamos la imagen WebP para el fondo */
+      background: url('./img/Fondo.webp') no-repeat center center fixed;
       background-size: cover;
     }
     
@@ -335,7 +336,7 @@
       <span id="header-title"></span>
     </h1>
     <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
-      <img src="./img/youtube-icon.png" alt="YouTube" class="header-icon" />
+      <img src="./img/youtube-icon.webp" alt="YouTube" class="header-icon" />
     </a>
   </header>
   <div class="container">
@@ -366,6 +367,42 @@
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
   <script>
+    // Creamos un observer global para lazy loading
+    let lazyImageObserver;
+    function initLazyLoading() {
+      const lazyImages = document.querySelectorAll('img[data-src]');
+      if ('IntersectionObserver' in window) {
+        if (!lazyImageObserver) {
+          lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                const tempImg = new Image();
+                tempImg.onload = function() {
+                  img.src = img.dataset.src;
+                  img.removeAttribute('data-src');
+                };
+                tempImg.onerror = function() {
+                  img.src = './img/fallback.webp';
+                };
+                tempImg.src = img.dataset.src;
+                observer.unobserve(img);
+              }
+            });
+          });
+        }
+        lazyImages.forEach(img => {
+          lazyImageObserver.observe(img);
+        });
+      } else {
+        // Fallback: cargar todas las imágenes inmediatamente
+        lazyImages.forEach(img => {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        });
+      }
+    }
+    
     function debounce(func, delay) {
       let timeout;
       return function() {
@@ -379,9 +416,9 @@
     
     function convertEmoji(text) {
       return text
-        .replace(/\(emoji\.windows\)/g, '<img src="./img/emoji.windows.png" alt="emoji" class="emoji" draggable="false" />')
-        .replace(/\(emoji\.android\)/g, '<img src="./img/emoji.android.png" alt="emoji" class="emoji" draggable="false" />')
-        .replace(/\(emoji\.web\)/g, '<img src="./img/emoji.web.png" alt="emoji" class="emoji" draggable="false" />');
+        .replace(/\(emoji\.windows\)/g, '<img src="./img/emoji.windows.webp" alt="emoji" class="emoji" draggable="false" />')
+        .replace(/\(emoji\.android\)/g, '<img src="./img/emoji.android.webp" alt="emoji" class="emoji" draggable="false" />')
+        .replace(/\(emoji\.web\)/g, '<img src="./img/emoji.web.webp" alt="emoji" class="emoji" draggable="false" />');
     }
     
     function cleanCategoryName(name) {
@@ -392,18 +429,10 @@
       return text.replace(/\s*\(.*?\)\s*/g, '').replace(/:/g, '').trim();
     }
     
+    // loadImageAsync ahora guarda la URL real en data-src
     function loadImageAsync(src, imgElement) {
-      imgElement.src = './img/placeholder.png';
-      const tempImg = new Image();
-      tempImg.onload = function() {
-        imgElement.src = src;
-      };
-      tempImg.onerror = function() {
-        imgElement.src = './img/fallback.png';
-      };
-      setTimeout(() => {
-        tempImg.src = src;
-      }, 10);
+      imgElement.src = './img/placeholder.webp';
+      imgElement.dataset.src = src;
     }
     
     let selectedDownloadLink1 = "";
@@ -455,6 +484,8 @@
       });
       
       setupUI(categories);
+      // Inicializar lazy loading para las imágenes ya creadas
+      initLazyLoading();
       
       function setupUI(categories) {
         const sidebarUl = document.getElementById('sidebar-categories');
@@ -542,11 +573,11 @@
             
             const iconImg = document.createElement('img');
             iconImg.classList.add('item-icon');
-            iconImg.loading = 'lazy';
             iconImg.setAttribute('draggable', 'false');
             
             button.appendChild(iconImg);
-            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, iconImg);
+            // Usar loadImageAsync para establecer el placeholder y data-src
+            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.webp`, iconImg);
             
             const textSpan = document.createElement('span');
             textSpan.classList.add('item-text');
@@ -649,11 +680,10 @@
               
               const iconImg = document.createElement('img');
               iconImg.classList.add('item-icon');
-              iconImg.loading = 'lazy';
               iconImg.setAttribute('draggable', 'false');
               button.appendChild(iconImg);
               
-              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, iconImg);
+              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.webp`, iconImg);
               
               const textSpan = document.createElement('span');
               textSpan.classList.add('item-text');
@@ -678,11 +708,13 @@
             });
           }
           busquedaList.appendChild(fragment);
+          // Reiniciar lazy loading para las imágenes nuevas de búsqueda
+          initLazyLoading();
           document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
           document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
           busquedaSection.classList.add('active');
         }, 100));
-    
+        
         const navUl = document.querySelector('nav ul');
         if (navUl) {
           navUl.addEventListener('wheel', function(e) {
