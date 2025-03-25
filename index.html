@@ -21,13 +21,11 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      /* Fondo base negro forzado */
-      background-color: #000 !important;
-      /* Imagen de fondo */
+      background-color: #000 !important; /* Fondo base negro forzado */
       background: url('./img/Fondo.webp') no-repeat center center fixed;
       background-size: cover;
     }
-    /* Div para el efecto de fundido */
+    /* Overlay para el efecto de fade-in: se muestra inicialmente y luego se desvanece */
     #bg-overlay {
       position: fixed;
       top: 0;
@@ -35,9 +33,9 @@
       width: 100%;
       height: 100%;
       background-color: #000;
-      z-index: -1;
+      z-index: 9999;
       opacity: 1;
-      transition: opacity 1s ease-out;
+      transition: opacity 1s ease-out; /* Transición de 1s */
       pointer-events: none;
     }
     
@@ -347,7 +345,7 @@
   </style>
 </head>
 <body>
-  <!-- Overlay para el efecto de fundido -->
+  <!-- Overlay para el efecto de fade-in -->
   <div id="bg-overlay"></div>
   <header>
     <h1>
@@ -413,7 +411,6 @@
           lazyImageObserver.observe(img);
         });
       } else {
-        // Fallback: cargar todas las imágenes de inmediato
         lazyImages.forEach(img => {
           img.src = img.dataset.src;
           img.removeAttribute('data-src');
@@ -447,7 +444,7 @@
       return text.replace(/\s*\(.*?\)\s*/g, '').replace(/:/g, '').trim();
     }
     
-    // loadImageAsync asigna placeholder y guarda la URL real en data-src
+    // loadImageAsync asigna el placeholder y guarda la URL real en data-src
     function loadImageAsync(src, imgElement) {
       imgElement.src = './img/placeholder.webp';
       imgElement.dataset.src = src;
@@ -502,7 +499,6 @@
       });
       
       setupUI(categories);
-      // Inicializamos el lazy loading para todas las imágenes creadas
       initLazyLoading();
       
       function setupUI(categories) {
@@ -745,11 +741,11 @@
       }
     });
     
-    // Cuando la ventana se carga, hacer que el overlay se desvanezca
+    // Cuando la ventana se carga, se realiza el fade-out del overlay
     window.addEventListener('load', function() {
       const bgOverlay = document.getElementById('bg-overlay');
       bgOverlay.style.opacity = '0';
-      // Opcional: eliminar el overlay del DOM después de la transición
+      // Remover el overlay del DOM después de 1 segundo (tiempo de transición)
       setTimeout(() => {
         if (bgOverlay.parentNode) {
           bgOverlay.parentNode.removeChild(bgOverlay);
