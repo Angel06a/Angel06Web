@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Angel06Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Preload para la imagen de fondo -->
+  <link rel="preload" href="./img/Fondo.png" as="image">
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <script src="./list.js"></script>
   <style>
@@ -17,6 +19,9 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      /* Fondo cargado directamente */
+      background: url('./img/Fondo.png') no-repeat center center fixed;
+      background-size: cover;
     }
     
     /* Scrollbars globales (WebKit y Firefox) */
@@ -45,14 +50,13 @@
       display: flex;
       flex-direction: column;
       font-family: Arial, sans-serif;
-      background-color: #121212;
       color: #ccc;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
     header {
-      background-color: #1F1F1F;
+      background-color: rgba(31,31,31,0.8);
       height: 40px;
       min-height: 40px;
       max-height: 40px;
@@ -80,7 +84,7 @@
       cursor: pointer;
     }
     footer {
-      background-color: #1F1F1F;
+      background-color: rgba(31,31,31,0.8);
       flex: 0 0 20px;
       display: flex;
       align-items: center;
@@ -101,7 +105,7 @@
     }
     aside.sidebar-left {
       width: 250px;
-      background-color: rgba(44, 44, 44, 0.9);
+      background-color: rgba(44,44,44,0.9);
       padding: 20px;
       flex-shrink: 0;
       border-radius: 10px;
@@ -126,8 +130,6 @@
     nav {
       width: 100%;
     }
-    /* Por defecto el menú de categorías es vertical,
-       pero en modo móvil se muestra en fila */
     nav ul {
       list-style: none;
       padding-left: 0;
@@ -142,7 +144,7 @@
       width: 100%;
       padding: 8px;
       border-radius: 6px;
-      background-color: #2F2F2F;
+      background-color: rgba(47,47,47,0.7);
       color: #ccc;
       cursor: pointer;
       border: none;
@@ -151,18 +153,18 @@
       text-align: left;
     }
     nav button.tab-button:hover {
-      background-color: #383838;
+      background-color: rgba(56,56,56,0.7);
     }
     nav button.tab-button.active {
       font-weight: bold;
-      background-color: #404040;
+      background-color: rgba(64,64,64,0.7);
     }
     main {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       min-height: 0;
-      background-color: rgba(46, 46, 46, 0.9);
+      background-color: rgba(46,46,46,0.9);
       color: #ccc;
       overflow: hidden;
       padding: 20px;
@@ -176,7 +178,7 @@
       flex-direction: column;
       min-height: 0;
       overflow: hidden;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255,255,255,0.05);
       border-radius: 10px;
       padding: 10px;
     }
@@ -216,7 +218,7 @@
       border-radius: 6px;
       cursor: pointer;
       text-align: left;
-      background-color: #333;
+      background-color: rgba(51,51,51,0.7);
       height: 36px;
       padding: 0;
       overflow: hidden;
@@ -227,7 +229,7 @@
       -webkit-user-drag: none;
     }
     .project-item:hover {
-      background-color: #3A3A3A;
+      background-color: rgba(58,58,58,0.7);
     }
     .project-item.selected {
       background-color: #444;
@@ -254,11 +256,10 @@
       vertical-align: middle;
       line-height: 1.2;
     }
-    /* Ajuste para que los iconos de emoji no desplacen el texto */
     .emoji {
       width: 1em;
       height: 1em;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1/1;
       object-fit: contain;
       display: inline-block;
       vertical-align: middle;
@@ -266,24 +267,18 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-    /* Contenedor de los botones de descarga */
     .download-section {
       margin-top: 20px;
       display: flex;
       gap: 10px;
       width: 100%;
     }
-    /* Cada botón de descarga individual */
     .download-section-btn {
       background-color: #1abc9c;
-      /* Altura fija de 38px */
       height: 38px;
-      
-      /* Centrado de contenido con flexbox */
       display: flex;
       align-items: center;
       justify-content: center;
-      
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -315,7 +310,6 @@
         width: 100%;
         margin: 10px auto;
       }
-      /* En modo móvil, el menú de categorías se muestra en fila */
       nav ul {
         display: flex;
         flex-direction: row;
@@ -338,7 +332,6 @@
 <body>
   <header>
     <h1>
-      <!-- Se reemplaza en el título si contiene emojis -->
       <span id="header-title"></span>
     </h1>
     <a href="https://youtube.com/@angel06-p7v?si=ZW7yME3PpWpfbKvZ" target="_blank">
@@ -363,7 +356,6 @@
           </div>
         </div>
       </section>
-      <!-- Contenedor para los botones de descarga -->
       <div class="download-section">
         <button class="download-section-btn" id="primary-download-btn">Descargar</button>
         <button class="download-section-btn" id="secondary-download-btn" style="display: none;">Descargar</button>
@@ -374,7 +366,6 @@
     <p>&copy; 2025 Angel06 Web</p>
   </footer>
   <script>
-    // Función debounce con requestAnimationFrame para una búsqueda rápida (100ms)
     function debounce(func, delay) {
       let timeout;
       return function() {
@@ -386,24 +377,22 @@
       };
     }
     
-    // Reemplaza los patrones (emoji.windows), (emoji.android) y (emoji.web) por imágenes
     function convertEmoji(text) {
       return text
         .replace(/\(emoji\.windows\)/g, '<img src="./img/emoji.windows.png" alt="emoji" class="emoji" draggable="false" />')
         .replace(/\(emoji\.android\)/g, '<img src="./img/emoji.android.png" alt="emoji" class="emoji" draggable="false" />')
         .replace(/\(emoji\.web\)/g, '<img src="./img/emoji.web.png" alt="emoji" class="emoji" draggable="false" />');
     }
-    // Limpia el nombre de la categoría de patrones de emoji
+    
     function cleanCategoryName(name) {
       return name.replace(/\(emoji\.windows\)|\(emoji\.android\)|\(emoji\.web\)/g, "").trim();
     }
-    // Elimina cualquier texto entre paréntesis y los ':' para obtener el nombre del icono
+    
     function stripParentheses(text) {
       return text.replace(/\s*\(.*?\)\s*/g, '').replace(/:/g, '').trim();
     }
-    // Carga imágenes de forma asíncrona asignando un placeholder
+    
     function loadImageAsync(src, imgElement) {
-      // Mostrar el placeholder de inmediato
       imgElement.src = './img/placeholder.png';
       const tempImg = new Image();
       tempImg.onload = function() {
@@ -412,28 +401,24 @@
       tempImg.onerror = function() {
         imgElement.src = './img/fallback.png';
       };
-      // Reducir el retraso a 10ms para acelerar la carga
       setTimeout(() => {
         tempImg.src = src;
       }, 10);
     }
-
-    // Variables globales para manejar los enlaces seleccionados
+    
     let selectedDownloadLink1 = "";
     let selectedDownloadLink2 = "";
-
+    
     document.addEventListener('DOMContentLoaded', function() {
-      // Se incluye el nuevo emoji (emoji.web) en el título
       document.getElementById('header-title').innerHTML = convertEmoji("Angel06 Web (emoji.windows) (emoji.android) (emoji.web)");
-      const rawText = listData;  // listData viene de list.js
+      const rawText = listData;
       const lines = rawText.split('\n');
       let categories = [];
       let currentCategory = null;
-    
+      
       lines.forEach(line => {
         line = line.trim();
         if (!line) return;
-        // Detecta si es una categoría (termina en ':')
         if (line.endsWith(':')) {
           let catName = line.slice(0, -1).trim();
           let categoryExtra = '';
@@ -444,32 +429,18 @@
           }
           categories.push({ name: catName, extra: categoryExtra, items: [] });
           currentCategory = categories[categories.length - 1];
-        }
-        // Si es un ítem de la categoría (comienza con '-')
-        else if (line.startsWith('-') && currentCategory) {
+        } else if (line.startsWith('-') && currentCategory) {
           let content = line.substring(1).trim();
-          
-          // Buscamos los enlaces entre comillas
           const linkMatches = content.match(/"([^"]*)"/g) || [];
           let link = linkMatches[0] ? linkMatches[0].replace(/"/g, '') : "";
           let link2 = linkMatches[1] ? linkMatches[1].replace(/"/g, '') : "";
-
-          // Eliminamos esos enlaces del texto original para no confundir con el nombre
           let tempContent = content.replace(/"([^"]*)"/g, '').trim();
-
-          // Buscamos los posibles textos de botón entre asteriscos
           const starMatches = tempContent.match(/\*([^*]+)\*/g) || [];
           let buttonText = starMatches[0] ? starMatches[0].replace(/\*/g, '') : "";
           let buttonText2 = starMatches[1] ? starMatches[1].replace(/\*/g, '') : "";
-
-          // Eliminamos también los asteriscos del texto
           tempContent = tempContent.replace(/\*([^*]+)\*/g, '').trim();
-
-          // Lo que quede es el nombre real del ítem
           let name = tempContent;
-          // Para displayName, quitamos patrones de "=...=" si existen
           const displayName = name.replace(/=[^=]+=/g, '').trim();
-
           currentCategory.items.push({ 
             name, 
             link, 
@@ -482,21 +453,18 @@
           });
         }
       });
-    
+      
       setupUI(categories);
-    
+      
       function setupUI(categories) {
         const sidebarUl = document.getElementById('sidebar-categories');
         const mainContent = document.getElementById('main-content');
         const busquedaSection = document.getElementById('busqueda');
         const busquedaList = document.getElementById('busqueda-list');
         const searchInput = document.querySelector('.search-bar input');
-        
-        // Botones de descarga (abajo)
         const primaryDownloadBtn = document.getElementById('primary-download-btn');
         const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
-
-        // Al hacer clic en el primer botón
+        
         primaryDownloadBtn.addEventListener('click', function() {
           if (selectedDownloadLink1) {
             window.open(selectedDownloadLink1, '_blank');
@@ -504,8 +472,6 @@
             alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
           }
         });
-
-        // Al hacer clic en el segundo botón
         secondaryDownloadBtn.addEventListener('click', function() {
           if (selectedDownloadLink2) {
             window.open(selectedDownloadLink2, '_blank');
@@ -513,7 +479,33 @@
             alert('No se ha asignado ningún enlace. Por favor, selecciona un elemento.');
           }
         });
-
+        
+        function processItemClick(button) {
+          document.querySelectorAll('.project-item').forEach(b => b.classList.remove('selected'));
+          button.classList.add('selected');
+          selectedDownloadLink1 = button.getAttribute('data-link1');
+          selectedDownloadLink2 = button.getAttribute('data-link2');
+          const customText1 = button.getAttribute('data-button-text1');
+          primaryDownloadBtn.textContent = customText1 ? customText1 : "Descargar";
+          if (selectedDownloadLink2) {
+            secondaryDownloadBtn.style.display = "inline-flex";
+            const customText2 = button.getAttribute('data-button-text2');
+            secondaryDownloadBtn.textContent = customText2 ? customText2 : "Descargar";
+          } else {
+            secondaryDownloadBtn.style.display = "none";
+            secondaryDownloadBtn.textContent = "Descargar";
+          }
+        }
+        
+        function attachProjectItemDelegation(ul) {
+          ul.addEventListener('click', function(e) {
+            const btn = e.target.closest('.project-item');
+            if (btn && ul.contains(btn)) {
+              processItemClick(btn);
+            }
+          });
+        }
+        
         function createCategoryTab(cat, index) {
           const li = document.createElement('li');
           const btn = document.createElement('button');
@@ -524,22 +516,22 @@
           if (index === 0) btn.classList.add('active');
           li.appendChild(btn);
           sidebarUl.appendChild(li);
-    
+          
           const section = document.createElement('section');
           section.id = categoryId;
           section.classList.add('tab-content');
           if (index === 0) section.classList.add('active');
-    
+          
           const h2 = document.createElement('h2');
           h2.innerHTML = convertEmoji(cat.name);
           section.appendChild(h2);
-    
+          
           const projectListDiv = document.createElement('div');
           projectListDiv.classList.add('project-list');
-    
+          
           const listContainer = document.createElement('div');
           listContainer.classList.add('list-container');
-    
+          
           const ul = document.createElement('ul');
           const fragment = document.createDocumentFragment();
           
@@ -547,24 +539,20 @@
             const liItem = document.createElement('li');
             const button = document.createElement('button');
             button.classList.add('project-item');
-    
+            
             const iconImg = document.createElement('img');
             iconImg.classList.add('item-icon');
             iconImg.loading = 'lazy';
             iconImg.setAttribute('draggable', 'false');
-    
+            
             button.appendChild(iconImg);
-            loadImageAsync(
-              `./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, 
-              iconImg
-            );
-    
+            loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.png`, iconImg);
+            
             const textSpan = document.createElement('span');
             textSpan.classList.add('item-text');
             textSpan.innerHTML = convertEmoji(item.displayName || item.name);
             button.appendChild(textSpan);
-    
-            // Guardamos la info en data-attributes para usarlas al hacer clic
+            
             button.setAttribute('data-link1', item.link || "");
             button.setAttribute('data-link2', item.link2 || "");
             if (item.buttonText) {
@@ -573,32 +561,7 @@
             if (item.buttonText2) {
               button.setAttribute('data-button-text2', item.buttonText2);
             }
-
-            // Al hacer clic en un ítem, se configuran los dos enlaces
-            button.addEventListener('click', function() {
-              // Desmarcar otros ítems seleccionados
-              ul.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
-              this.classList.add('selected');
-              
-              // Guardar enlaces
-              selectedDownloadLink1 = this.getAttribute('data-link1');
-              selectedDownloadLink2 = this.getAttribute('data-link2');
-              
-              // Configurar texto del primer botón
-              const customText1 = this.getAttribute('data-button-text1');
-              primaryDownloadBtn.textContent = customText1 ? customText1 : "Descargar";
-              
-              // Si existe segundo enlace, mostrar segundo botón
-              if (selectedDownloadLink2) {
-                secondaryDownloadBtn.style.display = "inline-flex";
-                const customText2 = this.getAttribute('data-button-text2');
-                secondaryDownloadBtn.textContent = customText2 ? customText2 : "Descargar";
-              } else {
-                // Si no hay segundo enlace, lo ocultamos
-                secondaryDownloadBtn.style.display = "none";
-                secondaryDownloadBtn.textContent = "Descargar";
-              }
-            });
+            
             liItem.appendChild(button);
             fragment.appendChild(liItem);
           });
@@ -607,56 +570,60 @@
           projectListDiv.appendChild(listContainer);
           section.appendChild(projectListDiv);
           mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
+          attachProjectItemDelegation(ul);
         }
-    
+        
         categories.forEach((cat, index) => {
           createCategoryTab(cat, index);
         });
-    
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-    
+        
+        sidebarUl.addEventListener('click', function(e) {
+          const btn = e.target.closest('.tab-button');
+          if (btn && sidebarUl.contains(btn)) {
+            searchInput.value = "";
+            showTab(btn.getAttribute('data-tab'));
+            Array.from(sidebarUl.querySelectorAll('.tab-button')).forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        });
+        
+        busquedaList.addEventListener('click', function(e) {
+          const btn = e.target.closest('.project-item');
+          if (btn && busquedaList.contains(btn)) {
+            processItemClick(btn);
+          }
+        });
+        
         function showTab(tabId) {
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(tc => tc.classList.remove('active'));
+          document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
           document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-          
-          // Reiniciar enlaces y botones
           selectedDownloadLink1 = "";
           selectedDownloadLink2 = "";
           primaryDownloadBtn.textContent = "Descargar";
           secondaryDownloadBtn.style.display = "none";
           secondaryDownloadBtn.textContent = "Descargar";
-
           const section = document.getElementById(tabId);
           if (section) section.classList.add('active');
         }
-    
-        tabButtons.forEach(button => {
-          button.addEventListener('click', function(e) {
-            e.preventDefault();
-            searchInput.value = "";
-            showTab(this.getAttribute('data-tab'));
-            this.classList.add('active');
-          });
-        });
-    
-        // Evento de búsqueda optimizado (debounce de 100ms y envuelto en requestAnimationFrame)
+        
         searchInput.addEventListener('input', debounce(function() {
           const query = this.value.trim().toLowerCase();
           if (!query) {
-            // Si no hay búsqueda, volvemos al primer tab
             busquedaSection.classList.remove('active');
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
             document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
             selectedDownloadLink1 = "";
             selectedDownloadLink2 = "";
             primaryDownloadBtn.textContent = "Descargar";
             secondaryDownloadBtn.style.display = "none";
-            tabButtons[0].classList.add('active');
-            const firstTabId = tabButtons[0].getAttribute('data-tab');
-            document.getElementById(firstTabId).classList.add('active');
+            const firstTab = document.querySelectorAll('.tab-button')[0];
+            if (firstTab) {
+              firstTab.classList.add('active');
+              const firstTabId = firstTab.getAttribute('data-tab');
+              document.getElementById(firstTabId).classList.add('active');
+            }
             return;
           }
           const matchingItems = [];
@@ -679,18 +646,15 @@
               const liItem = document.createElement('li');
               const button = document.createElement('button');
               button.classList.add('project-item');
-    
+              
               const iconImg = document.createElement('img');
               iconImg.classList.add('item-icon');
               iconImg.loading = 'lazy';
               iconImg.setAttribute('draggable', 'false');
               button.appendChild(iconImg);
-    
-              loadImageAsync(
-                `./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, 
-                iconImg
-              );
-    
+              
+              loadImageAsync(`./img/Elementos/${cleanCategoryName(item.category)}/${stripParentheses(item.displayName)}.png`, iconImg);
+              
               const textSpan = document.createElement('span');
               textSpan.classList.add('item-text');
               let searchText = item.name.replace(/=([^=]+)=/g, '$1');
@@ -699,8 +663,7 @@
               }
               textSpan.innerHTML = convertEmoji(searchText);
               button.appendChild(textSpan);
-
-              // Guardamos la info en data-attributes
+              
               button.setAttribute('data-link1', item.link || "");
               button.setAttribute('data-link2', item.link2 || "");
               if (item.buttonText) {
@@ -709,56 +672,24 @@
               if (item.buttonText2) {
                 button.setAttribute('data-button-text2', item.buttonText2);
               }
-
-              button.addEventListener('click', function() {
-                busquedaList.querySelectorAll('.project-item').forEach(sib => sib.classList.remove('selected'));
-                this.classList.add('selected');
-                
-                selectedDownloadLink1 = this.getAttribute('data-link1');
-                selectedDownloadLink2 = this.getAttribute('data-link2');
-                
-                const customText1 = this.getAttribute('data-button-text1');
-                primaryDownloadBtn.textContent = customText1 ? customText1 : "Descargar";
-
-                if (selectedDownloadLink2) {
-                  secondaryDownloadBtn.style.display = "inline-flex";
-                  const customText2 = this.getAttribute('data-button-text2');
-                  secondaryDownloadBtn.textContent = customText2 ? customText2 : "Descargar";
-                } else {
-                  secondaryDownloadBtn.style.display = "none";
-                  secondaryDownloadBtn.textContent = "Descargar";
-                }
-              });
-
+              
               liItem.appendChild(button);
               fragment.appendChild(liItem);
             });
           }
           busquedaList.appendChild(fragment);
-          
-          // Mostramos la sección de búsqueda y reiniciamos los botones de descarga
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(tc => tc.classList.remove('active'));
+          document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
           busquedaSection.classList.add('active');
-          selectedDownloadLink1 = "";
-          selectedDownloadLink2 = "";
-          primaryDownloadBtn.textContent = "Descargar";
-          secondaryDownloadBtn.style.display = "none";
-          secondaryDownloadBtn.textContent = "Descargar";
         }, 100));
     
-        /* Optimización del scroll horizontal en el menú (modo móvil)
-           Se utiliza scrollTo con behavior: 'smooth' para lograr una animación suave */
         const navUl = document.querySelector('nav ul');
         if (navUl) {
           navUl.addEventListener('wheel', function(e) {
             if (window.innerWidth <= 768) {
               e.preventDefault();
               const newLeft = navUl.scrollLeft + e.deltaY * 10;
-              navUl.scrollTo({
-                left: newLeft,
-                behavior: 'smooth'
-              });
+              navUl.scrollTo({ left: newLeft, behavior: 'smooth' });
             }
           }, { passive: false });
         }
