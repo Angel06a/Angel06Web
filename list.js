@@ -35,7 +35,6 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
-  -IObit Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
   -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
@@ -43,8 +42,10 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -DXVK (DirectX a Vulkan) "https://github.com/doitsujin/dxvk/releases"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
+  -IObit Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
   -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
+  -ITop Easy Desktop (Organizar Carpetas) "https://es.itopvpn.com/itop-easy-desktop?insur=recied&c=recied"
   -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
   -Mirillis Action! (Grabador de pantalla) "https://es.taiwebs.com/windows/download-mirillis-action-213.html"
   -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
