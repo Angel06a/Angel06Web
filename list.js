@@ -37,12 +37,12 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
-  -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
+  -CCleaner (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
   -DXVK (DirectX a Vulkan) "https://github.com/doitsujin/dxvk/releases"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
-  -IObit Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
+  -IObit Advanced SystemCare (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
   -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
   -ITop Easy Desktop (Organizar Carpetas) "https://es.itopvpn.com/itop-easy-desktop?insur=recied&c=recied"
@@ -56,6 +56,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
+  -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
@@ -78,17 +79,18 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Pizza Boy GBA Pro (Emulador) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
   -PPSSPP Gold (Emulador) "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
-  -BuscaMinas "https://angel06a.github.io/BuscaMinas/" *Jugar*
-  -DaedalOS (Escritorio) "https://dustinbrett.com/" *Utilizar*
-  -Flappy Bird "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
-  -Friday Night Funkin "https://ninja-muffin24.itch.io/funkin" *Jugar*
-  -Jetpack Joyride "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
-  -OpenLara (Tomb Raider) "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
+  -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
+  -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
+  -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
+  -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
+  -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
+  -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
   -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
-  -RetroGames "https://www.retrogames.onl/" *Jugar*
-  -Slash FRVR (Fruit Ninja) "https://slash.frvr.com/es/" *Jugar*
-  -Subway Surfers "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
-  -Temple Run 2 "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
-  -The Binding of Isaac "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
-  -UNO Online "https://scuffeduno.online/" *Jugar*
+  -Puter (Escritorio) =⚙️= "https://puter.com/"
+  -RetroGames (Emulador) =🎮= "https://www.retrogames.onl/" *Jugar*
+  -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
+  -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
+  -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
+  -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
+  -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
 `;
