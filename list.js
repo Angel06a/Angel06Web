@@ -76,6 +76,7 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
   -M64Plus FZ Pro (Emulador) "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -MAME4droid Current (Emulador) "https://github.com/seleuco/MAME4droid-Current/releases"
   -Pizza Boy GBA Pro (Emulador) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
   -PPSSPP Gold (Emulador) "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
