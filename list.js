@@ -75,23 +75,27 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
-  -M64Plus FZ Pro (Emulador) "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
-  -MAME4droid Current (Emulador) "https://github.com/seleuco/MAME4droid-Current/releases"
-  -Pizza Boy GBA Pro (Emulador) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
-  -PPSSPP Gold (Emulador) "https://apkretro.com/ppsspp-gold-apk-download/"
+  -M64Plus FZ Pro (Emulación) "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -MAME4droid Current (Emulación) "https://github.com/seleuco/MAME4droid-Current/releases"
+  -Pizza Boy GBA Pro (Emulación) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
+  -PPSSPP Gold (Emulación) "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
+  -Bios (Roms) (Emulación) "https://github.com/Angel06a/Bios-RetroBat"
   -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
   -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
   -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
   -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
+  -GamesGX (Ps2 Roms) (Emulación) "https://www.gamesgx.net/"
   -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
   -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
   -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
   -Puter (Escritorio) =⚙️= "https://puter.com/"
-  -RetroGames (Emulador) =🎮= "https://www.retrogames.onl/" *Jugar*
+  -RetroGames (Emulación) =🎮= "https://www.retrogames.onl/" *Jugar*
+  -ROMSFUN (Roms) (Emulación) "https://romsfun.com/"
   -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
   -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
+  -WoWroMs (Roms) (Emulación) "https://wowroms.com/es/"
 `;
