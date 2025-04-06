@@ -79,7 +79,7 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
   -M64Plus FZ Pro (Emular N64) =🕹️= "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
   -MAME4droid Current (Emular ARCADE) =🕹️= "https://github.com/seleuco/MAME4droid-Current/releases"
-  -My OldBoy! (Emular GBA) =🕹️= "https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
+  -My OldBoy! (Emular GBC) =🕹️= "https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
   -Pizza Boy GBA Pro (Emular GBA) =🕹️= "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
   -PPSSPP Gold (Emular PSP) =🕹️= "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
