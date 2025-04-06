@@ -54,6 +54,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Patch My PC (Actualizador) "https://patchmypc.com/product/home-updater"
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
+  -Ratiborus KMS Tools (Activador) "https://es.taiwebs.com/windows/download-ratiborus-kms-tools-78.html"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
   -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
@@ -76,27 +77,28 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
-  -M64Plus FZ Pro (Emulación) "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
-  -MAME4droid Current (Emulación) "https://github.com/seleuco/MAME4droid-Current/releases"
-  -Pizza Boy GBA Pro (Emulación) "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
-  -PPSSPP Gold (Emulación) "https://apkretro.com/ppsspp-gold-apk-download/"
+  -M64Plus FZ Pro (Emular N64) =🕹️= "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -MAME4droid Current (Emular ARCADE) =🕹️= "https://github.com/seleuco/MAME4droid-Current/releases"
+  -My OldBoy! (Emular GBA) =🕹️= "https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
+  -Pizza Boy GBA Pro (Emular GBA) =🕹️= "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
+  -PPSSPP Gold (Emular PSP) =🕹️= "https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
-  -Bios (Roms) (Emulación) "https://github.com/Angel06a/Bios-RetroBat"
+  -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
   -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
   -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
   -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
   -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
-  -GamesGX (Ps2 Roms) (Emulación) "https://www.gamesgx.net/"
+  -GamesGX (Ps2 Roms) (Emular) =🕹️= "https://www.gamesgx.net/"
   -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
   -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
   -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
   -Puter (Escritorio) =⚙️= "https://puter.com/"
-  -RetroGames (Emulación) =🎮= "https://www.retrogames.onl/" *Jugar*
-  -ROMSFUN (Roms) (Emulación) "https://romsfun.com/"
+  -RetroGames (Emular) =🕹️= "https://www.retrogames.onl/" *Jugar*
+  -ROMSFUN (Roms) (Emular) =🕹️= "https://romsfun.com/"
   -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
   -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
-  -WoWroMs (Roms) (Emulación) "https://wowroms.com/es/"
+  -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
