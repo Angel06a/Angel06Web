@@ -56,8 +56,10 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -Ratiborus KMS Tools (Activador) "https://es.taiwebs.com/windows/download-ratiborus-kms-tools-78.html"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
+  -VigemBus (Driver Control) "https://vigembusdriver.com/download/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
   -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
+  -X360CE (Emular Control) "https://www.x360ce.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
@@ -77,11 +79,11 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
-  -M64Plus FZ Pro (Emular N64) =🕹️= "https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
-  -MAME4droid Current (Emular ARCADE) =🕹️= "https://github.com/seleuco/MAME4droid-Current/releases"
-  -My OldBoy! (Emular GBC) =🕹️= "https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
-  -Pizza Boy GBA Pro (Emular GBA) =🕹️= "https://apkretro.com/pizza-boy-gba-pro-apk-download/"
-  -PPSSPP Gold (Emular PSP) =🕹️= "https://apkretro.com/ppsspp-gold-apk-download/"
+  -M64Plus FZ Pro (Emular N64) =🕹️="https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -MAME4droid Current (Emular ARCADE) =🕹️="https://github.com/seleuco/MAME4droid-Current/releases"
+  -My OldBoy! (Emular GBC) =🕹️="https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
+  -Pizza Boy GBA Pro (Emular GBA) =🕹️="https://apkretro.com/pizza-boy-gba-pro-apk-download/"
+  -PPSSPP Gold (Emular PSP) =🕹️="https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
   -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
   -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
@@ -91,7 +93,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -GamesGX (Ps2 Roms) (Emular) =🕹️= "https://www.gamesgx.net/"
   -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
   -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
-  -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
+  -Photopea (Editor de Imagen) =⚙️= "https://www.photopea.com/" *Utilizar*
   -Puter (Escritorio) =⚙️= "https://puter.com/"
   -RetroGames (Emular) =🕹️= "https://www.retrogames.onl/" *Jugar*
   -ROMSFUN (Roms) (Emular) =🕹️= "https://romsfun.com/"
