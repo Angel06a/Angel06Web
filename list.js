@@ -102,5 +102,6 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
   -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
+  -Vimm's Lair (Roms) (Emular) =🕹️= "https://vimm.net/vault"
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
