@@ -28,6 +28,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Rayman Legends "https://www.mediafire.com/folder/twuzbsc0t6ugr/Rayman+Legends"
   -Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
   -Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
+  -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
   -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
   -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
   -Super Mario 64 Port "https://sm64coopdx.com/"
