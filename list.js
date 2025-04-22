@@ -50,7 +50,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
   -Mirillis Action! (Grabador de pantalla) "https://es.taiwebs.com/windows/download-mirillis-action-213.html"
   -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
-  -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/en/shutup10"
+  -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/es/shutup10"
   -Optimizer (Optimizador) "https://es.taiwebs.com/windows/download-optimizer-5951.html"
   -Patch My PC (Actualizador) "https://patchmypc.com/product/home-updater"
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
