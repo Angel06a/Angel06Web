@@ -41,6 +41,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -CCleaner (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
   -DXVK (DirectX a Vulkan) "https://github.com/doitsujin/dxvk/releases"
+  -Filmora (Editor de Video) "https://es.taiwebs.com/windows/download-wondershare-filmora-video-editor-31.html"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
   -IObit Advanced SystemCare (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
@@ -56,7 +57,9 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
   -Ratiborus KMS Tools (Activador) "https://es.taiwebs.com/windows/download-ratiborus-kms-tools-78.html"
+  -RetroBat (Frontend) (Emular) "https://www.retrobat.org/descargar/"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
+  -Upscayl (Escalar imagen) "https://upscayl.org/download"
   -VigemBus (Driver Control) "https://vigembusdriver.com/download/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
   -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
@@ -92,7 +95,9 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
   -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
   -GamesGX (Ps2 Roms) (Emular) =🕹️= "https://www.gamesgx.net/"
+  -Icon Converter =⚙️= "https://redketchup.io/icon-converter" *Utilizar*
   -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
+  -NoPayStation (Ps3 Roms) (Emular) =🕹️= "https://nopaystation.com/browse"
   -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
   -Photopea (Editor de Imagen) =⚙️= "https://www.photopea.com/" *Utilizar*
   -Puter (Escritorio) =⚙️= "https://puter.com/"
@@ -101,6 +106,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
+  -TempMail =⚙️= "https://temp-mail.org/es/" *Utilizar*
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
   -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
   -Vimm's Lair (Roms) (Emular) =🕹️= "https://vimm.net/vault"
