@@ -28,6 +28,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Rayman Legends "https://www.mediafire.com/folder/twuzbsc0t6ugr/Rayman+Legends"
   -Serious Sam HD "https://pivigames.blog/seriuos-sam-hd-the-second-encounter/"
   -Slime Rancher "https://pivigames.blog/slime-rancher-ultima-version-pc-gratis/"
+  -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
   -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
   -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
   -Super Mario 64 Port "https://sm64coopdx.com/"
@@ -35,26 +36,34 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
-  -IObit Advanced SystemCare (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
   -BleachBit (Limpieza) "https://es.taiwebs.com/windows/download-bleachbit-1219.html"
-  -CCleaner (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
+  -CCleaner (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-ccleaner-pro-57.html"
   -DirectX Runtime (Instalador) "https://www.techpowerup.com/download/directx-redistributable-runtime/"
   -DXVK (DirectX a Vulkan) "https://github.com/doitsujin/dxvk/releases"
+  -Filmora (Editor de Video) "https://es.taiwebs.com/windows/download-wondershare-filmora-video-editor-31.html"
   -HidHide (Ocultar Control) "https://github.com/nefarius/HidHide"
   -IdeapadToolkit (Alternativa a Lenovo Vantage) "https://github.com/reagcz/IdeapadToolkit" "https://www.mediafire.com/file/iehwb5o2yq2oenu/PowerBattery.dll/file" *Descargar* *Archivo Necesario*
+  -IObit Advanced SystemCare (Optimizador) (Limpieza) "https://es.taiwebs.com/windows/download-advanced-systemcare-pro-368.html"
   -IObit Driver Booster (Drivers) "https://es.taiwebs.com/windows/download-iobit-driver-booster-102.html"
   -IObit Unlocker (Desbloquear Archivos) "https://es.taiwebs.com/windows/download-iobit-unlocker-6140.html"
+  -ITop Easy Desktop (Organizar Carpetas) "https://es.itopvpn.com/itop-easy-desktop?insur=recied&c=recied"
   -LenovoController (Alternativa a Lenovo Vantage) "https://github.com/ViRb3/LenovoController"
   -Mirillis Action! (Grabador de pantalla) "https://es.taiwebs.com/windows/download-mirillis-action-213.html"
   -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
-  -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/en/shutup10"
+  -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/es/shutup10"
   -Optimizer (Optimizador) "https://es.taiwebs.com/windows/download-optimizer-5951.html"
   -Patch My PC (Actualizador) "https://patchmypc.com/product/home-updater"
   -Process Lasso (Optimizador) "https://es.taiwebs.com/windows/download-bitsum-process-lasso-pro-289.html"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
+  -Ratiborus KMS Tools (Activador) "https://es.taiwebs.com/windows/download-ratiborus-kms-tools-78.html"
+  -RetroBat (Frontend) (Emular) "https://www.retrobat.org/descargar/"
   -TeraBox (Almacenamiento en la Nube) "https://www.terabox.com/"
+  -Upscayl (Escalar imagen) "https://upscayl.org/download"
+  -VigemBus (Driver Control) "https://vigembusdriver.com/download/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
+  -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
+  -X360CE (Emular Control) "https://www.x360ce.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
@@ -62,6 +71,7 @@ Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -DownWell "https://www.mediafire.com/file/m5su7db553cwe9k/downwell.apk/file"
   -Exiled Kingdoms "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
+  -Minecraft Bedrock "https://apkretro.com/minecraft-apk-download/"
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
@@ -73,18 +83,32 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -Filmora (Editor de Video) "https://apkpure.com/es/filmora-movie-video-editor/com.wondershare.filmorago"
   -Gestor de archivos + "https://apkretro.com/file-manager-premium-apk-download/"
   -LuckyPatcher "https://www.mediafire.com/file/rej7uf1t7w48x0u/luckypatcher.apk/file"
+  -M64Plus FZ Pro (Emular N64) =🕹️="https://apkretro.com/m64plus-fz-pro-emulator-apk-full-android/"
+  -MAME4droid Current (Emular ARCADE) =🕹️="https://github.com/seleuco/MAME4droid-Current/releases"
+  -My OldBoy! (Emular GBC) =🕹️="https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
+  -Pizza Boy GBA Pro (Emular GBA) =🕹️="https://apkretro.com/pizza-boy-gba-pro-apk-download/"
+  -PPSSPP Gold (Emular PSP) =🕹️="https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
-  -BuscaMinas "https://angel06a.github.io/BuscaMinas/" *Jugar*
-  -DaedalOS (Escritorio) "https://dustinbrett.com/" *Utilizar*
-  -Flappy Bird "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
-  -Friday Night Funkin "https://ninja-muffin24.itch.io/funkin" *Jugar*
-  -Jetpack Joyride "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
-  -OpenLara (Tomb Raider) "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
-  -Photopea (Editor de Imagen) "https://www.photopea.com/" *Utilizar*
-  -RetroGames "https://www.retrogames.onl/" *Jugar*
-  -Slash FRVR (Fruit Ninja) "https://slash.frvr.com/es/" *Jugar*
-  -Subway Surfers "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
-  -Temple Run 2 "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
-  -The Binding of Isaac "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
-  -UNO Online "https://scuffeduno.online/" *Jugar*
+  -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
+  -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
+  -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
+  -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
+  -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
+  -GamesGX (Ps2 Roms) (Emular) =🕹️= "https://www.gamesgx.net/"
+  -Icon Converter =⚙️= "https://redketchup.io/icon-converter" *Utilizar*
+  -Jetpack Joyride =🎮= "https://emupedia.net/emupedia-game-jetpack-joyride/" *Jugar*
+  -NoPayStation (Ps3 Roms) (Emular) =🕹️= "https://nopaystation.com/browse"
+  -OpenLara (Tomb Raider) =🎮= "https://emupedia.net/emupedia-game-tomb-raider/" *Jugar*
+  -Photopea (Editor de Imagen) =⚙️= "https://www.photopea.com/" *Utilizar*
+  -Puter (Escritorio) =⚙️= "https://puter.com/"
+  -RetroGames (Emular) =🕹️= "https://www.retrogames.onl/" *Jugar*
+  -ROMSFUN (Roms) (Emular) =🕹️= "https://romsfun.com/"
+  -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
+  -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
+  -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
+  -TempMail =⚙️= "https://temp-mail.org/es/" *Utilizar*
+  -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
+  -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
+  -Vimm's Lair (Roms) (Emular) =🕹️= "https://vimm.net/vault"
+  -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
