@@ -43,7 +43,7 @@ function setupUIStructure(categoriesData) {
       ul.classList.add('grid');
     });
   }
-  
+
   initLazyLoading(); // Inicializar lazy loading después de crear elementos
 }
 
@@ -119,7 +119,8 @@ function createCategoryTabAndContent(cat, index, sidebarUl, mainContent) {
 
     const textSpan = document.createElement('span');
     textSpan.classList.add('item-text');
-    textSpan.innerHTML = convertEmoji(item.displayName || item.name);
+    // Para las categorías, muestra el displayName. item.itemExtra no se usa aquí.
+    textSpan.innerHTML = convertEmoji(item.displayName);
     button.appendChild(textSpan);
 
     button.setAttribute('data-link1', item.link || "");
@@ -144,7 +145,7 @@ function createCategoryTabAndContent(cat, index, sidebarUl, mainContent) {
   projectListDiv.appendChild(listContainer);
   section.appendChild(projectListDiv);
   mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
-  
+
   const primaryDownloadBtn = document.getElementById('primary-download-btn');
   const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
   attachProjectItemDelegation(ul, primaryDownloadBtn, secondaryDownloadBtn);
@@ -154,7 +155,7 @@ function showTab(tabId, searchInput, primaryBtn, secondaryBtn) {
   document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
   document.querySelectorAll('.project-item').forEach(item => item.classList.remove('selected'));
-  
+
   selectedDownloadLink1 = "";
   selectedDownloadLink2 = "";
   primaryBtn.textContent = "Descargar";
@@ -163,7 +164,7 @@ function showTab(tabId, searchInput, primaryBtn, secondaryBtn) {
 
   const section = document.getElementById(tabId);
   if (section) section.classList.add('active');
-  
+
   // Activar el botón de tab correspondiente
   const tabButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
   if (tabButton) tabButton.classList.add('active');
@@ -198,11 +199,20 @@ function displaySearchResults(items, categoriesData, busquedaListElement) {
 
             const textSpan = document.createElement('span');
             textSpan.classList.add('item-text');
-            let searchText = item.displayName.replace(/=([^=]+)=/g, '$1');
-            if (item.categoryExtra && !searchText.includes(item.categoryExtra)) {
-                searchText += ` ${item.categoryExtra}`;
+
+            let displayContent = item.displayName; // Start with the clean name
+
+            // Add itemExtra if it exists, without parentheses
+            if (item.itemExtra) {
+                displayContent += ` ${item.itemExtra}`; // Just add a space and the extra info
             }
-            textSpan.innerHTML = convertEmoji(searchText);
+
+            // Add categoryExtra if it exists and is not already part of the displayContent
+            if (item.categoryExtra && !displayContent.toLowerCase().includes(item.categoryExtra.toLowerCase())) {
+                displayContent += ` ${item.categoryExtra}`;
+            }
+
+            textSpan.innerHTML = convertEmoji(displayContent);
             button.appendChild(textSpan);
 
             button.setAttribute('data-link1', item.link || "");
