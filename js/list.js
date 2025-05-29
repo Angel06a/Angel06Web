@@ -90,6 +90,7 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -PPSSPP Gold (Emular PSP) =🕹️="https://apkretro.com/ppsspp-gold-apk-download/"
 Páginas Web (emoji.web)=(emoji.web)=:
   -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
+  -BT4 HD (DBZ BT4 Texture Pack) =⚙️= "https://angel06a.github.io/BT4-HD/"
   -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
   -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
   -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
