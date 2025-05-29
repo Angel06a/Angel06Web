@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const busquedaList = document.getElementById('busqueda-list');
   const primaryDownloadBtn = document.getElementById('primary-download-btn');
   const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
-  
+
   // Configurar la UI inicial
   setupUIStructure(categories); // Esta función ahora está en ui.js y hace más
   setupConfigPanel(); // Configuración del panel y switch
@@ -45,13 +45,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const matchingItems = [];
     categories.forEach(cat => {
       cat.items.forEach(item => {
-        if (item.name.toLowerCase().includes(query) || item.displayName.toLowerCase().includes(query)) {
+        // Incluye item.itemExtra y cat.extra (categoryExtra) en la búsqueda
+        if (item.name.toLowerCase().includes(query) ||
+            item.displayName.toLowerCase().includes(query) ||
+            (item.itemExtra && item.itemExtra.toLowerCase().includes(query)) ||
+            (item.categoryExtra && item.categoryExtra.toLowerCase().includes(query))) {
           // Añadimos la categoría original y extra para que displaySearchResults pueda usarla
           matchingItems.push({...item, category: cat.name, categoryExtra: cat.extra });
         }
       });
     });
-    
+
     displaySearchResults(matchingItems, categories, busquedaList);
     showTab('busqueda', searchInput, primaryDownloadBtn, secondaryDownloadBtn); // Mostrar la pestaña de búsqueda
 
@@ -111,19 +115,30 @@ function parseListData(rawText) {
       const linkMatches = content.match(/"([^"]*)"/g) || [];
       let link = linkMatches[0] ? linkMatches[0].replace(/"/g, '') : "";
       let link2 = linkMatches[1] ? linkMatches[1].replace(/"/g, '') : "";
-      
+
       let tempContent = content.replace(/"([^"]*)"/g, '').trim();
       const starMatches = tempContent.match(/\*([^*]+)\*/g) || [];
       let buttonText = starMatches[0] ? starMatches[0].replace(/\*/g, '') : "";
       let buttonText2 = starMatches[1] ? starMatches[1].replace(/\*/g, '') : "";
-      
+
       tempContent = tempContent.replace(/\*([^*]+)\*/g, '').trim();
-      let name = tempContent;
-      const displayName = name.replace(/=[^=]+=/g, '').trim(); // Nombre para mostrar, sin info extra
+
+      let name = tempContent; // 'name' holds the string potentially with item-specific extra
+
+      let itemExtra = '';
+      // Find the first occurrence of =...= for itemExtra
+      const itemExtraMatch = name.match(/=([^=]+)=/);
+      if (itemExtraMatch) {
+        itemExtra = itemExtraMatch[1].trim();
+        // Remove only the *first* =...= occurrence from the name to get displayName
+        name = name.replace(/=([^=]+)=/, '').trim(); // <--- CRUCIAL CHANGE: Remove only one instance
+      }
+      const displayName = name; // displayName is now the clean name without itemExtra
 
       currentCategory.items.push({
-        name, // Nombre completo con metadatos para búsqueda
-        displayName, // Nombre limpio para mostrar y para ruta de imagen
+        name: tempContent, // Almacenar el nombre original completo para la búsqueda (ej. "M64Plus FZ Pro (Emular N64) =🕹️=")
+        displayName, // Nombre limpio para mostrar y para ruta de imagen (ej. "M64Plus FZ Pro (Emular N64)")
+        itemExtra, // Nuevo campo para el texto entre '=' del item (ej. "🕹️")
         link,
         link2,
         buttonText,
