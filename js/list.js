@@ -62,6 +62,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Upscayl (Escalar imagen) "https://upscayl.org/download"
   -VigemBus (Driver Control) "https://vigembusdriver.com/download/"
   -Visual C++ Runtime (Instalador) "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/"
+  -WinRAR (Comprimir) "https://winrar.es/descargas" "https://www.mediafire.com/file/fpjwybjxfk5emug/rarreg.key/file" *Descargar* *Crack*
   -Wintoys (Optimizador) (Limpieza) "https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=es-ES&gl=ES"
   -X360CE (Emular Control) "https://www.x360ce.com/"
   -XOutput (Emular Control) "https://github.com/csutorasa/XOutput/releases/tag/3.32"
@@ -113,3 +114,4 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -Vimm's Lair (Roms) (Emular) =🕹️= "https://vimm.net/vault"
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
