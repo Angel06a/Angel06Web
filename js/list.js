@@ -112,6 +112,8 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
   -UNO Online =🎮= "https://scuffeduno.online/" *Jugar*
   -Vimm's Lair (Roms) (Emular) =🕹️= "https://vimm.net/vault"
+  -WallpaperStore =⚙️= "https://angel06a.github.io/WallpaperStore/" *Utilizar*
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
 
