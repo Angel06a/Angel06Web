@@ -213,6 +213,10 @@ main {
   min-height: 0;
   margin-top: 10px;
 }
+
+/* ----------------------------------------------- */
+/* AJUSTE CLAVE: Contenedor de lista para el marco */
+/* ----------------------------------------------- */
 .list-container {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -220,9 +224,11 @@ main {
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
-  padding: 4px; /* ← Aquí se evita el corte de la sombra */
-  box-sizing: content-box; /* ← Importante para que el padding no afecte el tamaño */
+  /* CAMBIO CLAVE: Reducción del padding superior a 4px (mínimo espacio) */
+  padding: 4px 10px 15px 10px;
+  box-sizing: content-box;
 }
+
 /* Vista de lista: sin pseudo-elementos */
 .list-container ul {
   list-style: none;
@@ -233,25 +239,47 @@ main {
 .list-container ul.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
+  gap: 15px; 
 }
-/* Modo grid: botones cuadrados con efecto de iluminación y sombra */
+
+/* ----------------------------------------------- */
+/* ESTILOS MEJORADOS PARA LA VISTA DE GRID (ICONOS) */
+/* ----------------------------------------------- */
+
 .list-container ul.grid .project-item {
-  height: auto !important;
+  /* Contracción ligera para asegurar espacio para la sombra */
+  width: 95%; 
+  height: 95%;
+  margin: 0 auto; /* Centrar el ítem para distribuir el ancho contraído */
+  
+  /* Mantener el tamaño y la forma */
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border-radius: 24px;
-  margin: 0;
+  border-radius: 12px; 
   position: relative;
-  transition: background-color 0.3s;
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease, background-color 0.3s;
   font-weight: normal;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra añadida */
+
+  /* Estilo visual */
+  background-color: rgba(31, 31, 31, 0.8);
+  border: 1px solid rgba(85, 85, 85, 0.2); 
+  /* Sombra más corta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 0 1px rgba(255, 255, 255, 0.1); 
 }
-/* Efecto de iluminación interna con transición suave */
+
+/* Efecto al pasar el ratón: Elevación y ligero cambio de color */
+.list-container ul.grid .project-item:hover {
+  transform: translateY(-2px); 
+  background-color: rgba(44, 44, 44, 0.9);
+  /* Sombra de hover más corta */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Efecto de iluminación interna al seleccionar (Selección Destacada) */
 .list-container ul.grid .project-item::before {
   content: "";
   position: absolute;
@@ -260,27 +288,44 @@ main {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  box-shadow: inset 0 0 8px 4px #90ee90;
+  box-shadow: 0 0 0 3px #1abc9c; /* Borde de selección principal */
   pointer-events: none;
   z-index: 3;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+/* Al ser seleccionado, también aplicamos un transform para "hundirlo" un poco */
+.list-container ul.grid .project-item.selected {
+  background-color: rgba(85, 85, 85, 0.9);
+  transform: translateY(0); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.7); 
+}
 .list-container ul.grid .project-item.selected::before {
   opacity: 1;
 }
+
+/* Asegurar que la imagen se vea bien dentro del marco */
+.list-container ul.grid .item-icon {
+  width: 90%; 
+  height: 90%;
+  object-fit: cover;
+  border-radius: 8px; 
+  position: relative;
+  z-index: 2;
+  transition: border-radius 0.3s;
+}
+
+/* Ocultar texto en vista de grid */
 .list-container ul.grid .item-text {
   display: none;
 }
-.list-container ul.grid .item-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  position: relative;
-  z-index: 1;
-}
-/* Modo lista: elementos con sombra */
+
+/* ----------------------------------------------- */
+/* FIN ESTILOS MEJORADOS PARA LA VISTA DE GRID */
+/* ----------------------------------------------- */
+
+
+/* Modo lista: elementos con sombra (manteniendo tu estilo original) */
 .project-item {
   display: flex;
   align-items: center;
