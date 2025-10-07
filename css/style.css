@@ -258,11 +258,19 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  border-radius: 12px; 
+  
+  /* CREADO: Añadir padding para crear la distancia/marco alrededor de la imagen */
+  padding: 8px; 
+  
+  /* CAMBIO DE VALOR: border-radius ajustado a 14px */
+  border-radius: 14px; 
+  
   position: relative;
   transition: transform 0.2s ease-out, box-shadow 0.3s ease, background-color 0.3s;
   font-weight: normal;
+  
+  /* CORRECCIÓN: Mantener overflow: hidden para que la curvatura del contenedor recorte la imagen */
+  overflow: hidden; 
 
   /* Estilo visual */
   background-color: rgba(31, 31, 31, 0.8);
@@ -306,10 +314,19 @@ main {
 
 /* Asegurar que la imagen se vea bien dentro del marco */
 .list-container ul.grid .item-icon {
-  width: 90%; 
-  height: 90%;
-  object-fit: cover;
-  border-radius: 8px; 
+  /* CORRECCIÓN CLAVE: Usar max-width y max-height para asegurar que la imagen 
+     se escala para caber en el espacio 1:1 respetando su propia proporción 1:1 */
+  max-width: 100%; 
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  
+  /* Mantener 'contain' para mostrar la imagen completa sin recortar */
+  object-fit: contain; 
+  
+  /* Usar el border-radius del contenedor (.project-item) - Ahora heredará 14px */
+  border-radius: inherit; 
+  
   position: relative;
   z-index: 2;
   transition: border-radius 0.3s;
@@ -356,13 +373,14 @@ main {
   background-color: rgba(85,85,85,0.7);
   font-weight: bold;
 }
+/* Estilo general del ícono (aplica 6px de borde) */
 .item-icon {
   width: 36px;
   height: 36px;
   object-fit: cover;
   margin: 0;
   border: none;
-  border-radius: 6px;
+  border-radius: 6px; 
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform, opacity;
