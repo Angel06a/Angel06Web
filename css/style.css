@@ -263,8 +263,8 @@ main {
   /* CREADO: Añadir padding para crear la distancia/marco alrededor de la imagen */
   padding: 8px; 
   
-  /* CAMBIO DE VALOR: border-radius ajustado a 14px */
-  border-radius: 14px; 
+  /* CAMBIO DE VALOR: border-radius ajustado a 18px */
+  border-radius: 18px; 
   
   position: relative;
   transition: transform 0.2s ease-out, box-shadow 0.3s ease, background-color 0.3s;
@@ -325,7 +325,7 @@ main {
   /* Mantener 'contain' para mostrar la imagen completa sin recortar */
   object-fit: contain; 
   
-  /* Usar el border-radius del contenedor (.project-item) - Hereda 14px */
+  /* Usar el border-radius del contenedor (.project-item) - Ahora hereda 18px */
   border-radius: inherit; 
   
   position: relative;
@@ -350,7 +350,7 @@ main {
   width: 100%;
   margin-bottom: 5px;
   border: none;
-  border-radius: 6px;
+  border-radius: 6px; /* Botón en modo lista con 6px de radio de borde */
   cursor: pointer;
   text-align: left;
   background-color: rgba(51,51,51,0.7);
@@ -381,6 +381,9 @@ main {
   object-fit: cover;
   margin: 0;
   border: none;
+  /* CORRECCIÓN CLAVE PARA MODO LISTA: 
+     Aplicar 6px de radio de borde a las 4 esquinas para que coincida perfectamente 
+     con el borde del botón en el lado izquierdo y tenga su curvatura interna. */
   border-radius: 6px; 
   transform: translateZ(0);
   backface-visibility: hidden;
