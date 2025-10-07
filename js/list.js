@@ -31,7 +31,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
   -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
   -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
-  -Super Mario 64 Port "https://sm64coopdx.com/"
+  -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
@@ -76,7 +76,7 @@ Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
-  -Super Mario 64 Port "https://github.com/coop-deluxe/sm64coopdx/releases"
+  -Super Mario 64 Port "https://github.com/coop-deluxe/sm64coopdx/releases" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -The Legend of Zelda Port "https://github.com/Waterdish/Shipwright-Android/releases"
   -Zombie Avengers Dreamsky Stickman War "https://www.mediafire.com/file/bd1r8u5gsej8vvn/Zombie_Avengers_Dreamsky_Stickman_War.apk/file"
 Programas Android (emoji.android)=⚙️ (emoji.android)=:
@@ -115,5 +115,6 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -WallpaperStore =⚙️= "https://angel06a.github.io/WallpaperStore/" *Utilizar*
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
 
 
