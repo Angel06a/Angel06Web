@@ -247,13 +247,14 @@ main {
 /* ----------------------------------------------- */
 
 .list-container ul.grid .project-item {
-  /* Contracción ligera para asegurar espacio para la sombra */
-  width: 95%; 
-  height: 95%;
-  margin: 0 auto; /* Centrar el ítem para distribuir el ancho contraído */
+  /* AJUSTE CLAVE: Forzar 100% de ancho y eliminar el margen/contracción */
+  width: 100%; 
+  height: auto; /* Dejar que aspect-ratio defina el alto */
+  margin: 0; /* Eliminar el margen auto */
   
-  /* Mantener el tamaño y la forma */
-  aspect-ratio: 1;
+  /* FUERZA LA RELACIÓN 1:1 EXACTA */
+  aspect-ratio: 1; 
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -314,7 +315,7 @@ main {
 
 /* Asegurar que la imagen se vea bien dentro del marco */
 .list-container ul.grid .item-icon {
-  /* CORRECCIÓN CLAVE: Usar max-width y max-height para asegurar que la imagen 
+  /* Usar max-width y max-height para asegurar que la imagen 
      se escala para caber en el espacio 1:1 respetando su propia proporción 1:1 */
   max-width: 100%; 
   max-height: 100%;
@@ -324,7 +325,7 @@ main {
   /* Mantener 'contain' para mostrar la imagen completa sin recortar */
   object-fit: contain; 
   
-  /* Usar el border-radius del contenedor (.project-item) - Ahora heredará 14px */
+  /* Usar el border-radius del contenedor (.project-item) - Hereda 14px */
   border-radius: inherit; 
   
   position: relative;
