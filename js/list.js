@@ -21,6 +21,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Injustice: Gods Among Us "https://pivigames.blog/injustice-gods-among-us-ultimate-edition/"
   -Killer Instinct "https://pivigames.blog/killer-instinct/"
   -Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
+  -Mario Kart 64 Port "https://github.com/sonicdcer/MarioKart64Recomp/releases" "https://vimm.net/vault/2649" *Descargar* *Rom*
   -Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
   -Nidhogg 2 "https://pivigames.blog/nidhoog-2/"
   -Naruto Shippuden: Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
@@ -115,6 +116,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -WallpaperStore =⚙️= "https://angel06a.github.io/WallpaperStore/" *Utilizar*
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
 
 
 
