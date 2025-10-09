@@ -108,6 +108,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -ROMSFUN (Roms) (Emular) =🕹️= "https://romsfun.com/"
   -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
   -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
+  -Super Mario 64 Port =🎮= "https://notan127.github.io/SM64-PC-Port-WebGL/" *Jugar*
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -TempMail =⚙️= "https://temp-mail.org/es/" *Utilizar*
   -The Binding of Isaac =🎮= "https://emupedia.net/emupedia-game-binding-of-isaac/" *Jugar*
@@ -116,6 +117,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -WallpaperStore =⚙️= "https://angel06a.github.io/WallpaperStore/" *Utilizar*
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
 
 
 
