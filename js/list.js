@@ -4,6 +4,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Alien Shooter "https://gogunlocked.com/alien-shooter-expansions-free-download/"
   -Alien Shooter 2: Reloaded "https://gogunlocked.com/alien-shooter-2-reloaded-free-download/"
   -Call of Duty: Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
+  -Call of Duty: Black Ops 2 "https://pivigames.blog/call-of-duty-black-ops-2-zombies-multiplayer-con-bots/"
   -Call of Duty: Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
   -Clone Drone in the Danger Zone "https://pivigames.blog/clone-drone-in-the-danger-zone-v0-4-1/"
   -Cuphead "https://pivigames.blog/chuphead/"
@@ -117,6 +118,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -WallpaperStore =⚙️= "https://angel06a.github.io/WallpaperStore/" *Utilizar*
   -WoWroMs (Roms) (Emular) =🕹️= "https://wowroms.com/es/"
 `;
+
 
 
 
