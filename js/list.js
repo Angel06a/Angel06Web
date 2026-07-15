@@ -11,7 +11,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Downwell "https://elenemigos.com/app/downwell-descargar-gratis/21530"
   -Dragon Ball FighterZ "https://steamunlocked.org/dragon-ball-fighterz-free-download/"
   -Dragon Ball Sparking ZERO "https://pivigames.blog/dragon-ball-sparking-zero-oferta-25/"
-  -Exiled Kingdoms "https://steamunlocked.org/exiled-kingdoms-free-download/"
+  -Exiled Kingdoms "https://gogunlocked.com/exiled-kingdoms-free-download/"
   -Far Cry 3 "https://steamunlocked.org/far-cry-3-deluxe-edition-free-download/"
   -GTA III "https://steamunlocked.org/grand-theft-auto-iii-free-download/"
   -GTA IV "https://pivigames.blog/grand-theft-auto-iv-episodes-from-liberty/"
