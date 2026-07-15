@@ -78,7 +78,7 @@ Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Downwell "https://www.mediafire.com/file/m5su7db553cwe9k/downwell.apk/file"
   -Exiled Kingdoms "https://apkaward.com/exiled-kingdoms-rpg"
   -Lego DC Mighty Micros "https://www.mediafire.com/file/580k0z0nzmapo91/LEGO+DC+Mighty+Micros+v1.7.1418+-+espacioapk.com.apk/file"
-  -Minecraft Bedrock "https://apkretro.com/minecraft-apk-download/"
+  -Minecraft Bedrock "https://mcpelife.com/download/"
   -Paladog "https://www.mediafire.com/file/1xbi8es1hh3sscx/Paladog_2.2.0.apk/file"
   -Pureya "https://www.mediafire.com/file/7dwqkchjm2gxbl3/Pureya_1.0.15.apk/file"
   -Run & Gun: Banditos "https://www.mediafire.com/file/cu23w1yl9t4qp64/Run_%2526_Gun_BANDITOS_1.3.2.apk/file"
