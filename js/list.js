@@ -24,10 +24,10 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Killer Instinct "https://pivigames.blog/killer-instinct/"
   -Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
   -Mario Kart 64 Port "https://github.com/sonicdcer/MarioKart64Recomp/releases" "https://vimm.net/vault/2649" *Descargar* *Rom*
-  -Mortal Kombat Komplete Edition "https://pivigames.blog/mortal-kombat-9-komplete-edition-online-steam/"
+  -Mortal Kombat Komplete Edition "https://steamunlocked.org/mortal-kombat-komplete-edition-free-download/"
   -Nidhogg 2 "https://steamunlocked.org/nidhogg-2-free-download/"
   -Nidhogg "https://steamunlocked.org/nidhogg-free-download/"
-  -Naruto Shippuden: Ultimate Ninja STORM 3 "https://pivigames.blog/naruto-shippuden-ultimate-ninja-sotrm-3-full-burst-online-steam/"
+  -Naruto Shippuden: Ultimate Ninja STORM 3 "https://steamunlocked.org/naruto-shippuden-ultimate-ninja-storm-3-full-burst-hd-free-download/"
   -Pureya "https://steamunlocked.org/pureya-free-download/"
   -Quake III Arena "https://steamunlocked.org/quake-iii-arena-free-download/" "https://ioquake3.org/" *Juego Base* *Ioquake3*
   -Rayman Legends "https://steamunlocked.org/rayman-legends-free-download/"
@@ -35,11 +35,12 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Slayin DX "https://steamunlocked.org/slayin-dx-free-download/"
   -Slime Rancher "https://steamunlocked.org/slime-rancher-free-download/"
   -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
-  -Spore "https://pivigames.blog/sopre-complete-pack-incluye-dlcs/"
+  -Spore "https://steamunlocked.org/spore-collection-free-download/"
   -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
+  -Ultimate Marvel vs Capcom 3 "https://steamunlocked.org/ultimate-marvel-vs-capcom-3-free-download/"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
