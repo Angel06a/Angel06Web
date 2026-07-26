@@ -36,11 +36,11 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Slime Rancher "https://steamunlocked.org/slime-rancher-free-download/"
   -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
   -Spore "https://steamunlocked.org/spore-collection-free-download/"
-  -Street Fighter X Tekken "https://pivigames.blog/street-fighter-x-tekken-2/"
+  -Street Fighter X Tekken "https://www.mediafire.com/file/z6nj6xyidmgfk1e/Street_Fighter_X_Tekken_Complete_Pack.zip/file"
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
-  -Ultimate Marvel vs Capcom 3 "https://steamunlocked.org/ultimate-marvel-vs-capcom-3-free-download/"
+  -Ultimate Marvel vs Capcom 3 "https://www.mediafire.com/file/7nap2u9s2b0g2yj/Ultimate_Marvel_vs_Capcom_3.zip/file"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
