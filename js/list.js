@@ -76,7 +76,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
   -Call of Duty: Black Ops Zombies "https://www.mediafire.com/file/a9cb3i70ft7ms7n/COD_BOZ_1.0.11.zip/file"
-  -Downwell "https://apkaward.com/downwell"
+  -Downwell "https://apkvision.org/games/action/downwell-51473/"
   -Exiled Kingdoms "https://apkvision.org/games/role-playing/exiled-kingdoms-rpg-10725/"
   -GTA III "https://apkvision.org/games/action/grand-theft-auto-3-apk-3166/"
   -GTA: Chinatown Wars "https://apkvision.org/games/action/gta-chinatown-wars-8293/"
