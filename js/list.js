@@ -33,7 +33,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Rayman Legends "https://www.mediafire.com/folder/f7as11lfzbj7i/Rayman+Legends"
   -Serious Sam HD "https://steamunlocked.org/serious-sam-hd-the-second-encounter-free-download/"
   -Slayin DX "https://steamunlocked.org/slayin-dx-free-download/"
-  -Slime Rancher "https://rentry.co/76d5hufc"
+  -Slime Rancher "https://rentry.co/dzwd6zp4"
   -Sonic The Hedgehog 3D "https://www.mediafire.com/file/nhkguu8q4jh8pk1/Sonic_The_Hedgehog_3D.zip/file"
   -Spore "https://steamunlocked.org/spore-collection-free-download/"
   -Street Fighter X Tekken "https://www.mediafire.com/file/z6nj6xyidmgfk1e/Street_Fighter_X_Tekken_Complete_Pack.zip/file"
