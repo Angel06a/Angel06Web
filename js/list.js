@@ -6,7 +6,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Call of Duty: Black Ops 1 "https://pivigames.blog/call-of-duty-black-ops-zombies-y-multiplayer-online/"
   -Call of Duty: Black Ops 2 "https://pivigames.blog/call-of-duty-black-ops-2-zombies-multiplayer-con-bots/"
   -Call of Duty: Modern Warfare 3 "https://pivigames.blog/call-of-duty-moder-warfare-3-con-multijugador-online/"
-  -Clone Drone in the Danger Zone "https://steamunlocked.org/clone-drone-in-the-danger-zone-free-download/"
+  -Clone Drone in the Danger Zone "https://www.mediafire.com/file/cs7iz3ckjpuoh6b/Clone_Drone_in_the_Danger_Zone.zip/file"
   -Cuphead "https://steamunlocked.org/cuphead-free-download/"
   -Downwell "https://elenemigos.com/app/downwell-descargar-gratis/21530"
   -Dragon Ball FighterZ "https://steamunlocked.org/dragon-ball-fighterz-free-download/"
@@ -30,11 +30,11 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Naruto Shippuden: Ultimate Ninja STORM 3 "https://steamunlocked.org/naruto-shippuden-ultimate-ninja-storm-3-full-burst-hd-free-download/"
   -Pureya "https://steamunlocked.org/pureya-free-download/"
   -Quake III Arena "https://steamunlocked.org/quake-iii-arena-free-download/" "https://ioquake3.org/" *Juego Base* *Ioquake3*
-  -Rayman Legends "https://steamunlocked.org/rayman-legends-free-download/"
+  -Rayman Legends "https://www.mediafire.com/folder/f7as11lfzbj7i/Rayman+Legends"
   -Serious Sam HD "https://steamunlocked.org/serious-sam-hd-the-second-encounter-free-download/"
   -Slayin DX "https://steamunlocked.org/slayin-dx-free-download/"
-  -Slime Rancher "https://steamunlocked.org/slime-rancher-free-download/"
-  -Sonic The Hedgehog 3D "https://www.mediafire.com/file/k3gcdhhqikfsykn/Sonic_The_Hedgehog_3D_Setup.exe/file"
+  -Slime Rancher "https://www.mediafire.com/file/fyiw21pgzr2t5zz/Slime_Rancher.zip/file"
+  -Sonic The Hedgehog 3D "https://www.mediafire.com/file/nhkguu8q4jh8pk1/Sonic_The_Hedgehog_3D.zip/file"
   -Spore "https://steamunlocked.org/spore-collection-free-download/"
   -Street Fighter X Tekken "https://www.mediafire.com/file/z6nj6xyidmgfk1e/Street_Fighter_X_Tekken_Complete_Pack.zip/file"
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
