@@ -40,7 +40,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
   -The Legend of Zelda Port "https://www.shipofharkinian.com/"
-  -Ultimate Marvel vs Capcom 3 "https://www.mediafire.com/file/7nap2u9s2b0g2yj/Ultimate_Marvel_vs_Capcom_3.zip/file"
+  -Ultimate Marvel vs Capcom 3 "https://rentry.co/3b2zfkhf"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Autoruns (Registro de Windows) "https://www.google.com/url?q=https://download.sysinternals.com/files/Autoruns.zip&sa=D&source=docs&ust=1741690293775013&usg=AOvVaw3r6f1YvR1doRmskUjrBNyS"
