@@ -34,7 +34,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Serious Sam HD "https://steamunlocked.org/serious-sam-hd-the-second-encounter-free-download/"
   -Slayin DX "https://steamunlocked.org/slayin-dx-free-download/"
   -Slime Rancher "https://rentry.co/dzwd6zp4"
-  -Sonic The Hedgehog 3D "https://www.mediafire.com/file/nhkguu8q4jh8pk1/Sonic_The_Hedgehog_3D.zip/file"
+  -Sonic The Hedgehog 3D "https://rentry.co/m46az9tz"
   -Spore "https://steamunlocked.org/spore-collection-free-download/"
   -Street Fighter X Tekken "https://rentry.co/po7v3pwu"
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
