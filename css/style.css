@@ -1,571 +1,495 @@
-/* Global reset y box-sizing */
+/* ==========================================================================
+   Angel06Web Modern UI Design
+   ========================================================================== */
+
+/* Global Reset & Theme Variables */
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+:root {
+  --primary-color: #1abc9c;
+  --primary-hover: #16a085;
+  --accent-color: #1abc9c;
+  --bg-dark: #1f1f1f;
+  --card-bg: rgba(44, 44, 44, 0.85);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --glass-glow: rgba(26, 188, 156, 0.2);
+  --text-main: #f0f6fc;
+  --text-muted: #8b949e;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #000 !important;
-  background: url('../img/Fondo.webp') no-repeat center center fixed; /* Ruta corregida */
+  background-color: var(--bg-dark) !important;
+  background: url('../img/Fondo.webp') no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-/* Overlay para el fade-in */
+
+/* Background Overlay Transition */
 #bg-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: transparent;
   z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease-out;
+  opacity: 0;
   pointer-events: none;
 }
-/* Scrollbars globales */
+
+/* Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #222;
-  border-radius: 4px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #3A3A3A;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background: rgba(255, 255, 255, 0.3);
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3A3A3A #222;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
-/* Estilos base */
+
+/* Base Layout */
 body {
   display: flex;
   flex-direction: column;
-  font-family: Arial, sans-serif;
-  color: #ccc;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
+
 header {
-  background-color: rgba(31,31,31,0.8);
-  height: 40px;
-  min-height: 40px;
-  max-height: 40px;
+  background: rgba(31, 31, 31, 0.85);
+  height: 52px;
+  min-height: 52px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
 header h1 {
   margin: 0;
   font-size: 18px;
-  color: #fff;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
 }
-header a, header button {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
+
 .header-icon {
-  display: block;
-  vertical-align: middle;
-  width: 36px;
+  width: 32px;
   height: auto;
   cursor: pointer;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
-/* Botón de configuración con imagen */
+.header-icon:hover {
+  transform: scale(1.1);
+}
+
 #config-btn {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 14px;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+#config-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 .config-icon {
-  width: 28px;
+  width: 24px;
   height: auto;
+  transition: var(--transition);
 }
+#config-btn:hover .config-icon {
+  transform: rotate(45deg);
+}
+
 footer {
-  background-color: rgba(31,31,31,0.8);
-  flex: 0 0 20px;
+  background: rgba(31, 31, 31, 0.85);
+  border-top: 1px solid var(--card-border);
+  flex: 0 0 28px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 footer p {
   margin: 0;
-  font-size: 14px;
-  color: #999;
+  font-size: 12px;
+  color: var(--text-muted);
 }
+
 .container {
   flex: 1 1 auto;
   display: flex;
   min-height: 0;
   min-width: 0;
-  padding: 0 10px;
+  padding: 12px;
+  gap: 12px;
   overflow: hidden;
 }
+
+/* Sidebar Left */
 aside.sidebar-left {
-  width: 250px;
-  background-color: rgba(44,44,44,0.9);
-  padding: 20px;
+  width: 260px;
+  background: var(--card-bg);
+  padding: 16px;
   flex-shrink: 0;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   overflow: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
-.search-bar {
-  width: 100%;
-}
+
 .search-bar input {
   display: block;
   width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  background-color: #2F2F2F;
-  color: #ccc;
+  padding: 10px 14px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text-main);
+  outline: none;
+  font-size: 14px;
+  transition: var(--transition);
 }
-nav {
-  width: 100%;
+.search-bar input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px var(--glass-glow);
+  background: rgba(0, 0, 0, 0.5);
 }
+
 nav ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-nav li {
-  margin-bottom: 10px;
-}
-/* Modo lista: Categorías con sombra */
+
 nav button.tab-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
-  padding: 8px;
-  border-radius: 6px;
-  background-color: rgba(47,47,47,0.7);
-  color: #ccc;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
   cursor: pointer;
-  border: none;
-  user-select: none;
-  -webkit-user-drag: none;
+  border: 1px solid transparent;
   text-align: left;
-  position: relative;
-  transition: background-color 0.3s;
-  font-weight: normal;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra añadida */
+  transition: var(--transition);
+  font-size: 14px;
+  font-weight: 500;
 }
 nav button.tab-button:hover {
-  background-color: rgba(56,56,56,0.7);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
 }
 nav button.tab-button.active {
-  background-color: rgba(85,85,85,0.7);
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* sombra más fuerte al estar activo */
+  background: rgba(26, 188, 156, 0.2);
+  border-color: rgba(26, 188, 156, 0.4);
+  color: var(--text-main);
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Main Content Area */
 main {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
-  background-color: rgba(46,46,46,0.9);
-  color: #ccc;
+  background: var(--card-bg);
+  color: var(--text-main);
   overflow: hidden;
   padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
   position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
+
 .tab-content {
   flex: 1 1 auto;
   display: none;
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
-  background-color: rgba(255,255,255,0.05);
-  border-radius: 10px;
-  padding: 10px;
 }
 .tab-content.active {
   display: flex;
 }
 .tab-content h2 {
-  color: #fff;
-  margin: 0 0 10px 0;
+  color: var(--text-main);
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
+
 .project-list {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
-  margin-top: 10px;
 }
 
-/* ----------------------------------------------- */
-/* AJUSTE CLAVE: Contenedor de lista para el marco */
-/* ----------------------------------------------- */
 .list-container {
   flex: 1 1 auto;
   overflow-y: auto;
   min-height: 0;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform;
-  /* CAMBIO FINAL: Reducción del padding superior a 4px (mínimo espacio, máximo acercamiento) */
-  padding: 4px 10px 15px 10px;
-  box-sizing: content-box;
+  padding: 4px 6px 12px 2px;
 }
 
-/* Vista de lista: sin pseudo-elementos */
+/* List Items (Modo Lista Default) */
 .list-container ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
-}
-/* Modo grid: se aplica la clase "grid" */
-.list-container ul.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 15px; 
-}
-
-/* ----------------------------------------------- */
-/* ESTILOS MEJORADOS PARA LA VISTA DE GRID (ICONOS) */
-/* ----------------------------------------------- */
-
-.list-container ul.grid .project-item {
-  /* AJUSTE CLAVE: Forzar 100% de ancho y eliminar el margen/contracción */
-  width: 100%; 
-  height: auto; /* Dejar que aspect-ratio defina el alto */
-  margin: 0; /* Eliminar el margen auto */
-  
-  /* FUERZA LA RELACIÓN 1:1 EXACTA */
-  aspect-ratio: 1; 
-  
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
-  /* CREADO: Añadir padding para crear la distancia/marco alrededor de la imagen */
-  padding: 8px; 
-  
-  /* CAMBIO DE VALOR: border-radius ajustado a 18px */
-  border-radius: 18px; 
-  
-  position: relative;
-  transition: transform 0.2s ease-out, box-shadow 0.3s ease, background-color 0.3s;
-  font-weight: normal;
-  
-  /* CORRECCIÓN: Mantener overflow: hidden para que la curvatura del contenedor recorte la imagen */
-  overflow: hidden; 
-
-  /* Estilo visual */
-  background-color: rgba(31, 31, 31, 0.8);
-  border: 1px solid rgba(85, 85, 85, 0.2); 
-  /* Sombra más corta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 0 1px rgba(255, 255, 255, 0.1); 
+  gap: 8px;
 }
 
-/* Efecto al pasar el ratón: Elevación y ligero cambio de color */
-.list-container ul.grid .project-item:hover {
-  transform: translateY(-2px); 
-  background-color: rgba(44, 44, 44, 0.9);
-  /* Sombra de hover más corta */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.15);
-}
-
-/* Efecto de iluminación interna al seleccionar (Selección Destacada) */
-.list-container ul.grid .project-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  box-shadow: 0 0 0 3px #1abc9c; /* Borde de selección principal */
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-/* Al ser seleccionado, también aplicamos un transform para "hundirlo" un poco */
-.list-container ul.grid .project-item.selected {
-  background-color: rgba(85, 85, 85, 0.9);
-  transform: translateY(0); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.7); 
-}
-.list-container ul.grid .project-item.selected::before {
-  opacity: 1;
-}
-
-/* Asegurar que la imagen se vea bien dentro del marco */
-.list-container ul.grid .item-icon {
-  /* Usar max-width y max-height para asegurar que la imagen 
-     se escala para caber en el espacio 1:1 respetando su propia proporción 1:1 */
-  max-width: 100%; 
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  
-  /* Mantener 'contain' para mostrar la imagen completa sin recortar */
-  object-fit: contain; 
-  
-  /* Usar el border-radius del contenedor (.project-item) - Ahora hereda 18px */
-  border-radius: inherit; 
-  
-  position: relative;
-  z-index: 2;
-  transition: border-radius 0.3s;
-}
-
-/* Ocultar texto en vista de grid */
-.list-container ul.grid .item-text {
-  display: none;
-}
-
-/* ----------------------------------------------- */
-/* FIN ESTILOS MEJORADOS PARA LA VISTA DE GRID */
-/* ----------------------------------------------- */
-
-
-/* Modo lista: elementos con sombra (manteniendo tu estilo original) */
 .project-item {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 5px;
-  border: none;
-  border-radius: 6px; /* Botón en modo lista con 6px de radio de borde */
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
   cursor: pointer;
   text-align: left;
-  background-color: rgba(51,51,51,0.7);
-  height: 36px;
-  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  height: 46px;
+  padding: 4px 12px 4px 4px;
   overflow: hidden;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, opacity;
-  user-select: none;
-  -webkit-user-drag: none;
-  position: relative;
-  transition: background-color 0.3s;
-  font-weight: normal;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Sombra añadida */
+  transition: var(--transition);
 }
 .project-item:hover {
-  background-color: rgba(58,58,58,0.7);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(3px);
 }
 .project-item.selected {
-  background-color: rgba(85,85,85,0.7);
-  font-weight: bold;
+  background: rgba(26, 188, 156, 0.18);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(26, 188, 156, 0.15);
 }
-/* Estilo general del ícono (aplica 6px de borde) */
+
 .item-icon {
   width: 36px;
   height: 36px;
   object-fit: cover;
-  margin: 0;
-  border: none;
-  /* CORRECCIÓN CLAVE PARA MODO LISTA: 
-     Aplicar 6px de radio de borde a las 4 esquinas para que coincida perfectamente 
-     con el borde del botón en el lado izquierdo y tenga su curvatura interna. */
-  border-radius: 6px; 
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, opacity;
-  user-select: none;
-  -webkit-user-drag: none;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
 }
+
 .item-text {
   flex: 1;
-  padding-left: 8px;
-  color: #ccc;
-  user-select: none;
-  vertical-align: middle;
-  line-height: 1.2;
+  padding-left: 12px;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.emoji {
-  width: 1em;
-  height: 1em;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  user-select: none;
-  -webkit-user-drag: none;
+
+/* Modo Grid Structure */
+.list-container ul.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  gap: 12px;
 }
-.download-section {
-  margin-top: 20px;
+
+.list-container ul.grid .project-item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 10px;
+  border-radius: var(--radius-lg);
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+  transition: var(--transition);
+  position: relative;
+}
+.list-container ul.grid .project-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.list-container ul.grid .project-item.selected {
+  background: rgba(26, 188, 156, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px var(--glass-glow);
+  transform: translateY(-2px);
+}
+.list-container ul.grid .item-icon {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+.list-container ul.grid .item-text {
+  display: none;
+}
+
+/* Download Section */
+.download-section {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
   width: 100%;
 }
 .download-section-btn {
-  background-color: #1abc9c;
-  height: 38px;
+  background: #1abc9c;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   color: #fff;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
   flex: 1;
-  text-align: center;
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(26, 188, 156, 0.25);
 }
 .download-section-btn:hover {
-  background-color: #16a085;
-}
-.no-results {
-  color: #999;
-  padding: 8px;
-}
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  aside.sidebar-left {
-    width: 100%;
-    margin: 10px auto;
-    border-radius: 10px;
-    order: 2;
-  }
-  main {
-    order: 1;
-    width: 100%;
-    margin: 10px auto;
-  }
-  nav ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  nav li {
-    margin-bottom: 0;
-    margin-right: 5px;
-  }
-  nav button.tab-button {
-    width: auto;
-    margin-right: 5px;
-    padding: 8px 12px;
-  }
+  background: #16a085;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26, 188, 156, 0.4);
 }
 
-/* ----------------------------------------------- */
-/* DISEÑO MEJORADO DEL PANEL DE CONFIGURACIÓN */
-/* ----------------------------------------------- */
+.emoji {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: sub;
+}
 
+/* Config Panel Modals */
 #config-panel {
   position: fixed;
-  /* Centrado en pantalla */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Ajuste para centrado perfecto */
-  background-color: rgba(31,31,31,0.95); /* Fondo más oscuro */
-  padding: 25px; /* Más padding para que se vea más robusto */
-  border-radius: 12px; /* Esquinas más suaves */
+  transform: translate(-50%, -45%) scale(0.95);
+  background: rgba(31, 31, 31, 0.95);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
   z-index: 10000;
-  color: #fff; /* Texto blanco para mejor contraste */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra dramática */
-  min-width: 300px; /* Ancho mínimo */
+  color: var(--text-main);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  min-width: 320px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: none;
-  pointer-events: none; 
+  pointer-events: none;
 }
 #config-panel.visible {
   display: block;
   opacity: 1;
-  pointer-events: auto; /* Habilitar interacción */
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
 
-/* Encabezado del panel de configuración */
 .config-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px; /* Más espacio */
+  margin-bottom: 12px;
 }
 .config-header h3 {
   margin: 0;
-  font-size: 22px; /* Título más prominente */
-  font-weight: bold;
-  color: #1abc9c; /* Color de acento */
-  line-height: 1;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
 }
 .config-header button.close {
-  background: none;
+  background: rgba(255, 255, 255, 0.05);
   border: none;
-  color: #fff;
-  font-size: 24px;
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 14px;
   cursor: pointer;
-  align-self: flex-start;
-  transition: color 0.2s;
+  transition: var(--transition);
 }
 .config-header button.close:hover {
-    color: #e74c3c; /* Color de peligro al pasar el ratón */
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
 }
 
-/* Nuevo Separador Visual */
 .config-separator {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 15px;
+  height: 1px;
+  background: var(--card-border);
+  margin-bottom: 16px;
 }
 
-/* Contenedor para Opciones (Diseño escalable) */
-.config-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espaciado entre opciones */
-}
-
-/* Estilo del switch personalizado */
+/* Toggle Switch Styling */
 .switch-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
   cursor: pointer;
-  font-size: 16px;
-  padding: 5px 0; /* Un poco de padding para el área de clic */
-  transition: background-color 0.2s;
-  border-radius: 4px;
-}
-.switch-label:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--text-main);
 }
 .switch-label input {
   display: none;
 }
 .switch-slider {
   position: relative;
-  width: 40px;
-  min-width: 40px;
-  height: 20px;
-  background-color: #555; /* Color base más oscuro */
-  border-radius: 10px;
-  transition: background-color 0.3s;
-  flex-shrink: 0;
+  width: 44px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: var(--transition);
+  border: 1px solid var(--card-border);
 }
 .switch-slider::before {
   content: "";
@@ -574,16 +498,42 @@ main {
   left: 2px;
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background: #fff;
   border-radius: 50%;
-  transition: transform 0.3s;
+  transition: var(--transition);
 }
 .switch-label input:checked + .switch-slider {
-  background-color: #1abc9c;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 .switch-label input:checked + .switch-slider::before {
-  transform: translateX(20px);
+  transform: translateX(22px);
+  background: #fff;
 }
-#config-panel label {
-  margin: 0;
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 8px;
+  }
+  aside.sidebar-left {
+    width: 100%;
+    order: 2;
+    padding: 12px;
+  }
+  main {
+    order: 1;
+    width: 100%;
+    padding: 14px;
+  }
+  nav ul {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  nav button.tab-button {
+    white-space: nowrap;
+    width: auto;
+  }
 }
