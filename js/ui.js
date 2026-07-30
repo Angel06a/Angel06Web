@@ -6,7 +6,6 @@ let selectedDownloadLink2 = "";
 function setupUIStructure(categoriesData) {
   const sidebarUl = document.getElementById('sidebar-categories');
   const mainContent = document.getElementById('main-content');
-  const busquedaList = document.getElementById('busqueda-list');
   const primaryDownloadBtn = document.getElementById('primary-download-btn');
   const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
 
@@ -27,13 +26,13 @@ function setupUIStructure(categoriesData) {
     }
   });
 
+  // Delegación de eventos centralizada en mainContent para todos los .project-item
+  attachProjectItemDelegation(mainContent, primaryDownloadBtn, secondaryDownloadBtn);
+
   // Crear pestañas y contenido de categorías
   categoriesData.forEach((cat, index) => {
     createCategoryTabAndContent(cat, index, sidebarUl, mainContent);
   });
-
-  // Delegación de eventos para items de proyecto en búsqueda
-  attachProjectItemDelegation(busquedaList, primaryDownloadBtn, secondaryDownloadBtn);
 
   // Aplicar modo grid si está guardado en cookie
   const gridCookie = getCookie("grid_view");
@@ -66,10 +65,10 @@ function processItemClick(button, primaryBtn, secondaryBtn) {
   }
 }
 
-function attachProjectItemDelegation(ulElement, primaryBtn, secondaryBtn) {
-  ulElement.addEventListener('click', function(e) {
+function attachProjectItemDelegation(containerElement, primaryBtn, secondaryBtn) {
+  containerElement.addEventListener('click', function(e) {
     const btn = e.target.closest('.project-item');
-    if (btn && ulElement.contains(btn)) {
+    if (btn && containerElement.contains(btn)) {
       processItemClick(btn, primaryBtn, secondaryBtn);
     }
   });
@@ -116,7 +115,6 @@ function createCategoryTabAndContent(cat, index, sidebarUl, mainContent) {
     // Usar cleanCategoryName para la ruta de la imagen
     loadImageAsync(`./img/Elementos/${cleanCategoryName(cat.name)}/${stripParentheses(item.displayName)}.webp`, iconImg);
 
-
     const textSpan = document.createElement('span');
     textSpan.classList.add('item-text');
     // Para las categorías, muestra el displayName. item.itemExtra no se usa aquí.
@@ -145,10 +143,6 @@ function createCategoryTabAndContent(cat, index, sidebarUl, mainContent) {
   projectListDiv.appendChild(listContainer);
   section.appendChild(projectListDiv);
   mainContent.insertBefore(section, mainContent.querySelector('.download-section'));
-
-  const primaryDownloadBtn = document.getElementById('primary-download-btn');
-  const secondaryDownloadBtn = document.getElementById('secondary-download-btn');
-  attachProjectItemDelegation(ul, primaryDownloadBtn, secondaryDownloadBtn);
 }
 
 function showTab(tabId, searchInput, primaryBtn, secondaryBtn) {
@@ -244,20 +238,54 @@ function setupConfigPanel() {
     const configCloseBtn = document.getElementById('config-close-btn');
     const toggleGrid = document.getElementById('toggle-grid');
 
-    configBtn.addEventListener('click', () => {
+    const handleKeyDown = (e) => {
+        if (!configPanel.classList.contains('visible')) return;
+
+        // Cerrar panel con la tecla Escape
+        if (e.key === 'Escape') {
+            closePanel();
+            return;
+        }
+
+        // Trampa de Foco (Focus Trap) para navegación con Tab
+        if (e.key === 'Tab') {
+            const focusableElements = configPanel.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey) { // Shift + Tab
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else { // Tab solo
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+    };
+
+    const openPanel = () => {
         configPanel.style.display = 'block';
         setTimeout(() => {
             configPanel.classList.add('visible');
+            configCloseBtn.focus(); // Enfocar primer elemento interactivo del panel
         }, 10);
-    });
+        document.addEventListener('keydown', handleKeyDown);
+    };
 
     const closePanel = () => {
         configPanel.classList.remove('visible');
+        document.removeEventListener('keydown', handleKeyDown);
         setTimeout(() => {
             configPanel.style.display = 'none';
+            configBtn.focus(); // Devolver el foco al botón de configuración
         }, 300); // Coincide con la duración de la transición CSS
     };
 
+    configBtn.addEventListener('click', openPanel);
     configCloseBtn.addEventListener('click', closePanel);
 
     document.addEventListener('click', (e) => {
