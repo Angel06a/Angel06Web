@@ -76,6 +76,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
 Juegos Android (emoji.android)=🎮 (emoji.android)=:
   -Alien Shooter "https://www.mediafire.com/file/qtxntb41f2tfaib/Alien_Shooter_1.2.5.apk/file"
   -Call of Duty: Black Ops Zombies "https://www.mediafire.com/file/a9cb3i70ft7ms7n/COD_BOZ_1.0.11.zip/file"
+  -Crash Bandicoot: On the Run (Offline) "https://agmod.org/crash-bandicoot-on-the-run-full-offline-apk-obb/"
   -Downwell "https://www.mediafire.com/file/kgf4ethmk88byy3/Downwell_1.1.1.apk/file"
   -Dragon Ball Tap Battle "https://www.mediafire.com/file/sga4y11ur7s44b3/Dragon_Ball_Tap_Battle_1.4.apk/file"
   -Exiled Kingdoms "https://apkvision.org/games/role-playing/exiled-kingdoms-rpg-10725/"
@@ -107,6 +108,8 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
   -My OldBoy! (Emular GBC) =🕹️="https://apkretro.com/my-oldboy-gbc-emulator-apk-download/"
   -Pizza Boy GBA Pro (Emular GBA) =🕹️="https://apkretro.com/pizza-boy-gba-pro-apk-download/"
   -PPSSPP Gold (Emular PSP) =🕹️="https://apkretro.com/ppsspp-gold-apk-download/"
+  -ReVanced Manager Plus "https://vanced.to/revanced-manager"
+  -VPN Super Unlimited Proxy (Premium Unlocked) "https://liteapks.com/vpn-super-unlimited-proxy.html"
 Páginas Web (emoji.web)=(emoji.web)=:
   -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
   -BT4 HD (DBZ BT4 Texture Pack) =⚙️= "https://angel06a.github.io/BT4-HD/"
