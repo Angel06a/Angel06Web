@@ -26,6 +26,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Killer Instinct "https://pivigames.blog/killer-instinct/"
   -Left 4 Dead 2 "https://pivigames.blog/left-4-dead2-online-steam-ultima-version/"
   -Mario Kart 64 Port "https://github.com/sonicdcer/MarioKart64Recomp/releases" "https://vimm.net/vault/2649" *Descargar* *Rom*
+  -Minecraft Bedrock "https://www.xbox.com/es-ES/games/store/minecraft-for-windows/9NBLGGH2JHXJ" "https://online-fix.me/games/sandbox/16708-minecraft-for-windows-po-seti.html" *Descargar* *OnlineFix*
   -Mortal Kombat Komplete Edition "https://steamunlocked.org/mortal-kombat-komplete-edition-free-download/"
   -Nidhogg 2 "https://steamunlocked.org/nidhogg-2-free-download/"
   -Nidhogg "https://steamunlocked.org/nidhogg-free-download/"
