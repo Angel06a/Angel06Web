@@ -46,18 +46,67 @@ header {
 
 header h1 { margin: 0; font-size: 18px; font-weight: 600; color: var(--text-main); letter-spacing: 0.5px; }
 
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+header a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .header-icon {
-  width: 32px; height: auto; cursor: pointer; transition: var(--transition);
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  cursor: pointer;
+  transition: var(--transition);
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
-.header-icon:hover { transform: scale(1.1); }
+
+header a:hover .header-icon {
+  transform: scale(1.1);
+}
 
 #config-btn {
-  background: none; border: none; cursor: pointer; margin-left: 14px;
-  padding: 4px; border-radius: 50%; transition: var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
 }
+
 #config-btn:hover { background: rgba(255, 255, 255, 0.08); }
-.config-icon { width: 24px; height: auto; transition: var(--transition); }
+
+.config-icon {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
 #config-btn:hover .config-icon { transform: rotate(45deg); }
 
 footer {
