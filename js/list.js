@@ -136,7 +136,7 @@ Páginas Web (emoji.web)=(emoji.web)=:
   -RetroGames (Emular) =🕹️= "https://www.retrogames.onl/" *Jugar*
   -ROMSFUN (Roms) (Emular) =🕹️= "https://romsfun.com/"
   -Slash FRVR (Fruit Ninja) =🎮= "https://slash.frvr.com/es/" *Jugar*
-  -Subway Surfers =🎮= "https://ubg77.github.io/updatefaqs/subway-surfers-nyc/" *Jugar*
+  -Subway Surfers =🎮= "https://g2.igroutka.ru/games/164/ZXLa594fek6p7nVR/10/subway_surfers_classic/" *Jugar*
   -Super Mario 64 Port =🎮= "https://notan127.github.io/SM64-PC-Port-WebGL/" *Jugar*
   -Temple Run 2 =🎮= "https://emupedia.net/emupedia-game-temple-run2/" *Jugar*
   -TempMail =⚙️= "https://temp-mail.org/es/" *Utilizar*
