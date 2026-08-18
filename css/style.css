@@ -127,6 +127,7 @@ nav button.tab-button {
   border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04); color: var(--text-main);
   cursor: pointer; border: 1px solid var(--card-border); text-align: left;
   transition: var(--transition); font-size: 14px; font-weight: 500;
+  transform: translateX(0);
 }
 nav button.tab-button:hover {
   background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2);
@@ -243,8 +244,21 @@ main {
 
 @media (max-width: 768px) {
   .container { flex-direction: column; padding: 8px; }
-  aside.sidebar-left { width: 100%; order: 2; padding: 12px; }
+  aside.sidebar-left { width: 100%; order: 2; padding: 12px; overflow: visible; }
   main { order: 1; width: 100%; padding: 14px; }
-  nav ul { flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
-  nav button.tab-button { white-space: nowrap; width: auto; }
+  nav ul { 
+    flex-direction: row; 
+    overflow-x: auto; 
+    overflow-y: visible;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  nav button.tab-button {
+    white-space: nowrap;
+    width: auto;
+    transform: translateY(0);
+  }
+  nav button.tab-button:hover {
+    transform: translateY(-3px);
+  }
 }
