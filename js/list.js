@@ -65,7 +65,7 @@ Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
   -Mirillis Action! (Grabador de pantalla) "https://descargaspcpro.net/mirillis-action-programa-para-grabar-la-pantalla-y-videojuegos-de-tu-pc/"
   -MPO-GPU-FIX (Optimizador) "https://github.com/RedDot-3ND7355/MPO-GPU-FIX"
   -O&O ShutUp10++ (Desactivar Servicios) "https://www.oo-software.com/es/shutup10"
-  -OptimizerDuck (Optimizador) "https://github.com/itsfatduck/optimizerDuck"
+  -OptimizerDuck (Optimizador) "https://optimizerduck.vercel.app/"
   -Patch My PC (Actualizador) "https://patchmypc.com/product/home-updater"
   -Process Lasso (Optimizador) "https://process-lasso-pro.updatestar.com/es"
   -Quick CPU (Optimizador) "https://coderbag.com/product/quickcpu"
