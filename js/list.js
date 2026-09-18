@@ -42,7 +42,7 @@ Juegos PC (emoji.windows)=🎮 (emoji.windows)=:
   -Street Fighter X Tekken "https://rentry.co/po7v3pwu"
   -Super Mario 64 Port "https://sm64coopdx.com/" "https://vimm.net/vault/2764" *Descargar* *Rom*
   -Super Smash Flash 2 "https://www.supersmashflash.com/play/ssf2/downloads/"
-  -The Legend of Zelda Port "https://www.shipofharkinian.com/"
+  -The Legend of Zelda Port "https://www.shipofharkinian.com/" "https://vimm.net/vault/2637" *Descargar* *Rom*
   -Ultimate Marvel vs Capcom 3 "https://rentry.co/3b2zfkhf"
   -Undertale "https://pivigames.blog/undertale-en-espanol/"
 Programas PC (emoji.windows)=⚙️ (emoji.windows)=:
