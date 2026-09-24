@@ -126,7 +126,7 @@ Programas Android (emoji.android)=⚙️ (emoji.android)=:
 Páginas Web (emoji.web)=(emoji.web)=:
   -Bios (Roms) (Emular) =🕹️= "https://github.com/Angel06a/Bios-RetroBat"
   -BT4 HD (DBZ BT4 Texture Pack) =⚙️= "https://angel06a.github.io/BT4-HD/"
-  -BuscaMinas =🎮= "https://angel06a.github.io/BuscaMinas/" *Jugar*
+  -BuscaMinas =🎮= "https://angel06a.github.io/Angel06Web/Hub/Minesweeper/" *Jugar*
   -DaedalOS (Escritorio) =⚙️= "https://dustinbrett.com/" *Utilizar*
   -Flappy Bird =🎮= "https://emupedia.net/emupedia-game-flappy-bird/" *Jugar*
   -Friday Night Funkin =🎮= "https://ninja-muffin24.itch.io/funkin" *Jugar*
