@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas Style Google</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #4a752c;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Paleta de colores para el patrón tipo ajedrez */
+        .tile-dark { background-color: #a2d149; }
+        .tile-light { background-color: #aad751; }
+        
+        .tile-revealed-dark { background-color: #d7b899; }
+        .tile-revealed-light { background-color: #e5c7a0; }
+
+        .tile-hover-dark:hover { background-color: #b1e452; }
+        .tile-hover-light:hover { background-color: #b9ea59; }
+
+        /* Colores de los números */
+        .num-1 { color: #1976d2; }
+        .num-2 { color: #388e3c; }
+        .num-3 { color: #d32f2f; }
+        .num-4 { color: #7b1fa2; }
+        .num-5 { color: #ff8f00; }
+        .num-6 { color: #0097a7; }
+        .num-7 { color: #424242; }
+        .num-8 { color: #616161; }
+
+        /* Animación suave al revelar casilla */
+        .reveal-anim {
+            animation: popIn 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .flag-anim {
+            animation: flagBounce 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes flagBounce {
+            0% { transform: scale(0.2) rotate(-20deg); }
+            60% { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        /* Ocultar barra de desplazamiento si la hay */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Sombras suaves estilo Google UI */
+        .google-card {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Canvas de confeti para la victoria */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="google-card bg-[#578a34] rounded-2xl p-3 sm:p-5 max-w-full flex flex-direction-col flex-col items-center border-2 border-[#4a752c] transition-all duration-300">
+        
+        <!-- Cabecera de Configuración / Dificultades -->
+        <div class="w-full flex flex-col sm:flex-row justify-between items-center mb-3 sm:mb-4 gap-3 bg-[#4a752c] p-2.5 rounded-xl">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid font-black fa-bomb text-yellow-400 text-xl sm:text-2xl"></i>
+                <span class="font-extrabold text-lg sm:text-xl tracking-wide">BUSCAMINAS</span>
+            </div>
+
+            <!-- Dificultades -->
+            <div class="flex bg-[#395b22] p-1 rounded-lg text-xs sm:text-sm font-bold">
+                <button id="btn-easy" onclick="setDifficulty('easy')" class="px-3 py-1.5 rounded-md transition-all duration-200 bg-[#4a752c] text-white shadow">Fácil</button>
+                <button id="btn-medium" onclick="setDifficulty('medium')" class="px-3 py-1.5 rounded-md transition-all duration-200 text-green-200 hover:text-white">Normal</button>
+                <button id="btn-hard" onclick="setDifficulty('hard')" class="px-3 py-1.5 rounded-md transition-all duration-200 text-green-200 hover:text-white">Difícil</button>
+            </div>
+
+            <!-- Botón de Sonido Sintético -->
+            <button id="btn-sound" onclick="toggleSound()" class="w-9 h-9 flex items-center justify-center bg-[#395b22] hover:bg-[#2e4a1b] rounded-lg text-white transition-colors">
+                <i class="fa-solid fa-volume-high" id="sound-icon"></i>
+            </button>
+        </div>
+
+        <!-- Panel de Marcadores Superior (Banderas restantes, Reset, Tiempo) -->
+        <div class="w-full bg-[#4a752c] rounded-xl px-4 py-2.5 mb-3 flex justify-between items-center shadow-inner">
+            <!-- Contador de Minas -->
+            <div class="flex items-center gap-2 bg-[#395b22] px-3 py-1.5 rounded-lg text-white font-bold text-sm sm:text-base border border-[#578a34]">
+                <i class="fa-solid fa-flag text-red-500 text-lg"></i>
+                <span id="mine-counter" class="w-8 text-center text-yellow-300">010</span>
+            </div>
+
+            <!-- Botón de Reinicio con Carita/Icono estilo Google -->
+            <button id="reset-btn" onclick="resetGame()" class="w-11 h-11 bg-yellow-400 hover:bg-yellow-300 active:scale-95 text-slate-800 rounded-full flex items-center justify-center text-xl shadow-md transition-all">
+                <i class="fa-solid fa-face-smile" id="face-icon"></i>
+            </button>
+
+            <!-- Cronómetro Digital -->
+            <div class="flex items-center gap-2 bg-[#395b22] px-3 py-1.5 rounded-lg text-white font-bold text-sm sm:text-base border border-[#578a34]">
+                <i class="fa-solid fa-stopwatch text-blue-400 text-lg"></i>
+                <span id="timer" class="w-10 text-center font-mono text-cyan-300">000</span>
+            </div>
+        </div>
+
+        <!-- Selector de Modo Móvil (Revelar vs Banderas) -->
+        <div class="flex sm:hidden w-full mb-3 gap-2">
+            <button id="mode-reveal" onclick="setMobileMode('reveal')" class="flex-1 py-2 bg-yellow-500 text-slate-900 font-bold rounded-lg flex justify-center items-center gap-2 shadow">
+                <i class="fa-solid fa-pointer"></i> Revelar
+            </button>
+            <button id="mode-flag" onclick="setMobileMode('flag')" class="flex-1 py-2 bg-[#395b22] text-white font-bold rounded-lg flex justify-center items-center gap-2 shadow">
+                <i class="fa-solid fa-flag text-red-400"></i> Banderas
+            </button>
+        </div>
+
+        <div class="overflow-auto max-w-full max-h-[70vh] rounded-xl p-1 bg-[#4a752c] no-scrollbar shadow-inner">
+            <div id="grid-container" class="grid gap-0 select-none rounded-lg overflow-hidden border-2 border-[#395b22]">
+                <!-- Las casillas se crearán dinámicamente con JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <div id="game-over-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-[#578a34] border-4 border-[#4a752c] rounded-2xl p-6 text-center max-w-sm w-full shadow-2xl transform scale-90 transition-transform duration-300" id="modal-card">
+            <div id="modal-icon-container" class="w-20 h-20 mx-auto rounded-full bg-yellow-400 flex items-center justify-center text-4xl mb-4 shadow-lg text-slate-800">
+                <i class="fa-solid fa-trophy" id="modal-icon"></i>
+            </div>
+            <h2 id="modal-title" class="text-2xl font-extrabold mb-1">¡VICTORIA!</h2>
+            <p id="modal-subtitle" class="text-green-100 text-sm mb-4">Has despejado todo el campo con éxito.</p>
+            
+            <div class="bg-[#395b22] p-3 rounded-xl mb-5 flex justify-around text-center border border-[#4a752c]">
+                <div>
+                    <span class="block text-xs text-green-200 uppercase font-semibold">Tiempo</span>
+                    <span id="modal-time" class="text-lg font-bold text-yellow-300">00:00</span>
+                </div>
+                <div class="border-r border-green-700"></div>
+                <div>
+                    <span class="block text-xs text-green-200 uppercase font-semibold">Dificultad</span>
+                    <span id="modal-diff" class="text-lg font-bold text-white">Fácil</span>
+                </div>
+            </div>
+
+            <button onclick="closeModalAndReset()" class="w-full py-3 bg-yellow-400 hover:bg-yellow-300 active:scale-95 text-slate-900 font-extrabold rounded-xl shadow-lg transition-all text-base uppercase tracking-wider flex items-center justify-center gap-2">
+                <i class="fa-solid fa-rotate-right"></i> Jugar de nuevo
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de dificultades
+        const CONFIGS = {
+            easy: { rows: 8, cols: 10, mines: 10, tileSize: 'sm:w-10 sm:h-10 w-9 h-9 text-lg' },
+            medium: { rows: 14, cols: 18, mines: 40, tileSize: 'sm:w-8 sm:h-8 w-7 h-7 text-base' },
+            hard: { rows: 20, cols: 24, mines: 99, tileSize: 'sm:w-7 sm:h-7 w-6 h-6 text-xs' }
+        };
+
+        // Estado del juego
+        let currentDifficulty = 'easy';
+        let rows = CONFIGS.easy.rows;
+        let cols = CONFIGS.easy.cols;
+        let totalMines = CONFIGS.easy.mines;
+        
+        let board = [];
+        let isFirstClick = true;
+        let gameOver = false;
+        let gameWon = false;
+        let flagsPlaced = 0;
+        let timer = 0;
+        let timerInterval = null;
+        let mobileMode = 'reveal'; // 'reveal' o 'flag'
+        let soundEnabled = true;
+
+        // Contexto Web Audio API para efectos sintéticos
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Sintetizador de sonidos
+        function playSound(type) {
+            if (!soundEnabled) return;
+            initAudio();
+            if (!audioCtx) return;
+
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'flag') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(150, now + 0.08);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'unflag') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(150, now);
+                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'explode') {
+                    // Ruido blanco simulado con oscilador descendente bajo
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(120, now);
+                    osc.frequency.exponentialRampToValueAtTime(30, now + 0.35);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'win') {
+                    // Melodía corta de victoria
+                    const notes = [261.63, 329.63, 392.00, 523.25];
+                    notes.forEach((freq, idx) => {
+                        const noteOsc = audioCtx.createOscillator();
+                        const noteGain = audioCtx.createGain();
+                        noteOsc.type = 'sine';
+                        noteOsc.frequency.setValueAtTime(freq, now + idx * 0.1);
+                        noteGain.gain.setValueAtTime(0.2, now + idx * 0.1);
+                        noteGain.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.1 + 0.2);
+                        noteOsc.connect(noteGain);
+                        noteGain.connect(audioCtx.destination);
+                        noteOsc.start(now + idx * 0.1);
+                        noteOsc.stop(now + idx * 0.1 + 0.2);
+                    });
+                }
+            } catch (e) {
+                console.error("Error reproduciendo audio:", e);
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('sound-icon');
+            if (soundEnabled) {
+                icon.className = "fa-solid fa-volume-high";
+            } else {
+                icon.className = "fa-solid fa-volume-xmark text-red-400";
+            }
+        }
+
+        // Cambio de dificultad
+        function setDifficulty(diff) {
+            currentDifficulty = diff;
+            const cfg = CONFIGS[diff];
+            rows = cfg.rows;
+            cols = cfg.cols;
+            totalMines = cfg.mines;
+
+            // Actualizar botones UI
+            ['easy', 'medium', 'hard'].forEach(d => {
+                const btn = document.getElementById(`btn-${d}`);
+                if (d === diff) {
+                    btn.className = "px-3 py-1.5 rounded-md transition-all duration-200 bg-[#4a752c] text-white shadow font-extrabold";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-md transition-all duration-200 text-green-200 hover:text-white";
+                }
+            });
+
+            resetGame();
+        }
+
+        // Cambio de modo de toque en móviles
+        function setMobileMode(mode) {
+            mobileMode = mode;
+            const btnReveal = document.getElementById('mode-reveal');
+            const btnFlag = document.getElementById('mode-flag');
+
+            if (mode === 'reveal') {
+                btnReveal.className = "flex-1 py-2 bg-yellow-500 text-slate-900 font-bold rounded-lg flex justify-center items-center gap-2 shadow";
+                btnFlag.className = "flex-1 py-2 bg-[#395b22] text-white font-bold rounded-lg flex justify-center items-center gap-2 shadow";
+            } else {
+                btnReveal.className = "flex-1 py-2 bg-[#395b22] text-white font-bold rounded-lg flex justify-center items-center gap-2 shadow";
+                btnFlag.className = "flex-1 py-2 bg-red-600 text-white font-bold rounded-lg flex justify-center items-center gap-2 shadow";
+            }
+        }
+
+        function resetGame() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timer = 0;
+            isFirstClick = true;
+            gameOver = false;
+            gameWon = false;
+            flagsPlaced = 0;
+
+            document.getElementById('timer').innerText = "000";
+            updateMineCounter();
+            
+            // Emoji normal
+            document.getElementById('face-icon').className = "fa-solid fa-face-smile";
+
+            // Crear matriz vacía
+            board = [];
+            for (let r = 0; r < rows; r++) {
+                let row = [];
+                for (let c = 0; c < cols; c++) {
+                    row.push({
+                        r, c,
+                        isMine: false,
+                        revealed: false,
+                        flagged: false,
+                        count: 0
+                    });
+                }
+                board.push(row);
+            }
+
+            renderBoard();
+        }
+
+        function renderBoard() {
+            const grid = document.getElementById('grid-container');
+            grid.innerHTML = '';
+            grid.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+
+            const cfg = CONFIGS[currentDifficulty];
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const cell = board[r][c];
+                    const cellEl = document.createElement('div');
+                    cellEl.id = `cell-${r}-${c}`;
+                    
+                    // Tamaño flexible según resolución y número de casillas
+                    cellEl.className = `${cfg.tileSize} flex items-center justify-center font-black cursor-pointer transition-colors duration-150 select-none`;
+
+                    // Patrón ajedrez
+                    const isEven = (r + c) % 2 === 0;
+                    if (isEven) {
+                        cellEl.classList.add('tile-light', 'tile-hover-light');
+                    } else {
+                        cellEl.classList.add('tile-dark', 'tile-hover-dark');
+                    }
+
+                    // Eventos táctiles y de ratón
+                    cellEl.addEventListener('click', (e) => handleCellClick(r, c));
+                    cellEl.addEventListener('contextmenu', (e) => {
+                        e.preventDefault();
+                        handleRightClick(r, c);
+                    });
+
+                    grid.appendChild(cellEl);
+                }
+            }
+        }
+
+        function plantMines(safeR, safeC) {
+            let planted = 0;
+            while (planted < totalMines) {
+                let r = Math.floor(Math.random() * rows);
+                let c = Math.floor(Math.random() * cols);
+
+                // Asegurar que ni la casilla ni sus 8 vecinas inmediatas contengan minas
+                const isSafeZone = Math.abs(r - safeR) <= 1 && Math.abs(c - safeC) <= 1;
+
+                if (!board[r][c].isMine && !isSafeZone) {
+                    board[r][c].isMine = true;
+                    planted++;
+                }
+            }
+
+            // Calcular números adyacentes
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    if (!board[r][c].isMine) {
+                        let count = 0;
+                        getNeighbors(r, c).forEach(n => {
+                            if (n.isMine) count++;
+                        });
+                        board[r][c].count = count;
+                    }
+                }
+            }
+        }
+
+        function getNeighbors(r, c) {
+            let neighbors = [];
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    if (dr === 0 && dc === 0) continue;
+                    let nr = r + dr;
+                    let nc = c + dc;
+                    if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+                        neighbors.push(board[nr][nc]);
+                    }
+                }
+            }
+            return neighbors;
+        }
+
+        // Iniciar el cronómetro
+        function startTimer() {
+            if (timerInterval) return;
+            timerInterval = setInterval(() => {
+                timer++;
+                if (timer > 999) timer = 999;
+                document.getElementById('timer').innerText = String(timer).padStart(3, '0');
+            }, 1000);
+        }
+
+        function handleCellClick(r, c) {
+            if (gameOver) return;
+
+            // Si estamos en modo móvil de banderas, redirigir a clic derecho
+            if (window.innerWidth < 640 && mobileMode === 'flag') {
+                handleRightClick(r, c);
+                return;
+            }
+
+            const cell = board[r][c];
+
+            if (cell.flagged) return;
+
+            if (isFirstClick) {
+                isFirstClick = false;
+                plantMines(r, c);
+                startTimer();
+            }
+
+            if (cell.revealed) {
+                // Función Chording: Si hacemos clic en un número y ya colocamos sus banderas correspondientes
+                handleChording(r, c);
+                return;
+            }
+
+            if (cell.isMine) {
+                // Golpe a mina: Perder el juego
+                triggerGameOver(cell);
+                return;
+            }
+
+            // Revelar casilla
+            revealCell(r, c);
+            playSound('click');
+
+            // Verificar si el jugador ha ganado
+            checkWinCondition();
+        }
+
+        function handleRightClick(r, c) {
+            if (gameOver) return;
+            const cell = board[r][c];
+
+            if (cell.revealed) return;
+
+            cell.flagged = !cell.flagged;
+            flagsPlaced += cell.flagged ? 1 : -1;
+
+            const cellEl = document.getElementById(`cell-${r}-${c}`);
+            if (cell.flagged) {
+                cellEl.innerHTML = `<i class="fa-solid fa-flag text-red-500 flag-anim"></i>`;
+                playSound('flag');
+            } else {
+                cellEl.innerHTML = '';
+                playSound('unflag');
+            }
+
+            updateMineCounter();
+        }
+
+        function updateMineCounter() {
+            const remaining = totalMines - flagsPlaced;
+            const counterEl = document.getElementById('mine-counter');
+            counterEl.innerText = String(remaining).padStart(3, '0');
+        }
+
+        function revealCell(r, c) {
+            const cell = board[r][c];
+            if (cell.revealed || cell.flagged) return;
+
+            cell.revealed = true;
+            const cellEl = document.getElementById(`cell-${r}-${c}`);
+
+            // Quitar efectos de hover y actualizar estilos revelados
+            const isEven = (r + c) % 2 === 0;
+            cellEl.classList.remove('tile-light', 'tile-dark', 'tile-hover-light', 'tile-hover-dark');
+            cellEl.classList.add(isEven ? 'tile-revealed-light' : 'tile-revealed-dark', 'reveal-anim');
+
+            if (cell.count > 0) {
+                cellEl.innerHTML = `<span class="num-${cell.count}">${cell.count}</span>`;
+            } else {
+                // Cascadas automáticas si el conteo es 0
+                getNeighbors(r, c).forEach(n => {
+                    if (!n.revealed && !n.flagged) {
+                        revealCell(n.r, n.c);
+                    }
+                });
+            }
+        }
+
+        function handleChording(r, c) {
+            const cell = board[r][c];
+            if (!cell.revealed || cell.count === 0) return;
+
+            const neighbors = getNeighbors(r, c);
+            const flaggedCount = neighbors.filter(n => n.flagged).length;
+
+            if (flaggedCount === cell.count) {
+                let hitMine = false;
+                neighbors.forEach(n => {
+                    if (!n.revealed && !n.flagged) {
+                        if (n.isMine) {
+                            hitMine = true;
+                            triggerGameOver(n);
+                        } else {
+                            revealCell(n.r, n.c);
+                        }
+                    }
+                });
+
+                if (!hitMine) {
+                    playSound('click');
+                    checkWinCondition();
+                }
+            }
+        }
+
+        function triggerGameOver(hitCell) {
+            gameOver = true;
+            clearInterval(timerInterval);
+            playSound('explode');
+
+            document.getElementById('face-icon').className = "fa-solid fa-face-dizzy text-red-700";
+
+            // Revelar todas las minas
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const cell = board[r][c];
+                    const cellEl = document.getElementById(`cell-${r}-${c}`);
+
+                    if (cell.isMine) {
+                        if (!cell.flagged) {
+                            const isEven = (r + c) % 2 === 0;
+                            cellEl.classList.remove('tile-light', 'tile-dark', 'tile-hover-light', 'tile-hover-dark');
+                            cellEl.classList.add(isEven ? 'tile-revealed-light' : 'tile-revealed-dark');
+                            
+                            if (cell === hitCell) {
+                                cellEl.className += " bg-red-500";
+                                cellEl.innerHTML = `<i class="fa-solid fa-bomb text-white text-lg reveal-anim"></i>`;
+                            } else {
+                                cellEl.innerHTML = `<i class="fa-solid fa-bomb text-slate-800 text-base"></i>`;
+                            }
+                        }
+                    } else if (cell.flagged) {
+                        // Bandera incorrecta
+                        cellEl.innerHTML = `<i class="fa-solid fa-xmark text-red-700 text-lg"></i>`;
+                    }
+                }
+            }
+
+            // Mostrar modal de derrota tras breve demora
+            setTimeout(() => {
+                showEndModal(false);
+            }, 800);
+        }
+
+        function checkWinCondition() {
+            let unrevealedSafeCells = 0;
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const cell = board[r][c];
+                    if (!cell.isMine && !cell.revealed) {
+                        unrevealedSafeCells++;
+                    }
+                }
+            }
+
+            if (unrevealedSafeCells === 0) {
+                gameWon = true;
+                gameOver = true;
+                clearInterval(timerInterval);
+                playSound('win');
+
+                document.getElementById('face-icon').className = "fa-solid fa-face-sunglasses text-slate-900";
+
+                // Auto-marcar todas las minas con banderas
+                for (let r = 0; r < rows; r++) {
+                    for (let c = 0; c < cols; c++) {
+                        const cell = board[r][c];
+                        if (cell.isMine && !cell.flagged) {
+                            cell.flagged = true;
+                            const cellEl = document.getElementById(`cell-${r}-${c}`);
+                            cellEl.innerHTML = `<i class="fa-solid fa-flag text-red-500 flag-anim"></i>`;
+                        }
+                    }
+                }
+                flagsPlaced = totalMines;
+                updateMineCounter();
+
+                launchConfetti();
+
+                setTimeout(() => {
+                    showEndModal(true);
+                }, 600);
+            }
+        }
+
+        function showEndModal(isWin) {
+            const modal = document.getElementById('game-over-modal');
+            const card = document.getElementById('modal-card');
+            const iconContainer = document.getElementById('modal-icon-container');
+            const icon = document.getElementById('modal-icon');
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const timeEl = document.getElementById('modal-time');
+            const diffEl = document.getElementById('modal-diff');
+
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+            timeEl.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            diffEl.innerText = currentDifficulty === 'easy' ? 'Fácil' : currentDifficulty === 'medium' ? 'Normal' : 'Difícil';
+
+            if (isWin) {
+                iconContainer.className = "w-20 h-20 mx-auto rounded-full bg-yellow-400 flex items-center justify-center text-4xl mb-4 shadow-lg text-slate-800";
+                icon.className = "fa-solid fa-trophy";
+                title.innerText = "¡VICTORIA!";
+                title.className = "text-2xl font-extrabold mb-1 text-yellow-300";
+                subtitle.innerText = "¡Has completado el tablero de manera brillante!";
+            } else {
+                iconContainer.className = "w-20 h-20 mx-auto rounded-full bg-red-600 flex items-center justify-center text-4xl mb-4 shadow-lg text-white";
+                icon.className = "fa-solid fa-bomb";
+                title.innerText = "¡FIN DEL JUEGO!";
+                title.className = "text-2xl font-extrabold mb-1 text-red-400";
+                subtitle.innerText = "Has tocado una mina. ¡Inténtalo de nuevo!";
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                card.classList.remove('scale-90');
+                card.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModalAndReset() {
+            const modal = document.getElementById('game-over-modal');
+            const card = document.getElementById('modal-card');
+
+            modal.classList.add('opacity-0');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-90');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                resetGame();
+            }, 300);
+        }
+
+        function launchConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800'];
+
+            for (let i = 0; i < 120; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 18,
+                    vy: (Math.random() - 0.7) * 18,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    vRot: (Math.random() - 0.5) * 10
+                });
+            }
+
+            let animationFrame;
+            let startTime = performance.now();
+
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.3; // Gravedad
+                    p.rotation += p.vRot;
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate((p.rotation * Math.PI) / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                });
+
+                if (performance.now() - startTime < 3000) {
+                    animationFrame = requestAnimationFrame(render);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    cancelAnimationFrame(animationFrame);
+                }
+            }
+
+            render();
+        }
+
+        // Inicialización al cargar la página
+        window.onload = function() {
+            resetGame();
+        };
+
+        // Redimensionamiento responsive del canvas de confeti
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+</body>
+</html>
